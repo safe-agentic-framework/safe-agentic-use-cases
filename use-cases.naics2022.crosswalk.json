@@ -1,0 +1,36 @@
+[
+  {
+    "id": "SAFE-UC-0018",
+    "title": "Work-item summarization assistant (thread + context summaries)",
+    "repo_path": "verticals/tmt_tech_media_telecom/safe_sv_software_saas/work-item-summarization-assistant/README.md",
+    "primary_vertical": "tmt_tech_media_telecom",
+    "sub_vertical": "safe_sv_software_saas",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      },
+      {
+        "code": "513210",
+        "name": "Software Publishers"
+      }
+    ],
+    "workflow_family": "Case management & customer support",
+    "operating_modes": ["manual", "hitl", "autonomous"],
+    "tags": ["summarization", "issue-tracking", "ticketing", "handoff"],
+    "evidence": [
+      {
+        "label": "Public product documentation: summarize a work item's comments using AI",
+        "url": "https://support.atlassian.com/jira-service-management-cloud/docs/summarize-an-issues-comments-using-atlassian-intelligence/"
+      },
+      {
+        "label": "Public product documentation: explore issues and discussions with an assistant",
+        "url": "https://docs.github.com/en/copilot/tutorials/explore-issues-and-discussions"
+      },
+      {
+        "label": "Public product documentation: summarize a helpdesk ticket using AI",
+        "url": "https://help.desk365.io/en/articles/summarize-ticket-using-ai/"
+      }
+    ]
+  }
+]
