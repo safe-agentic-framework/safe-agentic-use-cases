@@ -82,7 +82,7 @@ Typical actors:
 
 ```mermaid
 flowchart LR
-  U[User] -->|click "Summarize"| UI[Issue UI]
+  U[User] -->|click Summarize| UI[Issue UI]
   UI -->|request| SVC[Summarization service]
   SVC -->|authZ check| IAM[Identity/Access]
   SVC -->|fetch issue data| ISS[Issue/Ticket system]
