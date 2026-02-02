@@ -47,7 +47,7 @@ Use vertical folders for navigation:
 
 SAFE Use Case IDs are stable and never reused.
 
-> **ID policy:** Only use cases receive IDs (`SAFE-UC-XXXX`). Sub-verticals, verticals, and workflow families do not have IDs - they are organizational structures or metadata labels, not versioned artifacts.
+> **ID policy:** Only use cases receive formal IDs (`SAFE-UC-XXXX`). Sub-verticals, verticals, and workflow families use their folder names or exact text as identifiers.
 
 1. Open (or create) `use-cases.naics2022.crosswalk.json` at the repo root.
 2. Pick the next monotonically increasing ID: `SAFE-UC-0001`, `SAFE-UC-0002`, …

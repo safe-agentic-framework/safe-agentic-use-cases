@@ -422,8 +422,9 @@ A new `safe_sv_*` sub-vertical is warranted when a cluster of use cases shares *
 ### ID policy
 
 - **Use cases** receive stable IDs: `SAFE-UC-XXXX` (e.g., `SAFE-UC-0001`).
-- **Sub-verticals do not receive IDs.** They are organizational folders, not versioned artifacts.
-- **Verticals do not receive IDs.** They map to NAICS sectors and are named by convention.
+- **Sub-verticals** use the folder name as identifier (e.g., `safe_sv_software_saas`). The `safe_sv_` prefix signals SAFE-curated categories.
+- **Verticals** use folder names by convention (e.g., `tmt_tech_media_telecom`).
+- **Workflow families** are referenced by exact text from the canonical list.
 
 The canonical registry (`use-cases.naics2022.crosswalk.json`) tracks use case IDs only.
 
