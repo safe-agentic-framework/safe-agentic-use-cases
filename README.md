@@ -101,55 +101,43 @@ This table is the README view of the canonical file `use-cases.naics2022.crosswa
 
 - This list is **seeded from publicly described, real-world workflows**; organization names are **intentionally omitted**.
 - A use case may be **in-progress** (folder may not exist yet), but the **ID + NAICS mapping** should be stable once assigned.
-- If a use case maps to multiple NAICS codes, include **one row per NAICS code**.
-- Mark one row as the **primary** NAICS anchor and any others as **secondary**.
+- Each use case appears once, under the NAICS code where it canonically lives.
 
 <details open>
   <summary><strong>NAICS 2022 → SAFE Use Case ID crosswalk</strong></summary>
 
-| NAICS 2022 code | Role | SAFE Use Case ID | Use case title | Canonical repo path |
-|---|---|---|---|---|
-| 31–33 | Primary | SAFE-UC-0008 | Over-the-air vehicle software update orchestration (rollout, monitoring, rollback) | `verticals/manufacturing_industrial/general/vehicle-ota-update-orchestration/README.md` |
-| 31–33 | Primary | SAFE-UC-0009 | Manufacturing line visual inspection assistant (defect detection & escalation) | `verticals/manufacturing_industrial/general/visual-inspection-quality-assistant/README.md` |
-| 31–33 | Primary | SAFE-UC-0010 | In-vehicle voice assistant for local controls (climate/media/navigation) with safety guardrails | `verticals/manufacturing_industrial/general/in-vehicle-voice-assistant/README.md` |
-| 31–33 | Secondary | SAFE-UC-0006 | Fleet telematics & vehicle-health monitoring assistant (alerts → maintenance actions) | `verticals/transportation_logistics_warehousing/general/fleet-telematics-health-assistant/README.md` |
-| 44–45 | Primary | SAFE-UC-0001 | AI-assisted seller listing creation (photo → title/description/category/price) | `verticals/retail_ecommerce/general/seller-listing-creation-assistant/README.md` |
-| 44–45 | Primary | SAFE-UC-0002 | Personalized shopping sidekick (agentic product discovery & recommendations) | `verticals/retail_ecommerce/general/personalized-shopping-sidekick/README.md` |
-| 44–45 | Primary | SAFE-UC-0003 | Buyer–seller messaging assistant (draft replies with human review) | `verticals/retail_ecommerce/general/buyer-seller-messaging-assistant/README.md` |
-| 44–45 | Primary | SAFE-UC-0004 | Listing media enhancement assistant (background cleanup, captions, short videos) | `verticals/retail_ecommerce/general/listing-media-enhancement-assistant/README.md` |
-| 44–45 | Primary | SAFE-UC-0005 | Visual search & image-based product discovery | `verticals/retail_ecommerce/general/visual-search-product-discovery/README.md` |
-| 48–49 | Primary | SAFE-UC-0006 | Fleet telematics & vehicle-health monitoring assistant (alerts → maintenance actions) | `verticals/transportation_logistics_warehousing/general/fleet-telematics-health-assistant/README.md` |
-| 48–49 | Secondary | SAFE-UC-0007 | Mobile fleet-maintenance dispatch & scheduling assistant | `verticals/consumer_personal_services/general/mobile-fleet-maintenance-dispatch-assistant/README.md` |
-| 51 | Primary | SAFE-UC-0016 | IT service-desk virtual agent (self-service resolution + escalation) | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/itsm-virtual-service-agent/README.md` |
-| 51 | Primary | SAFE-UC-0017 | Service request triage assistant (classify request type/priority, route to queue) | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/service-request-triage-assistant/README.md` |
-| 51 | Primary | SAFE-UC-0018 | Issue/work-item summarization assistant (thread + context summaries) | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/work-item-summarization-assistant/README.md` |
-| 51 | Primary | SAFE-UC-0019 | Post-incident review drafting assistant (timeline, summary, action items) | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/post-incident-review-drafting-assistant/README.md` |
-| 51 | Primary | SAFE-UC-0020 | On-call incident context assistant (historical context, suggested actions) | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/oncall-incident-context-assistant/README.md` |
-| 51 | Primary | SAFE-UC-0023 | Cloud ops troubleshooting assistant (log explanation, RCA investigations) | `verticals/tmt_tech_media_telecom/safe_sv_cloud_infrastructure_hosting/cloud-ops-troubleshooting-assistant/README.md` |
-| 51 | Primary | SAFE-UC-0024 | Terminal-based outage assistant for SRE (guided triage → postmortem) | `verticals/tmt_tech_media_telecom/safe_sv_cloud_infrastructure_hosting/sre-terminal-outage-assistant/README.md` |
-| 51 | Primary | SAFE-UC-0025 | Enterprise agent-building platform (build, deploy, govern tool-using agents) | `verticals/tmt_tech_media_telecom/safe_sv_cloud_infrastructure_hosting/enterprise-agent-platform/README.md` |
-| 51 | Primary | SAFE-UC-0026 | At-scale content policy enforcement pipeline (automated detection + human review) | `verticals/tmt_tech_media_telecom/safe_sv_social_streaming_content_platforms/content-policy-enforcement-pipeline/README.md` |
-| 51 | Primary | SAFE-UC-0027 | Anti-scam messaging safety assistant (suspicious message flags, block/report flows) | `verticals/tmt_tech_media_telecom/safe_sv_social_streaming_content_platforms/anti-scam-messaging-safety-assistant/README.md` |
-| 51 | Primary | SAFE-UC-0028 | Fake-account & inauthentic behavior detection assistant (prevention + takedown) | `verticals/tmt_tech_media_telecom/safe_sv_social_streaming_content_platforms/inauthentic-behavior-detection-assistant/README.md` |
-| 51 | Primary | SAFE-UC-0030 | Teen safety & age-assurance enforcement assistant (age detection → protective defaults) | `verticals/tmt_tech_media_telecom/safe_sv_social_streaming_content_platforms/teen-safety-age-assurance-assistant/README.md` |
-| 51 | Secondary | SAFE-UC-0008 | Over-the-air vehicle software update orchestration (rollout, monitoring, rollback) | `verticals/manufacturing_industrial/general/vehicle-ota-update-orchestration/README.md` |
-| 51 | Secondary | SAFE-UC-0010 | In-vehicle voice assistant for local controls (climate/media/navigation) with safety guardrails | `verticals/manufacturing_industrial/general/in-vehicle-voice-assistant/README.md` |
-| 51 | Secondary | SAFE-UC-0021 | Contact-center agent assist (next-best actions, suggested replies, call summaries) | `verticals/business_support_facilities_environmental/general/contact-center-agent-assist/README.md` |
-| 51 | Secondary | SAFE-UC-0022 | Security operations investigation assistant (NL query, summaries, recommended actions) | `verticals/professional_scientific_technical/general/security-operations-investigation-assistant/README.md` |
-| 51 | Secondary | SAFE-UC-0029 | Automated ad campaign optimization assistant (targeting/budget/creative iteration) | `verticals/professional_scientific_technical/general/ad-campaign-optimization-assistant/README.md` |
-| 52 | Primary | SAFE-UC-0011 | Banking virtual assistant (chat/text) for account questions & self-service | `verticals/financial_services_insurance/safe_sv_banking_credit/banking-virtual-assistant/README.md` |
-| 52 | Primary | SAFE-UC-0012 | Interactive fraud alert & card controls assistant (verify transactions, lock/unlock) | `verticals/financial_services_insurance/safe_sv_banking_credit/fraud-alert-card-controls-assistant/README.md` |
-| 52 | Primary | SAFE-UC-0013 | Virtual card number generation & checkout assistant (browser/app) | `verticals/financial_services_insurance/safe_sv_banking_credit/virtual-card-checkout-assistant/README.md` |
-| 52 | Primary | SAFE-UC-0014 | Digital dispute/chargeback intake assistant (guided “report a problem” workflow) | `verticals/financial_services_insurance/safe_sv_banking_credit/dispute-chargeback-intake-assistant/README.md` |
-| 52 | Primary | SAFE-UC-0015 | AML suspicious-activity triage assistant (case prioritization & investigator support) | `verticals/financial_services_insurance/safe_sv_banking_credit/aml-suspicious-activity-triage-assistant/README.md` |
-| 54 | Primary | SAFE-UC-0022 | Security operations investigation assistant (NL query, summaries, recommended actions) | `verticals/professional_scientific_technical/general/security-operations-investigation-assistant/README.md` |
-| 54 | Primary | SAFE-UC-0029 | Automated ad campaign optimization assistant (targeting/budget/creative iteration) | `verticals/professional_scientific_technical/general/ad-campaign-optimization-assistant/README.md` |
-| 54 | Secondary | SAFE-UC-0016 | IT service-desk virtual agent (self-service resolution + escalation) | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/itsm-virtual-service-agent/README.md` |
-| 54 | Secondary | SAFE-UC-0017 | Service request triage assistant (classify request type/priority, route to queue) | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/service-request-triage-assistant/README.md` |
-| 54 | Secondary | SAFE-UC-0019 | Post-incident review drafting assistant (timeline, summary, action items) | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/post-incident-review-drafting-assistant/README.md` |
-| 54 | Secondary | SAFE-UC-0025 | Enterprise agent-building platform (build, deploy, govern tool-using agents) | `verticals/tmt_tech_media_telecom/safe_sv_cloud_infrastructure_hosting/enterprise-agent-platform/README.md` |
-| 56 | Primary | SAFE-UC-0021 | Contact-center agent assist (next-best actions, suggested replies, call summaries) | `verticals/business_support_facilities_environmental/general/contact-center-agent-assist/README.md` |
-| 81 | Primary | SAFE-UC-0007 | Mobile fleet-maintenance dispatch & scheduling assistant | `verticals/consumer_personal_services/general/mobile-fleet-maintenance-dispatch-assistant/README.md` |
+| NAICS 2022 | SAFE Use Case ID | Use case title | Canonical repo path |
+|---|---|---|---|
+| 31-33 | SAFE-UC-0008 | Over-the-air vehicle software update orchestration | `verticals/manufacturing_industrial/general/vehicle-ota-update-orchestration/` |
+| 31-33 | SAFE-UC-0009 | Manufacturing line visual inspection assistant | `verticals/manufacturing_industrial/general/visual-inspection-quality-assistant/` |
+| 31-33 | SAFE-UC-0010 | In-vehicle voice assistant for local controls | `verticals/manufacturing_industrial/general/in-vehicle-voice-assistant/` |
+| 44-45 | SAFE-UC-0001 | AI-assisted seller listing creation | `verticals/retail_ecommerce/general/seller-listing-creation-assistant/` |
+| 44-45 | SAFE-UC-0002 | Personalized shopping sidekick | `verticals/retail_ecommerce/general/personalized-shopping-sidekick/` |
+| 44-45 | SAFE-UC-0003 | Buyer-seller messaging assistant | `verticals/retail_ecommerce/general/buyer-seller-messaging-assistant/` |
+| 44-45 | SAFE-UC-0004 | Listing media enhancement assistant | `verticals/retail_ecommerce/general/listing-media-enhancement-assistant/` |
+| 44-45 | SAFE-UC-0005 | Visual search & image-based product discovery | `verticals/retail_ecommerce/general/visual-search-product-discovery/` |
+| 48-49 | SAFE-UC-0006 | Fleet telematics & vehicle-health monitoring assistant | `verticals/transport_logistics_warehousing/general/fleet-telematics-health-assistant/` |
+| 51 | SAFE-UC-0016 | IT service-desk virtual agent | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/itsm-virtual-service-agent/` |
+| 51 | SAFE-UC-0017 | Service request triage assistant | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/service-request-triage-assistant/` |
+| 51 | SAFE-UC-0018 | Issue/work-item summarization assistant | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/work-item-summarization-assistant/` |
+| 51 | SAFE-UC-0019 | Post-incident review drafting assistant | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/post-incident-review-drafting-assistant/` |
+| 51 | SAFE-UC-0020 | On-call incident context assistant | `verticals/tmt_tech_media_telecom/safe_sv_software_saas/oncall-incident-context-assistant/` |
+| 51 | SAFE-UC-0023 | Cloud ops troubleshooting assistant | `verticals/tmt_tech_media_telecom/safe_sv_cloud_infrastructure_hosting/cloud-ops-troubleshooting-assistant/` |
+| 51 | SAFE-UC-0024 | Terminal-based outage assistant for SRE | `verticals/tmt_tech_media_telecom/safe_sv_cloud_infrastructure_hosting/sre-terminal-outage-assistant/` |
+| 51 | SAFE-UC-0025 | Enterprise agent-building platform | `verticals/tmt_tech_media_telecom/safe_sv_cloud_infrastructure_hosting/enterprise-agent-platform/` |
+| 51 | SAFE-UC-0026 | At-scale content policy enforcement pipeline | `verticals/tmt_tech_media_telecom/safe_sv_social_streaming_content_platforms/content-policy-enforcement-pipeline/` |
+| 51 | SAFE-UC-0027 | Anti-scam messaging safety assistant | `verticals/tmt_tech_media_telecom/safe_sv_social_streaming_content_platforms/anti-scam-messaging-safety-assistant/` |
+| 51 | SAFE-UC-0028 | Fake-account & inauthentic behavior detection assistant | `verticals/tmt_tech_media_telecom/safe_sv_social_streaming_content_platforms/inauthentic-behavior-detection-assistant/` |
+| 51 | SAFE-UC-0030 | Teen safety & age-assurance enforcement assistant | `verticals/tmt_tech_media_telecom/safe_sv_social_streaming_content_platforms/teen-safety-age-assurance-assistant/` |
+| 52 | SAFE-UC-0011 | Banking virtual assistant | `verticals/financial_services_insurance/safe_sv_banking_credit/banking-virtual-assistant/` |
+| 52 | SAFE-UC-0012 | Interactive fraud alert & card controls assistant | `verticals/financial_services_insurance/safe_sv_banking_credit/fraud-alert-card-controls-assistant/` |
+| 52 | SAFE-UC-0013 | Virtual card number generation & checkout assistant | `verticals/financial_services_insurance/safe_sv_banking_credit/virtual-card-checkout-assistant/` |
+| 52 | SAFE-UC-0014 | Digital dispute/chargeback intake assistant | `verticals/financial_services_insurance/safe_sv_banking_credit/dispute-chargeback-intake-assistant/` |
+| 52 | SAFE-UC-0015 | AML suspicious-activity triage assistant | `verticals/financial_services_insurance/safe_sv_banking_credit/aml-suspicious-activity-triage-assistant/` |
+| 54 | SAFE-UC-0022 | Security operations investigation assistant | `verticals/professional_technical_services/general/security-operations-investigation-assistant/` |
+| 54 | SAFE-UC-0029 | Automated ad campaign optimization assistant | `verticals/professional_technical_services/general/ad-campaign-optimization-assistant/` |
+| 56 | SAFE-UC-0021 | Contact-center agent assist | `verticals/business_support_facilities_environmental/general/contact-center-agent-assist/` |
+| 81 | SAFE-UC-0007 | Mobile fleet-maintenance dispatch & scheduling assistant | `verticals/personal_local_services/general/mobile-fleet-maintenance-dispatch-assistant/` |
 
 </details>
 
