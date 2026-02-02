@@ -2,11 +2,26 @@
 
 A community library of **industry-specific case analyses** for agentic workflows (MCP-enabled systems and tool-using agents).
 
-- **Each use case has a stable SAFE Use Case ID** and a **NAICS 2022 crosswalk**. (One use case can map to **multiple** industries.)
-- Use cases live under **vertical folders** for navigation, but the **NAICS anchoring happens at the use case level** (not at the company level).
-
+- **Each use case has a stable SAFE Use Case ID** and maps to one or more **NAICS 2022** industry codes.
+- Use cases live under **vertical folders** for navigation.
 - **Readers:** open a use case → understand the real workflow, how it fails, and how to harden it.
-- **Contributors:** add use cases using the templates + registry workflow in this README.
+- **Contributors:** add use cases using the templates + registry workflow. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for full guidelines.
+
+---
+
+## Table of Contents
+
+- [What this repository is](#what-this-repository-is)
+- [Why this exists](#why-this-exists-the-submarine-analogy)
+- [How to use this repo](#how-to-use-this-repo)
+- [Use case IDs + NAICS crosswalk](#use-case-ids--naics-crosswalk-the-core-idea)
+- [Workflow families](#workflow-families-shared-patterns-across-industries)
+- [Repository structure](#repository-structure-recommended)
+- [What a use case includes](#what-a-use-case-analysis-includes)
+- [Industry navigation](#industry-navigation)
+- [Sub-verticals](#sub-verticals)
+- [Seeding strategy](#seeding-strategy-how-we-decide-what-to-write-next)
+- [Contributing](#contributing)
 
 ---
 
@@ -252,9 +267,7 @@ Use case sections:
 
 ## Industry navigation
 
-We still use **vertical folders** because contributors and readers navigate by industry.
-
-But remember: **NAICS anchoring is handled per use case**.
+Use **vertical folders** to browse by industry. Each vertical groups related use cases.
 
 <details>
   <summary><strong>SAFE-AUCA vertical folder IDs (click to expand)</strong></summary>
@@ -387,31 +400,24 @@ Then we ask domain folks to review:
 
 ## Contributing
 
-1. **Choose a workflow family** (above).
-2. **Pick a primary vertical folder** (industry navigation) where this use case most naturally “lives.”
-3. **Create a new use case folder** under:
+> **Full details:** See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the complete contribution guide, evidence guidelines, writing style, and PR checklist.
 
-   `verticals/<vertical_id>/<subvertical_folder_id>/<use-case-slug>/README.md`
+**Quick start:**
 
-   - Use `general/` when no curated sub-vertical exists.
-   - Curated sub-vertical folders use the `safe_sv_*` prefix.
+1. **Choose a workflow family** from the list above.
+2. **Pick a vertical folder** where this use case most naturally lives.
+3. **Create a new use case folder:**
+   ```
+   verticals/<vertical_id>/<subvertical_folder>/use-case-slug/README.md
+   ```
+   Use `general/` when no curated sub-vertical exists; use `safe_sv_*` folders when one applies.
 
-4. Fill out the template (`templates/use-case-template.md`) and include:
-   - workflow description (systems/tools/constraints)
-   - operating modes (manual → HITL → autonomous)
-   - kill-chain analysis (**no exploit steps**)
-   - SAFE-MCP mapping
-   - controls/detections/tests
+4. **Fill out the template** (`templates/use-case-template.md`).
 
-5. Add/update the canonical crosswalk entry:
-   - `use-cases.naics2022.crosswalk.json`
-   - (If it doesn’t exist yet, create it as `[]`.)
+5. **Update the crosswalk registry** (`use-cases.naics2022.crosswalk.json`).
 
 ### Safety + disclosure rules (non-negotiable)
 
-- **No sensitive information** (internal system names, private endpoints, customer data, secrets, non-public incidents, unpublished roadmaps).
-- **No operational exploitation instructions.** Keep attack analysis defender-friendly: goals, stages, failure modes, and mitigations.
-- **No speculative-only use cases.** Ground writeups in workflows that exist today and include public evidence.
-- Prefer controls that are **testable** and **auditable** (policy gates, provenance checks, spend caps, allowlists/denylists, audit trails, emergency stop).
-
-See `CONTRIBUTING.md` for the PR checklist.
+- **No sensitive information** (internal system names, private endpoints, customer data, secrets, non-public incidents).
+- **No operational exploitation instructions.** Keep attack analysis defender-friendly.
+- **No speculative-only use cases.** Ground writeups in workflows that exist today with public evidence.
