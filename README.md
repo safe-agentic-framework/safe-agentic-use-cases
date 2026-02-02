@@ -339,6 +339,46 @@ The `safe_sv_` prefix serves two purposes:
 | `general/` | Default. Use when no curated sub-vertical exists, or when the use case applies broadly across the vertical. |
 | `safe_sv_*` | Use when a SAFE-curated sub-vertical exists and the use case fits its scope. |
 
+**Decision tree:**
+
+```
+Start here
+    │
+    ▼
+┌─────────────────────────────────────────────┐
+│ Does a safe_sv_* folder already exist       │
+│ in your target vertical?                    │
+└─────────────────────────────────────────────┘
+    │                           │
+   YES                          NO
+    │                           │
+    ▼                           ▼
+┌─────────────────────┐    ┌─────────────────────┐
+│ Does your use case  │    │ Use general/        │
+│ fit that sub-       │    │                     │
+│ vertical's scope?   │    │ (You're done!)      │
+└─────────────────────┘    └─────────────────────┘
+    │           │
+   YES          NO
+    │           │
+    ▼           ▼
+┌───────────┐  ┌─────────────────────────────────┐
+│ Use       │  │ Does your use case share 2+     │
+│ safe_sv_* │  │ criteria with other potential   │
+│           │  │ use cases? (regulatory, trust,  │
+│ (Done!)   │  │ threat actors, consequences)    │
+└───────────┘  └─────────────────────────────────┘
+                   │               │
+                  YES              NO
+                   │               │
+                   ▼               ▼
+              ┌──────────┐    ┌──────────┐
+              │ Propose  │    │ Use      │
+              │ a new    │    │ general/ │
+              │ safe_sv_ │    │          │
+              └──────────┘    └──────────┘
+```
+
 **Examples:**
 
 - `verticals/retail_ecommerce/general/seller-listing-creation-assistant/` - Applies broadly to retail/ecommerce.
