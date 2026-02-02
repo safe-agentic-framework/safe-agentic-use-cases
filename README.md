@@ -11,6 +11,7 @@ A community library of **industry-specific case analyses** for agentic workflows
 
 ## Table of Contents
 
+- [Quick start](#quick-start)
 - [What this repository is](#what-this-repository-is)
 - [Why this exists](#why-this-exists-the-submarine-analogy)
 - [How to use this repo](#how-to-use-this-repo)
@@ -22,6 +23,20 @@ A community library of **industry-specific case analyses** for agentic workflows
 - [Sub-verticals](#sub-verticals)
 - [Seeding strategy](#seeding-strategy-how-we-decide-what-to-write-next)
 - [Contributing](#contributing)
+
+---
+
+## Quick start
+
+**Reading a use case:**
+1. Browse [`verticals/`](verticals/) or use the [NAICS crosswalk table](#naics-2022--safe-use-case-id-crosswalk-human-readable-index)
+2. Open a use case README → review the workflow, threat model, and controls
+
+**Contributing a use case:**
+1. Pick a [workflow family](#workflow-families-shared-patterns-across-industries) and [vertical folder](#industry-navigation)
+2. Copy `templates/use-case-template.md` to `verticals/<vertical>/<subvertical>/your-use-case/README.md`
+3. Fill out the template, update `use-cases.naics2022.crosswalk.json`, and open a PR
+4. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for full guidelines
 
 ---
 
