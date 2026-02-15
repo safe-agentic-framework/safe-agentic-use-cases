@@ -1,10 +1,230 @@
 [
   {
+    "id": "SAFE-UC-0001",
+    "title": "AI-assisted seller listing creation",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0001/README.md",
+    "naics_2022": [
+      {
+        "code": "44-45",
+        "name": "Retail Trade"
+      }
+    ],
+    "summary": "Assist sellers in creating product listings (title, description, attributes, category) with policy and quality checks."
+  },
+  {
+    "id": "SAFE-UC-0002",
+    "title": "Personalized shopping sidekick",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0002/README.md",
+    "naics_2022": [
+      {
+        "code": "44-45",
+        "name": "Retail Trade"
+      }
+    ],
+    "summary": "Personal shopping agent that recommends items, answers product questions, and builds carts from user preferences and constraints."
+  },
+  {
+    "id": "SAFE-UC-0003",
+    "title": "Buyer-seller messaging assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0003/README.md",
+    "naics_2022": [
+      {
+        "code": "44-45",
+        "name": "Retail Trade"
+      }
+    ],
+    "summary": "Assist buyers and sellers with drafting and triaging marketplace messages (questions, negotiation, logistics) safely."
+  },
+  {
+    "id": "SAFE-UC-0004",
+    "title": "Listing media enhancement assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0004/README.md",
+    "naics_2022": [
+      {
+        "code": "44-45",
+        "name": "Retail Trade"
+      }
+    ],
+    "summary": "Enhance listing photos/videos (background removal, upscaling, variation generation) with authenticity and policy safeguards."
+  },
+  {
+    "id": "SAFE-UC-0005",
+    "title": "Visual search & image-based product discovery",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0005/README.md",
+    "naics_2022": [
+      {
+        "code": "44-45",
+        "name": "Retail Trade"
+      }
+    ],
+    "summary": "Enable image-based product discovery: users search with photos; agent retrieves candidates and explains matches."
+  },
+  {
+    "id": "SAFE-UC-0006",
+    "title": "Fleet telematics & vehicle-health monitoring assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0006/README.md",
+    "naics_2022": [
+      {
+        "code": "48-49",
+        "name": "Transportation and Warehousing"
+      }
+    ],
+    "summary": "Monitor fleet telemetry, detect anomalies, predict maintenance needs, and recommend interventions without unsafe automation."
+  },
+  {
+    "id": "SAFE-UC-0007",
+    "title": "Mobile fleet-maintenance dispatch & scheduling assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0007/README.md",
+    "naics_2022": [
+      {
+        "code": "81",
+        "name": "Other Services (except Public Administration)"
+      }
+    ],
+    "summary": "Dispatch/route mobile maintenance teams, schedule work orders, and coordinate parts/ETAs under SLA constraints."
+  },
+  {
+    "id": "SAFE-UC-0008",
+    "title": "Over-the-air vehicle software update orchestration",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0008/README.md",
+    "naics_2022": [
+      {
+        "code": "31-33",
+        "name": "Manufacturing"
+      }
+    ],
+    "summary": "Plan, stage, and monitor OTA software rollouts across vehicle fleets with safe gating, rollback, and audit trails."
+  },
+  {
+    "id": "SAFE-UC-0009",
+    "title": "Manufacturing line visual inspection assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0009/README.md",
+    "naics_2022": [
+      {
+        "code": "31-33",
+        "name": "Manufacturing"
+      }
+    ],
+    "summary": "Run visual QA on production lines, flag defects, trigger rework flows, and manage human review thresholds."
+  },
+  {
+    "id": "SAFE-UC-0010",
+    "title": "In-vehicle voice assistant for local controls",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0010/README.md",
+    "naics_2022": [
+      {
+        "code": "31-33",
+        "name": "Manufacturing"
+      }
+    ],
+    "summary": "In-vehicle voice agent for local controls (HVAC, media, navigation settings) with strict safety and permission boundaries."
+  },
+  {
+    "id": "SAFE-UC-0011",
+    "title": "Banking virtual assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0011/README.md",
+    "naics_2022": [
+      {
+        "code": "52",
+        "name": "Finance and Insurance"
+      }
+    ],
+    "summary": "Banking assistant for account info, troubleshooting, and guided actions with strong authentication and disclosure controls."
+  },
+  {
+    "id": "SAFE-UC-0012",
+    "title": "Interactive fraud alert & card controls assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0012/README.md",
+    "naics_2022": [
+      {
+        "code": "52",
+        "name": "Finance and Insurance"
+      }
+    ],
+    "summary": "Interactive fraud alert assistant that helps users confirm/deny transactions and adjust card controls without social-engineering risk."
+  },
+  {
+    "id": "SAFE-UC-0013",
+    "title": "Virtual card number generation & checkout assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0013/README.md",
+    "naics_2022": [
+      {
+        "code": "52",
+        "name": "Finance and Insurance"
+      }
+    ],
+    "summary": "Generate and manage virtual card numbers and checkout flows with user consent, limits, and fraud/abuse controls."
+  },
+  {
+    "id": "SAFE-UC-0014",
+    "title": "Digital dispute/chargeback intake assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0014/README.md",
+    "naics_2022": [
+      {
+        "code": "52",
+        "name": "Finance and Insurance"
+      }
+    ],
+    "summary": "Guide customers through disputes/chargebacks, collect evidence, and submit cases while preventing leakage and manipulation."
+  },
+  {
+    "id": "SAFE-UC-0015",
+    "title": "AML suspicious-activity triage assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0015/README.md",
+    "naics_2022": [
+      {
+        "code": "52",
+        "name": "Finance and Insurance"
+      }
+    ],
+    "summary": "Triage suspicious-activity alerts (AML) by summarizing signals, prioritizing cases, and documenting rationale for review."
+  },
+  {
+    "id": "SAFE-UC-0016",
+    "title": "IT service-desk virtual agent",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0016/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "IT service-desk agent that triages tickets and performs safe self-service actions (resets, provisioning) with guardrails."
+  },
+  {
+    "id": "SAFE-UC-0017",
+    "title": "Service request triage assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0017/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "Route and prioritize service requests (ITSM/support) by extracting intent, urgency, and required approvals safely."
+  },
+  {
     "id": "SAFE-UC-0018",
     "title": "Work-item summarization assistant (thread + context summaries)",
-    "repo_path": "verticals/tmt_tech_media_telecom/safe_sv_software_saas/work-item-summarization-assistant/README.md",
-    "primary_vertical": "tmt_tech_media_telecom",
-    "sub_vertical": "safe_sv_software_saas",
+    "status": "starter",
+    "repo_path": "use-cases/SAFE-UC-0018/README.md",
     "naics_2022": [
       {
         "code": "51",
@@ -15,9 +235,19 @@
         "name": "Software Publishers"
       }
     ],
+    "summary": "Summarize long issue/ticket threads into structured context for handoffs and re-triage while resisting prompt injection and leakage.",
     "workflow_family": "Case management & customer support",
-    "operating_modes": ["manual", "hitl", "autonomous"],
-    "tags": ["summarization", "issue-tracking", "ticketing", "handoff"],
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "summarization",
+      "issue-tracking",
+      "ticketing",
+      "handoff"
+    ],
     "evidence": [
       {
         "label": "Public product documentation: summarize a work item's comments using AI",
@@ -32,5 +262,161 @@
         "url": "https://help.desk365.io/en/articles/summarize-ticket-using-ai/"
       }
     ]
+  },
+  {
+    "id": "SAFE-UC-0019",
+    "title": "Post-incident review drafting assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0019/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "Draft post-incident reviews/postmortems from timelines and notes with accuracy checks and sensitive-data handling."
+  },
+  {
+    "id": "SAFE-UC-0020",
+    "title": "On-call incident context assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0020/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "Provide on-call engineers with incident context (signals, recent changes, runbooks) and safe next-step suggestions."
+  },
+  {
+    "id": "SAFE-UC-0021",
+    "title": "Contact-center agent assist",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0021/README.md",
+    "naics_2022": [
+      {
+        "code": "56",
+        "name": "Administrative and Support and Waste Management and Remediation Services"
+      }
+    ],
+    "summary": "Real-time agent-assist for contact-center reps (suggested replies, knowledge retrieval, disposition) with compliance controls."
+  },
+  {
+    "id": "SAFE-UC-0022",
+    "title": "Security operations investigation assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0022/README.md",
+    "naics_2022": [
+      {
+        "code": "54",
+        "name": "Professional, Scientific, and Technical Services"
+      }
+    ],
+    "summary": "Assist SOC analysts in investigations by correlating alerts, summarizing evidence, and proposing hypotheses with auditability."
+  },
+  {
+    "id": "SAFE-UC-0023",
+    "title": "Cloud ops troubleshooting assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0023/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "Troubleshoot cloud ops issues by querying telemetry/logs/configs and suggesting remediations with change-control boundaries."
+  },
+  {
+    "id": "SAFE-UC-0024",
+    "title": "Terminal-based outage assistant for SRE",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0024/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "CLI/terminal assistant for SREs during outages that helps run safe diagnostics without executing unsafe commands autonomously."
+  },
+  {
+    "id": "SAFE-UC-0025",
+    "title": "Enterprise agent-building platform",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0025/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "Enterprise platform to build and deploy agents (tools, policies, monitoring) with governance and isolation controls."
+  },
+  {
+    "id": "SAFE-UC-0026",
+    "title": "At-scale content policy enforcement pipeline",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0026/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "Large-scale content policy pipeline that classifies, queues, and enforces actions with human review and appeals."
+  },
+  {
+    "id": "SAFE-UC-0027",
+    "title": "Anti-scam messaging safety assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0027/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "Detect and triage scam/phishing patterns in messaging and recommend user-facing interventions and escalations."
+  },
+  {
+    "id": "SAFE-UC-0028",
+    "title": "Fake-account & inauthentic behavior detection assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0028/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "Identify fake accounts and coordinated inauthentic behavior using signals aggregation and analyst workflows."
+  },
+  {
+    "id": "SAFE-UC-0029",
+    "title": "Automated ad campaign optimization assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0029/README.md",
+    "naics_2022": [
+      {
+        "code": "54",
+        "name": "Professional, Scientific, and Technical Services"
+      }
+    ],
+    "summary": "Optimize ad campaigns (budget, targeting, creative variants) while preventing manipulation, policy violations, and runaway spend."
+  },
+  {
+    "id": "SAFE-UC-0030",
+    "title": "Teen safety & age-assurance enforcement assistant",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0030/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      }
+    ],
+    "summary": "Enforce teen safety/age assurance and related policy actions with privacy-preserving checks and robust appeals."
   }
 ]
