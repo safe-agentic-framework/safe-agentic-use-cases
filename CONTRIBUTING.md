@@ -1,122 +1,184 @@
 # Contributing
 
-This repo is a community library of **industry-specific case analyses** for agentic workflows (MCP-enabled systems and tool-using agents).
+This repo is a community library of **real-world agentic workflow (use case) analyses**.
 
-A good contribution is **practical** and **defender-friendly**:
+It complements **SAFE‑MCP**:
+- **SAFE‑MCP** catalogs *how agentic/MCP systems can be attacked or fail* (techniques).
+- **SAFE‑AUCA** makes those techniques actionable by grounding them in *real workflows* and producing **controls + tests**.
 
-- how the workflow works in real systems
-- how it can fail (or be attacked)
-- how to build it safely (controls + detections + tests)
+We use a **seed-first** model:
+- We publish a catalog of seeded `SAFE-UC-XXXX` IDs (short descriptions + NAICS crosswalk).
+- Contributors pick a seed and expand it into a detailed write-up.
 
-## Safety + disclosure rules (non-negotiable)
+---
 
-- **No sensitive information.** Do not include internal system names, private endpoints, customer data, secrets, non-public incidents, or unpublished roadmaps.
-- **No operational exploitation instructions.** Keep analysis at the level of goals, stages, and failure modes. Do not provide step-by-step exploit guidance.
-- **Grounded in reality.** Use cases must be based on workflows that exist today and include **public evidence**.
-- **Default to anonymized writeups.** Do not name specific organizations unless it is strictly necessary and already broadly public. Prefer generic wording (e.g., “a SaaS issue tracker”, “a contact center platform”).
+## Safety + disclosure rules (non‑negotiable)
+
+- **No sensitive information.** Do not include internal system names, private endpoints, customer data, secrets, non‑public incidents, or unpublished roadmaps.
+- **No operational exploitation instructions.** Keep analysis at the level of goals, stages, and failure modes. Do not provide step‑by‑step exploit guidance.
+- **Grounded in reality.** Use cases should reflect workflows that exist today.
+- **Default to anonymized writeups.** Do not name specific organizations unless strictly necessary and already broadly public.
+
+---
+
+## DSO signoff (required)
+
+**All PRs require DSO signoff before merging.**
+
+A “DSO signoff” means:
+- a GitHub **approval review** from a designated DSO/maintainer, **or**
+- a PR comment from a designated DSO/maintainer stating **“DSO Approved”**.
+
+If you’re unsure who can provide DSO signoff, ask in the PR thread and a maintainer will route it.
+
+---
+
+## Where use cases live
+
+Each use case has a single canonical page:
+
+`use-cases/SAFE-UC-XXXX/README.md`
+
+This mirrors the SAFE‑MCP pattern: one stable ID → one page that can evolve from seed → draft → published.
+
+---
+
+## Status definitions
+
+Use one of the following in both the registry and the use case page:
+
+- `seed` — ID reserved; short description exists; full analysis not written yet
+- `draft` — first real write-up exists (architecture + kill chain + SAFE‑MCP mapping + initial tests)
+- `published` — reviewed and ready for general use
+
+(If you want “starter template” semantics, keep `status: draft` and add a separate `maturity: starter-template` field in the registry.)
+
+---
 
 ## Contribution flow
 
-### 1) Choose a workflow family
-
+### 1) Pick a workflow family
 Pick the closest match from the workflow families listed in the root `README.md`.
 
-- **Use the exact text** from the list (e.g., "Case management & customer support", not a paraphrase).
-- **One family per use case** in the metadata block.
-- If none fits, see "Proposing a new workflow family" in the root README.
+Rules:
+- **Use the exact text** from the list (no paraphrases).
+- **One primary workflow family per use case**.
 
-### 2) Choose where the use case lives (vertical + sub-vertical)
+---
 
-Use vertical folders for navigation:
-
-`verticals/<vertical_id>/<subvertical_folder>/<use-case-slug>/README.md`
-
-- Use `general/` when no curated sub-vertical exists.
-- Use curated sub-vertical folders (`safe_sv_*`) when applicable.
-
-### Choosing a sub-vertical
-
-| Folder type | When to use |
-|-------------|-------------|
-| `general/` | Default. Use when no curated sub-vertical exists, or when the use case applies broadly. |
-| `safe_sv_*` | Use when a SAFE-curated sub-vertical exists and your use case fits its scope. |
-
-**Do not create new sub-verticals without discussion.** Sub-verticals are created sparingly when a cluster of use cases shares a distinct risk profile (different regulatory regime, trust boundaries, threat actors, or failure consequences). See the "Sub-verticals" section in the root README for full criteria.
-
-### 3) Assign a SAFE Use Case ID
+### 2) Pick a SAFE Use Case ID (or create a new one)
 
 SAFE Use Case IDs are stable and never reused.
 
-> **ID policy:** Only use cases receive IDs (`SAFE-UC-XXXX`). Sub-verticals, verticals, and workflow families do not have IDs - they are organizational structures or metadata labels, not versioned artifacts.
+- Prefer adopting an existing `seed` from the root README index.
+- If you need a new one, pick the next monotonically increasing ID: `SAFE-UC-0001`, `SAFE-UC-0002`, …
 
-1. Open (or create) `use-cases.naics2022.crosswalk.json` at the repo root.
-2. Pick the next monotonically increasing ID: `SAFE-UC-0001`, `SAFE-UC-0002`, …
-3. Add a new entry with:
-   - `id` (the SAFE-UC)
-   - `repo_path` (canonical path to the use case README)
-   - `naics_2022` (one or more NAICS codes)
-   - `workflow_family`
-   - `operating_modes`
-   - `evidence` (public links)
+---
 
-> Rule: **one canonical home per use case** (one repo path). If it applies to multiple industries, add multiple NAICS codes to the same entry—do not duplicate folders.
+### 3) Update the canonical registry (required)
 
-### 4) Create the folder + write the use case README
+File: `use-cases.naics2022.crosswalk.json`
 
-Create the folder (kebab-case slug) and add a `README.md`:
+Add/update exactly **one entry per use case ID**.
 
-`verticals/<vertical_id>/<subvertical_folder>/<use-case-slug>/README.md`
+Minimum fields for a `seed`:
+- `id`
+- `title`
+- `status`
+- `repo_path` = `use-cases/SAFE-UC-XXXX/README.md`
+- `naics_2022` (one or more NAICS codes)
 
-Use `templates/use-case-template.md` as your base.
+Recommended fields (especially for `draft` / `published`):
+- `workflow_family`
+- `operating_modes`
+- `tags`
+- `evidence` (public links)
 
-### 5) (Optional) Add to the human-readable table
+**Multi‑industry rule:**  
+If a use case maps to multiple NAICS codes, include all of them inside the same use case entry under `naics_2022`. Do **not** duplicate the use case entry.
 
-The root `README.md` includes a human-readable crosswalk table.
+---
 
-- If you add a new use case ID, consider adding a row so readers can discover it.
-- If your use case maps to multiple NAICS codes, include one row per NAICS code.
+### 4) Create or update the use case page
+
+Path:
+`use-cases/SAFE-UC-XXXX/README.md`
+
+Start from:
+- `templates/use-case-template.md`
+
+**For a new `seed` page**, minimum content:
+- Metadata filled (ID, status, NAICS, workflow family)
+- 5–15 line workflow description (what it is / who uses it / what tools it touches)
+- In-scope / out-of-scope bullets
+- SAFE‑MCP mapping table present (technique IDs may be `TBD` initially, but keep the structure)
+
+**To upgrade `seed` → `draft`,** complete at least:
+- workflow steps
+- architecture + trust boundaries
+- operating modes (manual → HITL → autonomous) and how risk changes
+- kill-chain table
+- SAFE‑MCP mapping table with concrete controls + tests
+- add public evidence links
+
+---
+
+### 5) Request DSO signoff (required)
+
+Before merging, request DSO review on the PR and ensure there is an explicit DSO approval
+(approval review or “DSO Approved” comment).
+
+---
+
+### 6) Update the root README index (recommended)
+
+If you added a new ID or changed status/title/NAICS mapping, update the big index table in `README.md` so people can discover it.
+
+Tip: link the SAFE‑UC ID to `use-cases/SAFE-UC-XXXX/README.md`.
+
+---
 
 ## Evidence guidelines
 
-Each use case must include **public evidence**.
+Required for `draft` and `published`. Recommended for `seed`.
 
 Good evidence sources:
-
 - product documentation
 - engineering blog posts
 - conference talks / slides
-- incident postmortems (public)
+- public incident postmortems
 - regulatory filings / transparency reports
 
 Evidence should be:
+- publicly accessible
+- non-sensitive
+- specific to the workflow
 
-- **publicly accessible**
-- **non-sensitive**
-- **specific to the workflow**
+---
 
-Tip: use neutral link text (e.g., “Public product documentation: issue thread summarization”) even if the URL contains vendor branding.
+## Writing style guidelines (keep it usable)
 
-## Writing style guidelines
-
-- Write for **builders and reviewers**: engineers, product, security, reliability.
-- Prefer concrete nouns (systems, queues, tokens, roles) over abstractions.
-- When describing attacks/failures, focus on:
+- Write for builders and reviewers (engineering + security + reliability).
+- Be concrete about tools, trust boundaries, and permissions.
+- Keep attacks/failures defender-friendly:
   - attacker goal
   - entry points
   - what breaks
   - detection + mitigations
-- Include **operating modes** (manual → HITL → autonomous) and explain how risk changes.
+- Every meaningful control should have at least one **test** (how you’d validate it).
+
+---
 
 ## PR checklist
 
 Before opening a PR:
 
-- [ ] Folder path follows the convention under `verticals/…`
-- [ ] Use case includes the metadata block (ID, NAICS, workflow family, evidence)
-- [ ] Workflow family uses exact text from the canonical list in root README
-- [ ] Operating modes are included (or explicitly marked N/A)
-- [ ] Kill-chain analysis is defender-friendly (no exploit steps)
-- [ ] SAFE-MCP mapping table is included (even if technique IDs are “TBD”)
+- [ ] No sensitive info included
+- [ ] No exploit steps included
+- [ ] `use-cases.naics2022.crosswalk.json` updated for the ID
+- [ ] Use case page exists at `use-cases/SAFE-UC-XXXX/README.md`
+- [ ] Metadata includes: ID, status, NAICS, workflow family
+- [ ] SAFE‑MCP mapping table included (technique IDs may be “TBD” for first draft)
 - [ ] Controls include testable items (not just recommendations)
-- [ ] `use-cases.naics2022.crosswalk.json` updated with the new use case entry
-
+- [ ] Public evidence links included for `draft`/`published`
+- [ ] **DSO signoff obtained** (approval review or "DSO Approved" comment)
