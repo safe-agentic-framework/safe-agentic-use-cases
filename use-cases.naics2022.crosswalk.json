@@ -420,10 +420,10 @@
     "summary": "Enforce teen safety/age assurance and related policy actions with privacy-preserving checks and robust appeals."
   },
   {
-    "id": "SAFE-UC-0031",
+    "id": "SAFE-UC-0032",
     "title": "Agentic orchestration for marketplace embedded lending",
     "status": "draft",
-    "repo_path": "use-cases/SAFE-UC-0031/README.md",
+    "repo_path": "use-cases/SAFE-UC-0032/README.md",
     "naics_2022": [
       {
         "code": "52",
