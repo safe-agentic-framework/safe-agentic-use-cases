@@ -9,7 +9,7 @@ SAFE-AUCA reference guide for regulated margin governance workflows augmented wi
 | Field | Value |
 |---|---|
 | **SAFE Use Case ID** | `SAFE-UC-0031` |
-| **Status** | `draft` |
+| **Status** | `seed` |
 | **NAICS 2022** | `52, 523` |
 | **Last updated** | `2026-02-16` |
 

@@ -422,7 +422,7 @@
   {
     "id": "SAFE-UC-0031",
     "title": "Agentic AI in Uncleared Margin Rules (UMR) lifecycle",
-    "status": "draft",
+    "status": "seed",
     "repo_path": "use-cases/SAFE-UC-0031/README.md",
     "naics_2022": [
       {

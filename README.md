@@ -83,7 +83,7 @@ Safety rules (non‑negotiable): **no sensitive info, no exploit instructions, g
 | [SAFE-UC-0028](use-cases/SAFE-UC-0028/) | Fake-account & inauthentic behavior detection assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0029](use-cases/SAFE-UC-0029/) | Automated ad campaign optimization assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Seed |
 | [SAFE-UC-0030](use-cases/SAFE-UC-0030/) | Teen safety & age-assurance enforcement assistant | [Information (51)][naics-51] | Seed |
-| [SAFE-UC-0031](use-cases/SAFE-UC-0031/) | Agentic AI in Uncleared Margin Rules (UMR) lifecycle | [Finance and Insurance (52)][naics-52]<br>[Securities, Commodity Contracts, and Other Financial Investments and Related Activities (523)][naics-523] | Draft |
+| [SAFE-UC-0031](use-cases/SAFE-UC-0031/) | Agentic AI in Uncleared Margin Rules (UMR) lifecycle | [Finance and Insurance (52)][naics-52]<br>[Securities, Commodity Contracts, and Other Financial Investments and Related Activities (523)][naics-523] | Seed |
 
 ---
 
