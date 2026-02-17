@@ -18,6 +18,10 @@ require_cmd() {
   fi
 }
 
+has_rg() {
+  command -v rg >/dev/null 2>&1
+}
+
 check_registry_schema() {
   echo "==> Checking registry schema and required fields"
   jq -e . "$REGISTRY_FILE" >/dev/null
@@ -52,7 +56,11 @@ check_registry_paths() {
 
     [[ "$repo_path" == "$expected_path" ]] || fail "repo_path mismatch for ${id}: expected ${expected_path}, got ${repo_path}"
     [[ -f "$repo_path" ]] || fail "Missing file referenced by registry: ${repo_path}"
-    rg -q "${id}" "$repo_path" || fail "Use case file does not contain its ID (${id}): ${repo_path}"
+    if has_rg; then
+      rg -q "${id}" "$repo_path" || fail "Use case file does not contain its ID (${id}): ${repo_path}"
+    else
+      grep -q "${id}" "$repo_path" || fail "Use case file does not contain its ID (${id}): ${repo_path}"
+    fi
   done < <(jq -r '.[] | [.id, .repo_path] | @tsv' "$REGISTRY_FILE")
 }
 
@@ -108,6 +116,22 @@ check_readme_index_links() {
   )
 }
 
+emit_inline_link_rows() {
+  if has_rg; then
+    rg -n -o '\[[^]]+\]\(([^)]+)\)' --hidden --glob '*.md' --glob '!**/.git/**' || true
+  else
+    grep -R -n -H -o -E '\[[^]]+\]\(([^)]+)\)' --include='*.md' --exclude-dir='.git' . | sed -E 's#^\./##' || true
+  fi
+}
+
+emit_reference_link_rows() {
+  if has_rg; then
+    rg -n '^\[[^]]+\]:[[:space:]]+<?[^ >]+' --hidden --glob '*.md' --glob '!**/.git/**' || true
+  else
+    grep -R -n -H -o -E '^\[[^]]+\]:[[:space:]]+<?[^ >]+' --include='*.md' --exclude-dir='.git' . | sed -E 's#^\./##' || true
+  fi
+}
+
 check_markdown_local_links() {
   echo "==> Checking local markdown links"
   local has_errors=0
@@ -135,7 +159,7 @@ check_markdown_local_links() {
       echo "Broken local inline link: ${file}:${line_no} -> ${link}" >&2
       has_errors=1
     fi
-  done < <(rg -n -o '\[[^]]+\]\(([^)]+)\)' --hidden --glob '*.md' --glob '!**/.git/**' || true)
+  done < <(emit_inline_link_rows)
 
   while IFS= read -r row; do
     local file line_no def target base_dir resolved
@@ -160,14 +184,14 @@ check_markdown_local_links() {
       echo "Broken local reference link: ${file}:${line_no} -> ${target}" >&2
       has_errors=1
     fi
-  done < <(rg -n '^\[[^]]+\]:[[:space:]]+<?[^ >]+' --hidden --glob '*.md' --glob '!**/.git/**' || true)
+  done < <(emit_reference_link_rows)
 
   [[ "$has_errors" -eq 0 ]] || fail "Found broken local markdown links."
 }
 
 main() {
   require_cmd jq
-  require_cmd rg
+  require_cmd grep
   require_cmd awk
   require_cmd sed
   require_cmd diff
