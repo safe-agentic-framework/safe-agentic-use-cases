@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contribution Guide
+    url: https://github.com/safe-agentic-framework/safe-agentic-use-cases/blob/main/CONTRIBUTING.md
+    about: Read contribution, safety, and DSO requirements before opening issues.

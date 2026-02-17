@@ -51,8 +51,6 @@ Use one of the following in both the registry and the use case page:
 - `draft` — first real write-up exists (architecture + kill chain + SAFE‑MCP mapping + initial tests)
 - `published` — reviewed and ready for general use
 
-(If you want “starter template” semantics, keep `status: draft` and add a separate `maturity: starter-template` field in the registry.)
-
 ---
 
 ## Contribution flow
@@ -169,12 +167,16 @@ Evidence should be:
 
 ---
 
-## PR checklist
+## PR checklist (source of truth)
+
+The PR template (`.github/pull_request_template.md`) is intentionally lightweight and captures context only.
+All required contribution criteria live here. If there is any mismatch, this checklist in `CONTRIBUTING.md` is authoritative.
 
 Before opening a PR:
 
 - [ ] No sensitive info included
 - [ ] No exploit steps included
+- [ ] Status values use canonical enum: `seed`, `draft`, `published`
 - [ ] `use-cases.naics2022.crosswalk.json` updated for the ID
 - [ ] Use case page exists at `use-cases/SAFE-UC-XXXX/README.md`
 - [ ] Metadata includes: ID, status, NAICS, workflow family
@@ -182,3 +184,21 @@ Before opening a PR:
 - [ ] Controls include testable items (not just recommendations)
 - [ ] Public evidence links included for `draft`/`published`
 - [ ] **DSO signoff obtained** (approval review or "DSO Approved" comment)
+
+---
+
+## Automated checks (run on PRs)
+
+GitHub Actions runs [`validate-contributions.yml`](.github/workflows/validate-contributions.yml) on every PR and relevant push.
+
+These checks are enforced automatically:
+- Registry JSON validity and required fields
+- Status enum enforcement (`seed`, `draft`, `published`)
+- `repo_path` shape and file-existence checks
+- README index consistency with registry (`id`, `title`, `status`)
+- Local Markdown link validity
+
+These are **not** automated and still require reviewer judgment:
+- Safety/disclosure quality (sensitive info, exploit detail)
+- Analysis quality and realism
+- DSO signoff
