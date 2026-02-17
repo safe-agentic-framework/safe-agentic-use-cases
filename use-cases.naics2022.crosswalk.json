@@ -418,5 +418,22 @@
       }
     ],
     "summary": "Enforce teen safety/age assurance and related policy actions with privacy-preserving checks and robust appeals."
+  },
+  {
+    "id": "SAFE-UC-0031",
+    "title": "Agentic AI in Uncleared Margin Rules (UMR) lifecycle",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0031/README.md",
+    "naics_2022": [
+      {
+        "code": "52",
+        "name": "Finance and Insurance"
+      },
+      {
+        "code": "523",
+        "name": "Securities, Commodity Contracts, and Other Financial Investments and Related Activities"
+      }
+    ],
+    "summary": "Manages regulatory Initial Margin (IM) and Variation Margin (VM) obligations for uncleared derivatives with agentic AI assistance in dispute resolution, threshold analysis, and collateral optimization while maintaining regulatory compliance and audit trails."
   }
 ]
