@@ -120,7 +120,7 @@ emit_inline_link_rows() {
   if has_rg; then
     rg -n -o '\[[^]]+\]\(([^)]+)\)' --hidden --glob '*.md' --glob '!**/.git/**' || true
   else
-    grep -R -n -E '\[[^]]+\]\(([^)]+)\)' --include='*.md' --exclude-dir='.git' . | sed -E 's#^\./##' || true
+    grep -R -n -H -o -E '\[[^]]+\]\(([^)]+)\)' --include='*.md' --exclude-dir='.git' . | sed -E 's#^\./##' || true
   fi
 }
 
@@ -128,7 +128,7 @@ emit_reference_link_rows() {
   if has_rg; then
     rg -n '^\[[^]]+\]:[[:space:]]+<?[^ >]+' --hidden --glob '*.md' --glob '!**/.git/**' || true
   else
-    grep -R -n -E '^\[[^]]+\]:[[:space:]]+<?[^ >]+' --include='*.md' --exclude-dir='.git' . | sed -E 's#^\./##' || true
+    grep -R -n -H -o -E '^\[[^]]+\]:[[:space:]]+<?[^ >]+' --include='*.md' --exclude-dir='.git' . | sed -E 's#^\./##' || true
   fi
 }
 
