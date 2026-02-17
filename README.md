@@ -1,12 +1,12 @@
 # SAFE-Agentic Use Case Analysis (SAFE-AUCA)
 
-SAFE-AUCA is a community library of **real-world use case analyses** for agentic workflows (MCP-enabled systems and tool-using agents), **mapped to SAFE‑MCP techniques**.
+SAFE-AUCA is a community library of **real-world use case analyses** for agentic workflows (MCP-enabled systems and tool-using agents), **mapped to [SAFE‑MCP](https://github.com/safe-agentic-framework/safe-mcp) techniques**.
 
-**SAFE‑MCP** → catalogs *what can go wrong* (attack/failure techniques)  
+**[SAFE‑MCP](https://github.com/safe-agentic-framework/safe-mcp)** → catalogs *what can go wrong* (attack/failure techniques)  
 **SAFE‑AUCA** → shows *where it happens in reality* (workflow + tools + trust boundaries + autonomy) and turns techniques into **controls + tests**
 
 Quick links:
-- SAFE‑MCP technique catalog: https://github.com/safe-agentic-framework/safe-mcp
+- [SAFE‑MCP](https://github.com/safe-agentic-framework/safe-mcp) technique catalog
 - Contributing: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - Use case template: [`templates/use-case-template.md`](templates/use-case-template.md)
 - Canonical (machine‑readable) registry: [`use-cases.naics2022.crosswalk.json`](use-cases.naics2022.crosswalk.json)
@@ -21,14 +21,14 @@ Each detailed use case analysis connects the dots:
 
 **Workflow + operating mode (manual → HITL → autonomous)**  
 → **Kill-chain / failure analysis** (defender-friendly; no exploit steps)  
-→ **SAFE‑MCP technique IDs**  
+→ **[SAFE‑MCP](https://github.com/safe-agentic-framework/safe-mcp) technique IDs**  
 → **Controls, detections, and validation tests**
 
 ---
 
 ## Contribute (fast path)
 
-We seed a stable list of `SAFE-UC-XXXX` IDs (like SAFE‑MCP), then contributors “pick up” an ID and write the detailed analysis.
+We seed a stable list of `SAFE-UC-XXXX` IDs (like [SAFE‑MCP](https://github.com/safe-agentic-framework/safe-mcp)), then contributors “pick up” an ID and write the detailed analysis.
 
 1) Pick a use case ID below with **Status = Seed**  
 2) Create the folder at the linked canonical location and write the README using the template  
