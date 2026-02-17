@@ -20,9 +20,10 @@
 | Field | Value |
 |---|---|
 | **SAFE Use Case ID** | `SAFE-UC-0018` |
-| **Status** | `draft` (starter template) |
+| **Status** | `draft` |
+| **Maturity** | `starter-template` |
 | **NAICS 2022** | `51` (Information), `513210` (Software Publishers) |
-| **Last updated** | `2026-02-15` |
+| **Last updated** | `2026-02-17` |
 
 ### Evidence (public links)
 - https://support.atlassian.com/jira-service-management-cloud/docs/summarize-an-issues-comments-using-atlassian-intelligence/

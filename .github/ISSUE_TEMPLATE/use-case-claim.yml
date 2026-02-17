@@ -1,0 +1,95 @@
+name: Use Case Claim / Proposal
+description: Claim an existing seed ID or propose a new SAFE use-case entry
+title: "[Use Case] SAFE-UC-____ - <short title>"
+labels:
+  - use-case
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to coordinate contributions and avoid duplicate work.
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type
+      options:
+        - Claim existing seed ID
+        - Propose new ID
+    validations:
+      required: true
+
+  - type: input
+    id: use_case_id
+    attributes:
+      label: SAFE Use Case ID
+      description: Use existing ID (e.g. SAFE-UC-0012) or write "new" if proposing.
+      placeholder: SAFE-UC-____
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Proposed title
+      placeholder: Short, specific workflow title
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Workflow summary
+      description: 3-6 sentences describing what the workflow does and why it matters.
+    validations:
+      required: true
+
+  - type: textarea
+    id: naics
+    attributes:
+      label: NAICS 2022 mapping
+      description: List code + name pairs (one per line).
+      placeholder: |
+        51 - Information
+        513210 - Software Publishers
+    validations:
+      required: true
+
+  - type: input
+    id: target_status
+    attributes:
+      label: Target status
+      description: Must use canonical values only.
+      placeholder: seed / draft / published
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence links
+      description: Provide at least 1 public reference link.
+      placeholder: |
+        - https://...
+        - https://...
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Collaboration notes
+      description: Risks, assumptions, or help needed.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I have read CONTRIBUTING.md safety and disclosure rules.
+          required: true
+        - label: I will not include sensitive information or exploit instructions.
+          required: true
