@@ -421,15 +421,19 @@
   },
   {
     "id": "SAFE-UC-0031",
-    "title": "Code review and security analysis assistant",
-    "status": "seed",
+    "title": "Agentic AI in Uncleared Margin Rules (UMR) lifecycle",
+    "status": "draft",
     "repo_path": "use-cases/SAFE-UC-0031/README.md",
     "naics_2022": [
       {
-        "code": "54",
-        "name": "Professional, Scientific, and Technical Services"
+        "code": "52",
+        "name": "Finance and Insurance"
+      },
+      {
+        "code": "523",
+        "name": "Securities, Commodity Contracts, and Other Financial Investments and Related Activities"
       }
     ],
-    "summary": "Automated code review assistant that analyzes pull requests, identifies security vulnerabilities, suggests improvements, and validates compliance with coding standards."
+    "summary": "Manages regulatory Initial Margin (IM) and Variation Margin (VM) obligations for uncleared derivatives with agentic AI assistance in dispute resolution, threshold analysis, and collateral optimization while maintaining regulatory compliance and audit trails."
   }
 ]
