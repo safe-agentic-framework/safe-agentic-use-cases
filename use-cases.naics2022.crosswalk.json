@@ -223,7 +223,8 @@
   {
     "id": "SAFE-UC-0018",
     "title": "Work-item summarization assistant (thread + context summaries)",
-    "status": "starter",
+    "status": "draft",
+    "maturity": "starter-template",
     "repo_path": "use-cases/SAFE-UC-0018/README.md",
     "naics_2022": [
       {
