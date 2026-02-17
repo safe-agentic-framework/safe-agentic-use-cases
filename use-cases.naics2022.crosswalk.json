@@ -419,5 +419,60 @@
       }
     ],
     "summary": "Enforce teen safety/age assurance and related policy actions with privacy-preserving checks and robust appeals."
+  },
+  {
+    "id": "SAFE-UC-0032",
+    "title": "Agentic orchestration for marketplace embedded lending",
+    "status": "draft",
+    "repo_path": "use-cases/SAFE-UC-0032/README.md",
+    "naics_2022": [
+      {
+        "code": "52",
+        "name": "Finance and Insurance"
+      },
+      {
+        "code": "522390",
+        "name": "Other Activities Related to Credit Intermediation"
+      },
+      {
+        "code": "454110",
+        "name": "Electronic Shopping and Mail-Order Houses"
+      }
+    ],
+    "summary": "Safe agentic orchestration of multi-party embedded lending pipelines — merchant data feeds to external lenders, offer curation with fair-lending constraints, and revenue-coupled repayment — addressing cross-organizational trust boundaries, regulatory compliance automation, and novel financial harm categories unique to platform-mediated lending.",
+    "workflow_family": "Financial services & embedded lending",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "embedded-finance",
+      "marketplace-lending",
+      "multi-party-trust",
+      "fair-lending",
+      "cross-org-pipeline",
+      "repayment-safety",
+      "regulatory-compliance",
+      "working-capital"
+    ],
+    "evidence": [
+      {
+        "label": "CFPB — Innovation Spotlight: Marketplace Lending",
+        "url": "https://www.consumerfinance.gov/data-research/research-reports/innovation-spotlight-marketplace-lending/"
+      },
+      {
+        "label": "OCC — Third-Party Relationships: Risk Management Guidance (2023)",
+        "url": "https://www.occ.gov/news-issuances/bulletins/2023/bulletin-2023-17.html"
+      },
+      {
+        "label": "Bain & Company — Embedded Finance: $7 Trillion Opportunity",
+        "url": "https://www.bain.com/insights/embedded-finance/"
+      },
+      {
+        "label": "CFPB — Fair Lending and ECOA Compliance",
+        "url": "https://www.consumerfinance.gov/compliance/supervisory-highlights/fair-lending/"
+      }
+    ]
   }
 ]
