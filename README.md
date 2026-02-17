@@ -36,6 +36,12 @@ We seed a stable list of `SAFE-UC-XXXX` IDs (like [SAFE‑MCP](https://github.co
 
 Safety rules (non‑negotiable): **no sensitive info, no exploit instructions, grounded in public evidence** (see `CONTRIBUTING.md`).
 
+Quick contributor workflow:
+- Read [`CONTRIBUTING.md`](CONTRIBUTING.md) (source of truth).
+- Claim/propose work via [Use Case Claim / Proposal](.github/ISSUE_TEMPLATE/use-case-claim.yml).
+- Ensure PR check **`Registry and Docs Validation`** passes.
+- Get required DSO signoff before merge (details in `CONTRIBUTING.md`).
+
 ---
 
 ## SAFE Use Case ID ↔ NAICS 2022 crosswalk
@@ -48,8 +54,8 @@ Safety rules (non‑negotiable): **no sensitive info, no exploit instructions, g
 
 **Status legend**
 - **Seed**: ID reserved + mapping exists; detailed write-up may not exist yet (you can contribute it)
-- **Starter**: starter write-up exists and can be expanded
-- *(optional future)* Draft / Published
+- **Draft**: first detailed write-up exists and can be expanded
+- **Published**: reviewed and ready for broad use
 
 | SAFE Use Case ID | Use case title | NAICS 2022 industry mapping (Name + Code) | Status |
 |---|---|---|---|
@@ -70,7 +76,7 @@ Safety rules (non‑negotiable): **no sensitive info, no exploit instructions, g
 | [SAFE-UC-0015](use-cases/SAFE-UC-0015/) | AML suspicious-activity triage assistant | [Finance and Insurance (52)][naics-52] | Seed |
 | [SAFE-UC-0016](use-cases/SAFE-UC-0016/) | IT service-desk virtual agent | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0017](use-cases/SAFE-UC-0017/) | Service request triage assistant | [Information (51)][naics-51] | Seed |
-| [SAFE-UC-0018](use-cases/SAFE-UC-0018/) | Work-item summarization assistant (thread + context summaries) | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Starter |
+| [SAFE-UC-0018](use-cases/SAFE-UC-0018/) | Work-item summarization assistant (thread + context summaries) | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
 | [SAFE-UC-0019](use-cases/SAFE-UC-0019/) | Post-incident review drafting assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0020](use-cases/SAFE-UC-0020/) | On-call incident context assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0021](use-cases/SAFE-UC-0021/) | Contact-center agent assist | [Administrative and Support and Waste Management and Remediation Services (56)][naics-56] | Seed |

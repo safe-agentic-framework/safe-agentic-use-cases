@@ -1,0 +1,23 @@
+name: Validate Contributions
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Registry and Docs Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run contribution validation checks
+        run: ./scripts/validate_contributions.sh
