@@ -89,6 +89,7 @@ Quick contributor workflow:
 | [SAFE-UC-0028](use-cases/SAFE-UC-0028/) | Fake-account & inauthentic behavior detection assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0029](use-cases/SAFE-UC-0029/) | Automated ad campaign optimization assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Seed |
 | [SAFE-UC-0030](use-cases/SAFE-UC-0030/) | Teen safety & age-assurance enforcement assistant | [Information (51)][naics-51] | Seed |
+| [SAFE-UC-0031](use-cases/SAFE-UC-0031/) | Agentic AI in Uncleared Margin Rules (UMR) lifecycle | [Finance and Insurance (52)][naics-52]<br>[Securities, Commodity Contracts, and Other Financial Investments and Related Activities (523)][naics-523] | Seed |
 
 ---
 
@@ -104,3 +105,4 @@ Quick contributor workflow:
 [naics-56]: https://www.census.gov/naics/?chart=2022&details=56&input=56
 [naics-81]: https://www.census.gov/naics/?chart=2022&details=81&input=81
 [naics-513210]: https://www.census.gov/naics/?chart=2022&details=513210&input=513210
+[naics-523]: https://www.census.gov/naics/?chart=2022&details=523&input=523
