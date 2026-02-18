@@ -83,7 +83,7 @@ Quick contributor workflow:
 | [SAFE-UC-0022](use-cases/SAFE-UC-0022/) | Security operations investigation assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Seed |
 | [SAFE-UC-0023](use-cases/SAFE-UC-0023/) | Cloud ops troubleshooting assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0024](use-cases/SAFE-UC-0024/) | Terminal-based outage assistant for SRE | [Information (51)][naics-51] | Seed |
-| [SAFE-UC-0025](use-cases/SAFE-UC-0025/) | Enterprise agent-building platform | [Information (51)][naics-51] | Seed |
+| [SAFE-UC-0025](use-cases/SAFE-UC-0025/) | Skill-driven web app regression testing assistant for pull requests | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
 | [SAFE-UC-0026](use-cases/SAFE-UC-0026/) | At-scale content policy enforcement pipeline | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0027](use-cases/SAFE-UC-0027/) | Anti-scam messaging safety assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0028](use-cases/SAFE-UC-0028/) | Fake-account & inauthentic behavior detection assistant | [Information (51)][naics-51] | Seed |
