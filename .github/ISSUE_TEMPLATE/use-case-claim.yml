@@ -1,6 +1,6 @@
 name: Use Case Claim / Proposal
 description: Claim an existing seed ID or propose a new SAFE use-case entry
-title: "[Use Case] SAFE-UC-____ - <short title>"
+title: "[Use Case] NEW - <short title>"
 labels:
   - use-case
   - triage
@@ -9,6 +9,9 @@ body:
     attributes:
       value: |
         Use this form to coordinate contributions and avoid duplicate work.
+        - If you are using an existing `SAFE-UC-XXXX`, you can open a Draft PR directly and skip this issue form.
+        - For **Claim existing seed ID**: enter the exact `SAFE-UC-XXXX` from `README.md`.
+        - For **Propose new ID**: enter `new` and automation will assign the next available ID.
 
   - type: dropdown
     id: request_type
@@ -24,8 +27,8 @@ body:
     id: use_case_id
     attributes:
       label: SAFE Use Case ID
-      description: Use existing ID (e.g. SAFE-UC-0012) or write "new" if proposing.
-      placeholder: SAFE-UC-____
+      description: For existing claims use `SAFE-UC-XXXX` (e.g. `SAFE-UC-0012`). For new IDs enter `new`.
+      placeholder: SAFE-UC-0012 or new
     validations:
       required: true
 

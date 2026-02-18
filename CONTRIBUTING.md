@@ -69,7 +69,10 @@ Rules:
 SAFE Use Case IDs are stable and never reused.
 
 - Prefer adopting an existing `seed` from the root README index.
-- If you need a new one, pick the next monotonically increasing ID: `SAFE-UC-0001`, `SAFE-UC-0002`, …
+- If you are using an existing ID, you can open a Draft PR directly (issue claim is optional).
+- If you need a new ID, open a **Use Case Claim / Proposal** issue and choose **Propose new ID**.
+- In that issue form, set **SAFE Use Case ID** to `new`. Automation assigns the next available `SAFE-UC-XXXX` and updates the issue title.
+- Do not manually choose a numeric new ID in the issue form.
 
 ---
 
