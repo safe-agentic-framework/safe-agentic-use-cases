@@ -90,6 +90,7 @@ Quick contributor workflow:
 | [SAFE-UC-0029](use-cases/SAFE-UC-0029/) | Automated ad campaign optimization assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Seed |
 | [SAFE-UC-0030](use-cases/SAFE-UC-0030/) | Teen safety & age-assurance enforcement assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0032](use-cases/SAFE-UC-0032/) | Agentic orchestration for marketplace embedded lending | [Finance and Insurance (52)][naics-52]<br>[Other Activities Related to Credit Intermediation (522390)][naics-522390]<br>[Electronic Shopping and Mail-Order Houses (454110)][naics-454110] | Draft |
+| [SAFE-UC-0033](use-cases/SAFE-UC-0033/) | Skill-driven web app regression testing assistant for pull requests | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
 
 ---
 
