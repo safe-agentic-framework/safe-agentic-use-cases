@@ -1,0 +1,276 @@
+name: Assign SAFE Use Case ID
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - reopened
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: safe-use-case-id-intake
+  cancel-in-progress: false
+
+jobs:
+  assign-or-validate:
+    if: contains(github.event.issue.labels.*.name, 'use-case')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Assign or validate SAFE use case ID
+        uses: actions/github-script@v7
+        env:
+          REGISTRY_FILE: use-cases.naics2022.crosswalk.json
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require("fs");
+
+            const BOT_MARKER = "<!-- safe-use-case-id-bot -->";
+            const REQUEST_TYPE_NEW = "propose new id";
+            const REQUEST_TYPE_EXISTING = "claim existing seed id";
+            const ID_REGEX = /SAFE-UC-\d{4}/g;
+
+            const issue = context.payload.issue;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issueNumber = issue.number;
+
+            const normalize = (value) => (value || "").replace(/\r/g, "").trim();
+            const cleanField = (value) => {
+              const normalized = normalize(value).replace(/\n+/g, " ").replace(/^`|`$/g, "").trim();
+              if (!normalized || /^_?no response_?$/i.test(normalized)) {
+                return "";
+              }
+              return normalized;
+            };
+
+            const parseFormSections = (body) => {
+              const sections = {};
+              let heading = null;
+              let sectionLines = [];
+
+              for (const line of normalize(body).split("\n")) {
+                if (line.startsWith("### ")) {
+                  if (heading) {
+                    sections[heading] = normalize(sectionLines.join("\n"));
+                  }
+                  heading = line.slice(4).trim();
+                  sectionLines = [];
+                  continue;
+                }
+                if (heading) {
+                  sectionLines.push(line);
+                }
+              }
+
+              if (heading) {
+                sections[heading] = normalize(sectionLines.join("\n"));
+              }
+
+              return sections;
+            };
+
+            const extractIds = (text) => {
+              const matches = normalize(text).toUpperCase().match(ID_REGEX) || [];
+              return new Set(matches);
+            };
+
+            const formatId = (number) => `SAFE-UC-${String(number).padStart(4, "0")}`;
+
+            const listBotComment = async () => {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                owner,
+                repo,
+                issue_number: issueNumber,
+                per_page: 100,
+              });
+
+              return comments.find(
+                (comment) =>
+                  comment.user?.login === "github-actions[bot]" &&
+                  comment.body?.includes(BOT_MARKER)
+              );
+            };
+
+            const upsertBotComment = async (message) => {
+              const body = `${BOT_MARKER}\n${message}`;
+              const existing = await listBotComment();
+
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner,
+                  repo,
+                  comment_id: existing.id,
+                  body,
+                });
+                return;
+              }
+
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                body,
+              });
+            };
+
+            const clearBotComment = async () => {
+              const existing = await listBotComment();
+              if (!existing) {
+                return;
+              }
+
+              await github.rest.issues.deleteComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+              });
+            };
+
+            const ensureTitleHasId = async (safeId) => {
+              let nextTitle = issue.title || "";
+
+              if (/SAFE-UC-\d{4}/i.test(nextTitle)) {
+                nextTitle = nextTitle.replace(/SAFE-UC-\d{4}/i, safeId);
+              } else if (/SAFE-UC-____/i.test(nextTitle)) {
+                nextTitle = nextTitle.replace(/SAFE-UC-____/i, safeId);
+              } else if (/^\[Use Case\]/i.test(nextTitle)) {
+                const rest = nextTitle
+                  .replace(/^\[Use Case\]\s*/i, "")
+                  .replace(/^NEW\s*-\s*/i, "")
+                  .trim();
+                nextTitle = `[Use Case] ${safeId}${rest ? ` - ${rest}` : ""}`;
+              } else {
+                nextTitle = `[Use Case] ${safeId} - ${nextTitle}`.trim();
+              }
+
+              if (nextTitle !== issue.title) {
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: issueNumber,
+                  title: nextTitle,
+                });
+              }
+            };
+
+            const sections = parseFormSections(issue.body || "");
+            const requestType = cleanField(sections["Request type"]).toLowerCase();
+            const idField = cleanField(sections["SAFE Use Case ID"]);
+            const idInput = idField.toUpperCase();
+
+            if (!requestType || !idField) {
+              core.info("Issue body is missing expected form fields; skipping.");
+              return;
+            }
+
+            const registry = JSON.parse(fs.readFileSync(process.env.REGISTRY_FILE, "utf8"));
+            const registryIds = new Set(registry.map((entry) => String(entry.id).toUpperCase()));
+
+            const openUseCaseIssues = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: "open",
+              labels: "use-case",
+              per_page: 100,
+            });
+
+            const otherIssueIds = new Set();
+            const idToIssues = new Map();
+
+            for (const openIssue of openUseCaseIssues) {
+              if (openIssue.number === issueNumber || openIssue.pull_request) {
+                continue;
+              }
+
+              const ids = extractIds(`${openIssue.title}\n${openIssue.body || ""}`);
+              for (const id of ids) {
+                otherIssueIds.add(id);
+                if (!idToIssues.has(id)) {
+                  idToIssues.set(id, []);
+                }
+                idToIssues.get(id).push(openIssue.number);
+              }
+            }
+
+            if (requestType === REQUEST_TYPE_NEW) {
+              if (idInput !== "NEW") {
+                await upsertBotComment(
+                  "Please set **SAFE Use Case ID** to `new` when using **Propose new ID**."
+                );
+                return;
+              }
+
+              const idsInCurrentIssue = extractIds(`${issue.title}\n${issue.body || ""}`);
+              const existingAssignedId = [...idsInCurrentIssue].find((id) => !registryIds.has(id));
+
+              let assignedId = existingAssignedId;
+              if (!assignedId) {
+                const numericParts = [...registryIds, ...otherIssueIds].map((id) => Number(id.slice(-4)));
+                let next = Math.max(0, ...numericParts) + 1;
+                assignedId = formatId(next);
+
+                while (registryIds.has(assignedId) || otherIssueIds.has(assignedId)) {
+                  next += 1;
+                  assignedId = formatId(next);
+                }
+              }
+
+              await ensureTitleHasId(assignedId);
+              await upsertBotComment(
+                [
+                  `Assigned SAFE Use Case ID: \`${assignedId}\`.`,
+                  "",
+                  "Use this ID in:",
+                  `- \`use-cases/${assignedId}/README.md\``,
+                  "- `use-cases.naics2022.crosswalk.json`",
+                ].join("\n")
+              );
+              return;
+            }
+
+            if (requestType === REQUEST_TYPE_EXISTING) {
+              if (!/^SAFE-UC-\d{4}$/.test(idInput)) {
+                await upsertBotComment(
+                  "For **Claim existing seed ID**, enter an ID in the exact format `SAFE-UC-XXXX`."
+                );
+                return;
+              }
+
+              if (!registryIds.has(idInput)) {
+                await upsertBotComment(
+                  [
+                    `\`${idInput}\` is not in the current registry.`,
+                    "If this is a net-new workflow, use **Propose new ID** and set **SAFE Use Case ID** to `new`.",
+                  ].join("\n")
+                );
+                return;
+              }
+
+              const conflictingIssues = idToIssues.get(idInput) || [];
+              if (conflictingIssues.length > 0) {
+                const refs = conflictingIssues.map((number) => `#${number}`).join(", ");
+                await upsertBotComment(
+                  [
+                    `Heads up: \`${idInput}\` is already referenced by open issue(s): ${refs}.`,
+                    "Coordinate in-thread to avoid duplicate work on the same ID.",
+                  ].join("\n")
+                );
+                return;
+              }
+
+              await clearBotComment();
+              return;
+            }
+
+            await upsertBotComment(
+              `Unrecognized **Request type** value: "${requestType}". Choose **Claim existing seed ID** or **Propose new ID**.`
+            );
