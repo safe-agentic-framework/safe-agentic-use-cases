@@ -38,7 +38,8 @@ Safety rules (non‑negotiable): **no sensitive info, no exploit instructions, g
 
 Quick contributor workflow:
 - Read [`CONTRIBUTING.md`](CONTRIBUTING.md) (source of truth).
-- Claim/propose work via [Use Case Claim / Proposal](.github/ISSUE_TEMPLATE/use-case-claim.yml).
+- If using an existing `SAFE-UC-XXXX`, you can open a Draft PR directly.
+- Claim/propose work via [Use Case Claim / Proposal](.github/ISSUE_TEMPLATE/use-case-claim.yml) (`new` auto-assigns the next SAFE-UC ID).
 - Ensure PR check **`Registry and Docs Validation`** passes.
 - Get required DSO signoff before merge (details in `CONTRIBUTING.md`).
 

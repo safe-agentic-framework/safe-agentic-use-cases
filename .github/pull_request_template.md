@@ -14,7 +14,7 @@ Follow [`CONTRIBUTING.md`](../CONTRIBUTING.md). This template only captures PR c
 ## Use Case Context
 
 - Use case ID: `SAFE-UC-____`
-- Related issue/claim: #
+- Related issue/claim (optional for existing IDs): # / N/A
 - Status transition: `seed -> draft` / `draft -> published` / `seed -> published`
 
 ## Changed Files
