@@ -344,56 +344,16 @@
   },
   {
     "id": "SAFE-UC-0025",
-    "title": "Skill-driven web app regression testing assistant for pull requests",
-    "status": "draft",
+    "title": "Enterprise agent-building platform",
+    "status": "seed",
     "repo_path": "use-cases/SAFE-UC-0025/README.md",
     "naics_2022": [
       {
         "code": "51",
         "name": "Information"
-      },
-      {
-        "code": "513210",
-        "name": "Software Publishers"
       }
     ],
-    "summary": "Use coding-agent skills to run PR regression checks, summarize failures, and propose guarded fixes while enforcing strict permission boundaries.",
-    "workflow_family": "Software engineering & developer tooling",
-    "operating_modes": [
-      "manual",
-      "hitl",
-      "autonomous"
-    ],
-    "tags": [
-      "coding-agent",
-      "skills",
-      "regression-testing",
-      "pull-requests",
-      "playwright",
-      "ci-cd"
-    ],
-    "evidence": [
-      {
-        "label": "Anthropic skills repository (community and official skills)",
-        "url": "https://github.com/anthropics/skills"
-      },
-      {
-        "label": "Claude Code slash commands and skill invocation docs",
-        "url": "https://code.claude.com/docs/en/slash-commands"
-      },
-      {
-        "label": "Anthropic engineering post on agent skills in production",
-        "url": "https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills"
-      },
-      {
-        "label": "GitHub Actions documentation for CI workflows",
-        "url": "https://docs.github.com/en/actions"
-      },
-      {
-        "label": "Playwright documentation",
-        "url": "https://playwright.dev/docs/intro"
-      }
-    ]
+    "summary": "Enterprise platform to build and deploy agents (tools, policies, monitoring) with governance and isolation controls."
   },
   {
     "id": "SAFE-UC-0026",
@@ -512,6 +472,59 @@
       {
         "label": "CFPB — Fair Lending and ECOA Compliance",
         "url": "https://www.consumerfinance.gov/compliance/supervisory-highlights/fair-lending/"
+      }
+    ]
+  },
+  {
+    "id": "SAFE-UC-0033",
+    "title": "Skill-driven web app regression testing assistant for pull requests",
+    "status": "draft",
+    "repo_path": "use-cases/SAFE-UC-0033/README.md",
+    "naics_2022": [
+      {
+        "code": "51",
+        "name": "Information"
+      },
+      {
+        "code": "513210",
+        "name": "Software Publishers"
+      }
+    ],
+    "summary": "Use coding-agent skills to run PR regression checks, summarize failures, and propose guarded fixes while enforcing strict permission boundaries.",
+    "workflow_family": "Software engineering & developer tooling",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "coding-agent",
+      "skills",
+      "regression-testing",
+      "pull-requests",
+      "playwright",
+      "ci-cd"
+    ],
+    "evidence": [
+      {
+        "label": "Anthropic skills repository (community and official skills)",
+        "url": "https://github.com/anthropics/skills"
+      },
+      {
+        "label": "Claude Code slash commands and skill invocation docs",
+        "url": "https://code.claude.com/docs/en/slash-commands"
+      },
+      {
+        "label": "Anthropic engineering post on agent skills in production",
+        "url": "https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills"
+      },
+      {
+        "label": "GitHub Actions documentation for CI workflows",
+        "url": "https://docs.github.com/en/actions"
+      },
+      {
+        "label": "Playwright documentation",
+        "url": "https://playwright.dev/docs/intro"
       }
     ]
   }
