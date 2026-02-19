@@ -655,5 +655,5 @@ The literature landscape was established via Elicit.com (systematic AI-assisted 
 
 | Version | Date | Changes | Author |
 |---|---|---|---|
-| 1.0 | 2026-02-16 | Initial documentation of `SAFE-UC-0032` use case — Agentic orchestration for marketplace embedded lending; establishes multi-party trust boundary framework, fair-lending safety constraints, revenue-coupled financial safety model, and cross-organizational pipeline integrity analysis | (author) |
-| 1.1 | 2026-02-16 | Added systematic literature review evidence (Elicit.com, 135 studies) to Appendix B; grounded all five novel contributions in documented literature gaps; expanded references with 30+ academic citations from the review | (author) |
+| 1.0 | 2026-02-16 | Initial documentation of `SAFE-UC-0032` use case — Agentic orchestration for marketplace embedded lending; establishes multi-party trust boundary framework, fair-lending safety constraints, revenue-coupled financial safety model, and cross-organizational pipeline integrity analysis | Saurabh Yergattikar |
+| 1.1 | 2026-02-16 | Added systematic literature review evidence (Elicit.com, 135 studies) to Appendix B; grounded all five novel contributions in documented literature gaps; expanded references with 30+ academic citations from the review | Saurabh Yergattikar |
