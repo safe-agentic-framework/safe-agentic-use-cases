@@ -255,10 +255,14 @@ The same automation can also increase blast radius. Untrusted PR content can inf
 
 ## Contributors
 
-- @bishnubista (initial draft)
+- **Author:** Bishnu Bista (@bishnubista)
+- **Reviewer(s):** TBD
+- **Additional contributors:** TBD
+
+---
 
 ## Version history
 
 | Date | Author | Change |
 |---|---|---|
-| 2026-02-18 | @bishnubista | Initial draft for SAFE-UC-0033 (skill-driven web app regression testing assistant). |
+| 2026-02-18 | Bishnu Bista (@bishnubista) | Initial draft for SAFE-UC-0033 (skill-driven web app regression testing assistant). |
