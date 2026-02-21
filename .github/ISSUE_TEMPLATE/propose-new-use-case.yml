@@ -1,0 +1,91 @@
+name: Propose New Use Case
+description: Propose a new SAFE use case that is not yet listed in the registry
+title: "[Proposal] "
+labels:
+  - use-case
+  - proposal
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **What happens when you submit this form:**
+        1. Automation assigns the next available `SAFE-UC-XXXX` ID and renames this issue.
+        2. A maintainer reviews your proposal and comments `/accept` when approved.
+        3. A scaffold PR is created with the seed README, registry entry, and index row — assigned to you.
+
+  - type: input
+    id: title
+    attributes:
+      label: Use case title
+      description: >
+        A short, specific name for the agentic workflow — this becomes the heading
+        of the seed README and the row label in the registry table.
+        Use the pattern "<AI/Agent> + <action> + <domain context>".
+      placeholder: "e.g., AI-assisted claims processing assistant"
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Workflow summary
+      description: >
+        Describe what the agentic workflow does, who uses it, what tools/data it
+        touches, and why safe controls matter. This text is copied verbatim into
+        the seed README and the JSON registry, so write 3-6 clear sentences.
+      placeholder: |
+        This workflow allows <role> to <action> using <tools/data>.
+        The agent operates in <mode: manual / HITL / autonomous> and interacts with <systems>.
+        Key safety concerns include <concern 1> and <concern 2>.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: industry
+    attributes:
+      label: Industry
+      description: >
+        Select every industry this workflow applies to. This maps to NAICS 2022
+        codes in the registry. Pick the closest match — you can refine later in
+        the seed README.
+      multiple: true
+      options:
+        - Retail & E-Commerce
+        - Finance & Insurance
+        - Healthcare
+        - Manufacturing
+        - Information & Software
+        - Transportation & Logistics
+        - Professional & Technical Services
+        - Administrative & Support Services
+        - Public Administration & Government
+        - Education
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence links
+      description: >
+        Paste at least 1 public URL that proves this workflow exists in the real
+        world (product docs, vendor announcements, news articles, research papers).
+        Per CONTRIBUTING.md, every use case must be grounded in public evidence.
+      placeholder: |
+        https://docs.example.com/ai-claims-assistant
+        https://www.example.com/blog/announcing-ai-claims
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      description: Both boxes are required before submitting.
+      options:
+        - label: I have read CONTRIBUTING.md safety and disclosure rules.
+          required: true
+        - label: I will not include sensitive information or exploit instructions.
+          required: true
