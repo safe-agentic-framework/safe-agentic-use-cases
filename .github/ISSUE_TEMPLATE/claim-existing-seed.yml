@@ -1,6 +1,6 @@
 name: Claim Existing Seed
 description: Claim an existing seed use case to write the detailed analysis
-title: "[Claim] SAFE-UC-____ "
+title: "[Claim] "
 labels:
   - use-case
   - claim
@@ -12,16 +12,45 @@ body:
         This prevents duplicate work — once claimed, other contributors know
         someone is actively writing the analysis.
 
-        Browse available seeds: [README table](../../README.md#safe-use-case-id--naics-2022-crosswalk).
-
-  - type: input
+  - type: dropdown
     id: use_case_id
     attributes:
       label: SAFE Use Case ID
       description: >
-        Copy the exact ID from the README table (e.g., SAFE-UC-0012).
-        Only IDs with Status = Seed are available for claiming.
-      placeholder: SAFE-UC-0012
+        Select the seed you want to claim. Only seeds (not drafts or published)
+        are listed. If your use case is not here, use
+        [Propose New Use Case](https://github.com/safe-agentic-framework/safe-agentic-use-cases/issues/new?template=propose-new-use-case.yml)
+        instead.
+      options:
+        - "SAFE-UC-0001 — AI-assisted seller listing creation"
+        - "SAFE-UC-0002 — Personalized shopping sidekick"
+        - "SAFE-UC-0003 — Buyer-seller messaging assistant"
+        - "SAFE-UC-0004 — Listing media enhancement assistant"
+        - "SAFE-UC-0005 — Visual search & image-based product discovery"
+        - "SAFE-UC-0006 — Fleet telematics & vehicle-health monitoring assistant"
+        - "SAFE-UC-0007 — Mobile fleet-maintenance dispatch & scheduling assistant"
+        - "SAFE-UC-0008 — Over-the-air vehicle software update orchestration"
+        - "SAFE-UC-0009 — Manufacturing line visual inspection assistant"
+        - "SAFE-UC-0010 — In-vehicle voice assistant for local controls"
+        - "SAFE-UC-0011 — Banking virtual assistant"
+        - "SAFE-UC-0012 — Interactive fraud alert & card controls assistant"
+        - "SAFE-UC-0013 — Virtual card number generation & checkout assistant"
+        - "SAFE-UC-0014 — Digital dispute/chargeback intake assistant"
+        - "SAFE-UC-0015 — AML suspicious-activity triage assistant"
+        - "SAFE-UC-0016 — IT service-desk virtual agent"
+        - "SAFE-UC-0017 — Service request triage assistant"
+        - "SAFE-UC-0019 — Post-incident review drafting assistant"
+        - "SAFE-UC-0020 — On-call incident context assistant"
+        - "SAFE-UC-0021 — Contact-center agent assist"
+        - "SAFE-UC-0022 — Security operations investigation assistant"
+        - "SAFE-UC-0023 — Cloud ops troubleshooting assistant"
+        - "SAFE-UC-0024 — Terminal-based outage assistant for SRE"
+        - "SAFE-UC-0025 — Enterprise agent-building platform"
+        - "SAFE-UC-0026 — At-scale content policy enforcement pipeline"
+        - "SAFE-UC-0027 — Anti-scam messaging safety assistant"
+        - "SAFE-UC-0028 — Fake-account & inauthentic behavior detection assistant"
+        - "SAFE-UC-0029 — Automated ad campaign optimization assistant"
+        - "SAFE-UC-0030 — Teen safety & age-assurance enforcement assistant"
     validations:
       required: true
 

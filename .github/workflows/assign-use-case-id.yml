@@ -1,4 +1,4 @@
-name: Assign SAFE Use Case ID
+name: Validate Claim
 
 on:
   issues:
@@ -12,19 +12,19 @@ permissions:
   issues: write
 
 concurrency:
-  group: safe-use-case-id-intake
-  cancel-in-progress: false
+  group: claim-validation-${{ github.event.issue.number }}
+  cancel-in-progress: true
 
 jobs:
-  assign-or-validate:
-    if: contains(github.event.issue.labels.*.name, 'use-case')
+  validate-claim:
+    if: contains(github.event.issue.labels.*.name, 'claim')
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Assign or validate SAFE use case ID
+      - name: Validate claim and check conflicts
         uses: actions/github-script@v7
         env:
           REGISTRY_FILE: use-cases.naics2022.crosswalk.json
@@ -33,24 +33,18 @@ jobs:
           script: |
             const fs = require("fs");
 
-            const BOT_MARKER = "<!-- safe-use-case-id-bot -->";
-            const REQUEST_TYPE_NEW = "propose new id";
-            const REQUEST_TYPE_EXISTING = "claim existing seed id";
-            const ID_REGEX = /SAFE-UC-\d{4}/g;
+            const BOT_MARKER = "<!-- safe-claim-bot -->";
+            const ID_REGEX = /SAFE-UC-\d{4}/;
 
             const issue = context.payload.issue;
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const issueNumber = issue.number;
+            const author = issue.user.login;
+
+            // ── Helpers ─────────────────────────────────────────────
 
             const normalize = (value) => (value || "").replace(/\r/g, "").trim();
-            const cleanField = (value) => {
-              const normalized = normalize(value).replace(/\n+/g, " ").replace(/^`|`$/g, "").trim();
-              if (!normalized || /^_?no response_?$/i.test(normalized)) {
-                return "";
-              }
-              return normalized;
-            };
 
             const parseFormSections = (body) => {
               const sections = {};
@@ -77,13 +71,6 @@ jobs:
 
               return sections;
             };
-
-            const extractIds = (text) => {
-              const matches = normalize(text).toUpperCase().match(ID_REGEX) || [];
-              return new Set(matches);
-            };
-
-            const formatId = (number) => `SAFE-UC-${String(number).padStart(4, "0")}`;
 
             const listBotComment = async () => {
               const comments = await github.paginate(github.rest.issues.listComments, {
@@ -122,155 +109,132 @@ jobs:
               });
             };
 
-            const clearBotComment = async () => {
-              const existing = await listBotComment();
-              if (!existing) {
-                return;
-              }
-
-              await github.rest.issues.deleteComment({
-                owner,
-                repo,
-                comment_id: existing.id,
-              });
-            };
-
-            const ensureTitleHasId = async (safeId) => {
-              let nextTitle = issue.title || "";
-
-              if (/SAFE-UC-\d{4}/i.test(nextTitle)) {
-                nextTitle = nextTitle.replace(/SAFE-UC-\d{4}/i, safeId);
-              } else if (/SAFE-UC-____/i.test(nextTitle)) {
-                nextTitle = nextTitle.replace(/SAFE-UC-____/i, safeId);
-              } else if (/^\[Use Case\]/i.test(nextTitle)) {
-                const rest = nextTitle
-                  .replace(/^\[Use Case\]\s*/i, "")
-                  .replace(/^NEW\s*-\s*/i, "")
-                  .trim();
-                nextTitle = `[Use Case] ${safeId}${rest ? ` - ${rest}` : ""}`;
-              } else {
-                nextTitle = `[Use Case] ${safeId} - ${nextTitle}`.trim();
-              }
-
-              if (nextTitle !== issue.title) {
-                await github.rest.issues.update({
-                  owner,
-                  repo,
-                  issue_number: issueNumber,
-                  title: nextTitle,
-                });
-              }
-            };
+            // ── Parse dropdown value ────────────────────────────────
+            // Dropdown format: "SAFE-UC-XXXX — Title"
 
             const sections = parseFormSections(issue.body || "");
-            const requestType = cleanField(sections["Request type"]).toLowerCase();
-            const idField = cleanField(sections["SAFE Use Case ID"]);
-            const idInput = idField.toUpperCase();
+            const idField = normalize(sections["SAFE Use Case ID"]);
 
-            if (!requestType || !idField) {
-              core.info("Issue body is missing expected form fields; skipping.");
+            if (!idField) {
+              core.info("Issue body is missing SAFE Use Case ID field; skipping.");
               return;
             }
 
-            const registry = JSON.parse(fs.readFileSync(process.env.REGISTRY_FILE, "utf8"));
-            const registryIds = new Set(registry.map((entry) => String(entry.id).toUpperCase()));
-
-            const openUseCaseIssues = await github.paginate(github.rest.issues.listForRepo, {
-              owner,
-              repo,
-              state: "open",
-              labels: "use-case",
-              per_page: 100,
-            });
-
-            const otherIssueIds = new Set();
-            const idToIssues = new Map();
-
-            for (const openIssue of openUseCaseIssues) {
-              if (openIssue.number === issueNumber || openIssue.pull_request) {
-                continue;
-              }
-
-              const ids = extractIds(`${openIssue.title}\n${openIssue.body || ""}`);
-              for (const id of ids) {
-                otherIssueIds.add(id);
-                if (!idToIssues.has(id)) {
-                  idToIssues.set(id, []);
-                }
-                idToIssues.get(id).push(openIssue.number);
-              }
+            const idMatch = idField.match(ID_REGEX);
+            if (!idMatch) {
+              await upsertBotComment(
+                "Could not find a valid `SAFE-UC-XXXX` ID in the selected value."
+              );
+              return;
             }
 
-            if (requestType === REQUEST_TYPE_NEW) {
-              if (idInput !== "NEW") {
-                await upsertBotComment(
-                  "Please set **SAFE Use Case ID** to `new` when using **Propose new ID**."
-                );
-                return;
-              }
+            const claimedId = idMatch[0].toUpperCase();
 
-              const idsInCurrentIssue = extractIds(`${issue.title}\n${issue.body || ""}`);
-              const existingAssignedId = [...idsInCurrentIssue].find((id) => !registryIds.has(id));
+            // ── Validate ID exists in registry ──────────────────────
 
-              let assignedId = existingAssignedId;
-              if (!assignedId) {
-                const numericParts = [...registryIds, ...otherIssueIds].map((id) => Number(id.slice(-4)));
-                let next = Math.max(0, ...numericParts) + 1;
-                assignedId = formatId(next);
+            const registry = JSON.parse(
+              fs.readFileSync(process.env.REGISTRY_FILE, "utf8")
+            );
+            const entry = registry.find(
+              (e) => e.id.toUpperCase() === claimedId
+            );
 
-                while (registryIds.has(assignedId) || otherIssueIds.has(assignedId)) {
-                  next += 1;
-                  assignedId = formatId(next);
-                }
-              }
-
-              await ensureTitleHasId(assignedId);
+            if (!entry) {
               await upsertBotComment(
                 [
-                  `Assigned SAFE Use Case ID: \`${assignedId}\`.`,
+                  `\`${claimedId}\` is not in the current registry.`,
                   "",
-                  "Use this ID in:",
-                  `- \`use-cases/${assignedId}/README.md\``,
-                  "- `use-cases.naics2022.crosswalk.json`",
+                  "If this is a new workflow, use **[Propose New Use Case](../../issues/new?template=propose-new-use-case.yml)** instead.",
                 ].join("\n")
               );
               return;
             }
 
-            if (requestType === REQUEST_TYPE_EXISTING) {
-              if (!/^SAFE-UC-\d{4}$/.test(idInput)) {
-                await upsertBotComment(
-                  "For **Claim existing seed ID**, enter an ID in the exact format `SAFE-UC-XXXX`."
-                );
-                return;
-              }
-
-              if (!registryIds.has(idInput)) {
-                await upsertBotComment(
-                  [
-                    `\`${idInput}\` is not in the current registry.`,
-                    "If this is a net-new workflow, use **Propose new ID** and set **SAFE Use Case ID** to `new`.",
-                  ].join("\n")
-                );
-                return;
-              }
-
-              const conflictingIssues = idToIssues.get(idInput) || [];
-              if (conflictingIssues.length > 0) {
-                const refs = conflictingIssues.map((number) => `#${number}`).join(", ");
-                await upsertBotComment(
-                  [
-                    `Heads up: \`${idInput}\` is already referenced by open issue(s): ${refs}.`,
-                    "Coordinate in-thread to avoid duplicate work on the same ID.",
-                  ].join("\n")
-                );
-                return;
-              }
-
-              await clearBotComment();
+            if (entry.status !== "seed") {
+              await upsertBotComment(
+                `\`${claimedId}\` has status **${entry.status}** — only seeds can be claimed.`
+              );
               return;
             }
 
-            await upsertBotComment(
-              `Unrecognized **Request type** value: "${requestType}". Choose **Claim existing seed ID** or **Propose new ID**.`
+            // ── Check for conflicting claims ────────────────────────
+
+            const openIssues = await github.paginate(
+              github.rest.issues.listForRepo,
+              {
+                owner,
+                repo,
+                state: "open",
+                labels: "use-case",
+                per_page: 100,
+              }
             );
+
+            const conflicts = openIssues
+              .filter((i) => i.number !== issueNumber && !i.pull_request)
+              .filter((i) => {
+                const text = `${i.title}\n${i.body || ""}`.toUpperCase();
+                return text.includes(claimedId);
+              })
+              .map((i) => `#${i.number}`);
+
+            if (conflicts.length > 0) {
+              await upsertBotComment(
+                [
+                  `Heads up: \`${claimedId}\` is already referenced by open issue(s): ${conflicts.join(", ")}.`,
+                  "Coordinate in-thread to avoid duplicate work on the same ID.",
+                ].join("\n")
+              );
+              // Continue — don't block, just warn
+            }
+
+            // ── Update issue title with the claimed ID ──────────────
+
+            const title = entry.title;
+            const newTitle = `[Claim] ${claimedId} — ${title}`;
+
+            if (issue.title !== newTitle) {
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                title: newTitle,
+              });
+            }
+
+            // ── Assign issue to the claimant ────────────────────────
+
+            await github.rest.issues.addAssignees({
+              owner,
+              repo,
+              issue_number: issueNumber,
+              assignees: [author],
+            });
+
+            // ── Post or clear bot comment ───────────────────────────
+
+            if (conflicts.length === 0) {
+              const existing = await listBotComment();
+              if (existing) {
+                await github.rest.issues.deleteComment({
+                  owner,
+                  repo,
+                  comment_id: existing.id,
+                });
+              }
+
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                body: [
+                  BOT_MARKER,
+                  `Claimed **${claimedId}** — *${title}*.`,
+                  "",
+                  "Next steps:",
+                  `1. Create \`use-cases/${claimedId}/README.md\` using the [template](../../blob/main/templates/use-case-template.md)`,
+                  `2. Update \`use-cases.naics2022.crosswalk.json\``,
+                  `3. Open a PR referencing this issue (closes #${issueNumber})`,
+                ].join("\n"),
+              });
+            }
