@@ -81,10 +81,11 @@ jobs:
               repo: context.repo.repo,
               issue_number: issueNumber,
               body: [
-                `Assigned **${nextId}**.`,
+                `Thanks for the proposal! Assigned **${nextId}**.`,
                 '',
-                'A maintainer will review this proposal.',
-                'Once approved, a maintainer will comment `/accept` to scaffold the seed and create a PR.',
+                'A maintainer will review this shortly. Once approved, they will comment `/accept` — that triggers automation to scaffold the seed and open a PR assigned to you.',
+                '',
+                'Feel free to ask questions or refine the proposal in this thread while you wait.',
               ].join('\n'),
             });
 

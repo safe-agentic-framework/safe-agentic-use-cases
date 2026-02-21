@@ -1,6 +1,6 @@
 name: Claim Existing Seed
 description: Claim an existing seed use case to write the detailed analysis
-title: "[Claim] SAFE-UC-____ "
+title: "[Claim] "
 labels:
   - use-case
   - claim
@@ -8,20 +8,68 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Use this form to claim an existing seed** (Status = Seed in the table).
-        This prevents duplicate work — once claimed, other contributors know
-        someone is actively writing the analysis.
+        **Pick a seed from the table and tell us how you'd like to contribute.**
 
-        Browse available seeds: [README table](../../README.md#safe-use-case-id--naics-2022-crosswalk).
+        This form helps coordinate work so contributors don't duplicate effort.
+        If this seed already has an open claim, no worries — we welcome
+        collaboration! The existing contributor will be notified so you can
+        coordinate together.
 
-  - type: input
+  - type: dropdown
     id: use_case_id
     attributes:
       label: SAFE Use Case ID
       description: >
-        Copy the exact ID from the README table (e.g., SAFE-UC-0012).
-        Only IDs with Status = Seed are available for claiming.
-      placeholder: SAFE-UC-0012
+        Select the seed you want to work on. Only seeds (not drafts or published)
+        are listed. If your use case is not here, use
+        [Propose New Use Case](https://github.com/safe-agentic-framework/safe-agentic-use-cases/issues/new?template=propose-new-use-case.yml)
+        instead.
+      options:
+        - "SAFE-UC-0001 — AI-assisted seller listing creation"
+        - "SAFE-UC-0002 — Personalized shopping sidekick"
+        - "SAFE-UC-0003 — Buyer-seller messaging assistant"
+        - "SAFE-UC-0004 — Listing media enhancement assistant"
+        - "SAFE-UC-0005 — Visual search & image-based product discovery"
+        - "SAFE-UC-0006 — Fleet telematics & vehicle-health monitoring assistant"
+        - "SAFE-UC-0007 — Mobile fleet-maintenance dispatch & scheduling assistant"
+        - "SAFE-UC-0008 — Over-the-air vehicle software update orchestration"
+        - "SAFE-UC-0009 — Manufacturing line visual inspection assistant"
+        - "SAFE-UC-0010 — In-vehicle voice assistant for local controls"
+        - "SAFE-UC-0011 — Banking virtual assistant"
+        - "SAFE-UC-0012 — Interactive fraud alert & card controls assistant"
+        - "SAFE-UC-0013 — Virtual card number generation & checkout assistant"
+        - "SAFE-UC-0014 — Digital dispute/chargeback intake assistant"
+        - "SAFE-UC-0015 — AML suspicious-activity triage assistant"
+        - "SAFE-UC-0016 — IT service-desk virtual agent"
+        - "SAFE-UC-0017 — Service request triage assistant"
+        - "SAFE-UC-0019 — Post-incident review drafting assistant"
+        - "SAFE-UC-0020 — On-call incident context assistant"
+        - "SAFE-UC-0021 — Contact-center agent assist"
+        - "SAFE-UC-0022 — Security operations investigation assistant"
+        - "SAFE-UC-0023 — Cloud ops troubleshooting assistant"
+        - "SAFE-UC-0024 — Terminal-based outage assistant for SRE"
+        - "SAFE-UC-0025 — Enterprise agent-building platform"
+        - "SAFE-UC-0026 — At-scale content policy enforcement pipeline"
+        - "SAFE-UC-0027 — Anti-scam messaging safety assistant"
+        - "SAFE-UC-0028 — Fake-account & inauthentic behavior detection assistant"
+        - "SAFE-UC-0029 — Automated ad campaign optimization assistant"
+        - "SAFE-UC-0030 — Teen safety & age-assurance enforcement assistant"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: contribution_type
+    attributes:
+      label: How would you like to contribute?
+      description: >
+        Let us know what kind of contribution you have in mind.
+        All forms of contribution are valued — from a full write-up to
+        adding a single section.
+      options:
+        - "Write the full analysis (seed → draft)"
+        - "Co-author with an existing contributor"
+        - "Add specific sections (e.g., kill-chain, SAFE-MCP mapping)"
+        - "Review and provide feedback on an existing draft"
     validations:
       required: true
 
@@ -30,9 +78,9 @@ body:
     attributes:
       label: Write-up plan
       description: >
-        Outline how you will expand the seed into a full analysis. Which sections
-        of the template will you complete? Do you have evidence sources lined up?
-        Rough timeline? This helps maintainers prioritize review.
+        Share your plan for this use case. Which sections of the template
+        will you cover? Do you have evidence sources lined up? A rough
+        timeline helps maintainers prioritize review.
       placeholder: |
         Sections I plan to cover:
         - Workflow description with tool inventory and trust boundaries

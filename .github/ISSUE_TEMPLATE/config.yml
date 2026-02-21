@@ -1,11 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Existing ID? Open Draft PR
-    url: https://github.com/safe-agentic-framework/safe-agentic-use-cases/compare/main?expand=1
-    about: If you are using an existing SAFE-UC ID, create a Draft PR directly (issue optional).
-  - name: Claim or Propose a Use Case
-    url: https://github.com/safe-agentic-framework/safe-agentic-use-cases/issues/new?template=use-case-claim.yml
-    about: For new IDs, choose "Propose new ID" and set SAFE Use Case ID to "new".
   - name: Contribution Guide
     url: https://github.com/safe-agentic-framework/safe-agentic-use-cases/blob/main/CONTRIBUTING.md
     about: Read contribution, safety, and DSO requirements before opening issues.
