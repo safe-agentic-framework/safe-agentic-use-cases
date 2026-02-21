@@ -9,9 +9,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        **What happens when you submit this form:**
-        1. Automation assigns the next available `SAFE-UC-XXXX` ID and renames this issue.
-        2. A maintainer reviews your proposal and comments `/accept` when approved.
+        **Thanks for proposing a new use case!** Here's what happens next:
+        1. Automation assigns the next available `SAFE-UC-XXXX` ID and updates this issue.
+        2. A maintainer reviews your proposal and comments `/accept` when ready.
         3. A scaffold PR is created with the seed README, registry entry, and index row — assigned to you.
 
   - type: input
