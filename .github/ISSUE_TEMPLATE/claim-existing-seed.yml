@@ -8,16 +8,19 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Use this form to claim an existing seed** (Status = Seed in the table).
-        This prevents duplicate work — once claimed, other contributors know
-        someone is actively writing the analysis.
+        **Pick a seed from the table and tell us how you'd like to contribute.**
+
+        This form helps coordinate work so contributors don't duplicate effort.
+        If this seed already has an open claim, no worries — we welcome
+        collaboration! The existing contributor will be notified so you can
+        coordinate together.
 
   - type: dropdown
     id: use_case_id
     attributes:
       label: SAFE Use Case ID
       description: >
-        Select the seed you want to claim. Only seeds (not drafts or published)
+        Select the seed you want to work on. Only seeds (not drafts or published)
         are listed. If your use case is not here, use
         [Propose New Use Case](https://github.com/safe-agentic-framework/safe-agentic-use-cases/issues/new?template=propose-new-use-case.yml)
         instead.
@@ -54,14 +57,30 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: contribution_type
+    attributes:
+      label: How would you like to contribute?
+      description: >
+        Let us know what kind of contribution you have in mind.
+        All forms of contribution are valued — from a full write-up to
+        adding a single section.
+      options:
+        - "Write the full analysis (seed → draft)"
+        - "Co-author with an existing contributor"
+        - "Add specific sections (e.g., kill-chain, SAFE-MCP mapping)"
+        - "Review and provide feedback on an existing draft"
+    validations:
+      required: true
+
   - type: textarea
     id: plan
     attributes:
       label: Write-up plan
       description: >
-        Outline how you will expand the seed into a full analysis. Which sections
-        of the template will you complete? Do you have evidence sources lined up?
-        Rough timeline? This helps maintainers prioritize review.
+        Share your plan for this use case. Which sections of the template
+        will you cover? Do you have evidence sources lined up? A rough
+        timeline helps maintainers prioritize review.
       placeholder: |
         Sections I plan to cover:
         - Workflow description with tool inventory and trust boundaries

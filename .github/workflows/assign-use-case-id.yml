@@ -181,11 +181,13 @@ jobs:
             if (conflicts.length > 0) {
               await upsertBotComment(
                 [
-                  `Heads up: \`${claimedId}\` is already referenced by open issue(s): ${conflicts.join(", ")}.`,
-                  "Coordinate in-thread to avoid duplicate work on the same ID.",
+                  `Welcome! \`${claimedId}\` already has interest from ${conflicts.join(", ")}.`,
+                  "",
+                  "That's great — collaboration is encouraged. The existing contributor has been notified on their issue.",
+                  "Please coordinate in-thread to split the work or co-author the analysis.",
                 ].join("\n")
               );
-              // Continue — don't block, just warn
+              // Continue — don't block, just notify
             }
 
             // ── Update issue title with the claimed ID ──────────────
