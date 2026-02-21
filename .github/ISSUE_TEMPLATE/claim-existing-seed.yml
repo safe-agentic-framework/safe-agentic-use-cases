@@ -1,0 +1,59 @@
+name: Claim Existing Seed
+description: Claim an existing seed use case to write the detailed analysis
+title: "[Claim] SAFE-UC-____ "
+labels:
+  - use-case
+  - claim
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Use this form to claim an existing seed** (Status = Seed in the table).
+        This prevents duplicate work — once claimed, other contributors know
+        someone is actively writing the analysis.
+
+        Browse available seeds: [README table](../../README.md#safe-use-case-id--naics-2022-crosswalk).
+
+  - type: input
+    id: use_case_id
+    attributes:
+      label: SAFE Use Case ID
+      description: >
+        Copy the exact ID from the README table (e.g., SAFE-UC-0012).
+        Only IDs with Status = Seed are available for claiming.
+      placeholder: SAFE-UC-0012
+    validations:
+      required: true
+
+  - type: textarea
+    id: plan
+    attributes:
+      label: Write-up plan
+      description: >
+        Outline how you will expand the seed into a full analysis. Which sections
+        of the template will you complete? Do you have evidence sources lined up?
+        Rough timeline? This helps maintainers prioritize review.
+      placeholder: |
+        Sections I plan to cover:
+        - Workflow description with tool inventory and trust boundaries
+        - Kill-chain / failure analysis (at least 3 stages)
+        - SAFE-MCP technique mappings with concrete control recommendations
+
+        Evidence sources:
+        - <URL 1>
+        - <URL 2>
+
+        Timeline: ~2 weeks for draft PR
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      description: Both boxes are required before submitting.
+      options:
+        - label: I have read CONTRIBUTING.md safety and disclosure rules.
+          required: true
+        - label: I will not include sensitive information or exploit instructions.
+          required: true
