@@ -34,8 +34,6 @@ We seed a stable list of `SAFE-UC-XXXX` IDs (like [SAFE‑MCP](https://github.co
 2) Create the folder at the linked canonical location and write the README using the template
 3) Update the canonical registry (`use-cases.naics2022.crosswalk.json`) and open a PR
 
-> **Don't see your use case?** [Propose a new one][propose-new] — automation assigns the next `SAFE-UC-XXXX` ID and, once a maintainer accepts, scaffolds the seed and opens a PR for you.
-
 Safety rules (non-negotiable): **no sensitive info, no exploit instructions, grounded in public evidence** (see `CONTRIBUTING.md`).
 
 **How it works:**
@@ -107,7 +105,7 @@ Quick contributor workflow:
 | [SAFE-UC-0032](use-cases/SAFE-UC-0032/) | Agentic orchestration for marketplace embedded lending | [Finance and Insurance (52)][naics-52]<br>[Other Activities Related to Credit Intermediation (522390)][naics-522390]<br>[Electronic Shopping and Mail-Order Houses (454110)][naics-454110] | Draft |
 | [SAFE-UC-0033](use-cases/SAFE-UC-0033/) | Skill-driven web app regression testing assistant for pull requests | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
 
-> **Don't see your use case?** [Propose a new one](https://github.com/safe-agentic-framework/safe-agentic-use-cases/issues/new?template=propose-new-use-case.yml) — automation assigns the next ID, scaffolds the seed, and opens a PR for you.
+> **Don't see your use case?** [Propose a new one][propose-new] — automation assigns the next `SAFE-UC-XXXX` ID and, once a maintainer accepts, scaffolds the seed and opens a PR for you.
 
 ---
 
