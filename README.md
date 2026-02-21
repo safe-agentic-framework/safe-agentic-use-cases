@@ -34,14 +34,14 @@ We seed a stable list of `SAFE-UC-XXXX` IDs (like [SAFE‑MCP](https://github.co
 2) Create the folder at the linked canonical location and write the README using the template
 3) Update the canonical registry (`use-cases.naics2022.crosswalk.json`) and open a PR
 
-Safety rules (non-negotiable): **no sensitive info, no exploit instructions, grounded in public evidence** (see `CONTRIBUTING.md`).
+Every contribution must follow the safety rules in [`CONTRIBUTING.md`](CONTRIBUTING.md): **no sensitive info, no exploit instructions, grounded in public evidence**.
 
 **How it works:**
 
 | Step | What happens |
 |------|-------------|
 | 1. Open an issue | [Propose New Use Case][propose-new] or [Claim Existing Seed][claim-seed] |
-| 2. Automation assigns ID | Bot assigns the next available `SAFE-UC-XXXX` and updates the issue title |
+| 2. ID assigned | Automation assigns the next available `SAFE-UC-XXXX` and updates the issue title |
 | 3. Maintainer accepts | A maintainer reviews your proposal and comments `/accept` |
 | 4. PR created for you | After acceptance, automation scaffolds the seed (folder, README, registry entry, index row) and opens a PR assigned to you |
 | 5. Expand & merge | You expand the seed into a full analysis, ensure validation passes, and get DSO signoff |

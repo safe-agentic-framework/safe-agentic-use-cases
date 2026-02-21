@@ -123,7 +123,7 @@ jobs:
             const idMatch = idField.match(ID_REGEX);
             if (!idMatch) {
               await upsertBotComment(
-                "Could not find a valid `SAFE-UC-XXXX` ID in the selected value."
+                "Hmm, couldn't find a valid `SAFE-UC-XXXX` ID in the selected value. Could you re-submit with an option from the dropdown?"
               );
               return;
             }
@@ -142,9 +142,9 @@ jobs:
             if (!entry) {
               await upsertBotComment(
                 [
-                  `\`${claimedId}\` is not in the current registry.`,
+                  `\`${claimedId}\` doesn't appear in the registry yet.`,
                   "",
-                  "If this is a new workflow, use **[Propose New Use Case](../../issues/new?template=propose-new-use-case.yml)** instead.",
+                  "If this is a brand-new workflow, you can **[Propose New Use Case](../../issues/new?template=propose-new-use-case.yml)** — we'd love to add it!",
                 ].join("\n")
               );
               return;
@@ -152,7 +152,7 @@ jobs:
 
             if (entry.status !== "seed") {
               await upsertBotComment(
-                `\`${claimedId}\` has status **${entry.status}** — only seeds can be claimed.`
+                `\`${claimedId}\` is already at **${entry.status}** status. Claims are for seeds that haven't been written up yet — but you're welcome to open a PR to improve the existing analysis!`
               );
               return;
             }
@@ -231,12 +231,14 @@ jobs:
                 issue_number: issueNumber,
                 body: [
                   BOT_MARKER,
-                  `Claimed **${claimedId}** — *${title}*.`,
+                  `You're all set! **${claimedId}** — *${title}* is yours.`,
                   "",
-                  "Next steps:",
+                  "Here's how to get started:",
                   `1. Create \`use-cases/${claimedId}/README.md\` using the [template](../../blob/main/templates/use-case-template.md)`,
-                  `2. Update \`use-cases.naics2022.crosswalk.json\``,
-                  `3. Open a PR referencing this issue (closes #${issueNumber})`,
+                  `2. Update \`use-cases.naics2022.crosswalk.json\` with your entry`,
+                  `3. Open a PR referencing this issue (\`closes #${issueNumber}\`)`,
+                  "",
+                  "Feel free to ask questions in this thread — maintainers are happy to help.",
                 ].join("\n"),
               });
             }
