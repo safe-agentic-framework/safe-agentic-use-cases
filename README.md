@@ -30,17 +30,32 @@ Each detailed use case analysis connects the dots:
 
 We seed a stable list of `SAFE-UC-XXXX` IDs (like [SAFE‑MCP](https://github.com/safe-agentic-framework/safe-mcp)), then contributors “pick up” an ID and write the detailed analysis.
 
-1) Pick a use case ID below with **Status = Seed**  
-2) Create the folder at the linked canonical location and write the README using the template  
+1) Pick a use case ID below with **Status = Seed**
+2) Create the folder at the linked canonical location and write the README using the template
 3) Update the canonical registry (`use-cases.naics2022.crosswalk.json`) and open a PR
 
-Safety rules (non‑negotiable): **no sensitive info, no exploit instructions, grounded in public evidence** (see `CONTRIBUTING.md`).
+> **Don't see your use case?** [Propose a new one][propose-new] — automation assigns the next `SAFE-UC-XXXX` ID and, once a maintainer accepts, scaffolds the seed and opens a PR for you.
+
+Safety rules (non-negotiable): **no sensitive info, no exploit instructions, grounded in public evidence** (see `CONTRIBUTING.md`).
+
+**How it works:**
+
+| Step | What happens |
+|------|-------------|
+| 1. Open an issue | [Propose New Use Case][propose-new] or [Claim Existing Seed][claim-seed] |
+| 2. Automation assigns ID | Bot assigns the next available `SAFE-UC-XXXX` and updates the issue title |
+| 3. Maintainer accepts | A maintainer reviews your proposal and comments `/accept` |
+| 4. PR created for you | After acceptance, automation scaffolds the seed (folder, README, registry entry, index row) and opens a PR assigned to you |
+| 5. Expand & merge | You expand the seed into a full analysis, ensure validation passes, and get DSO signoff |
 
 Quick contributor workflow:
 - Read [`CONTRIBUTING.md`](CONTRIBUTING.md) (source of truth).
-- Propose a new use case via [Propose New Use Case](.github/ISSUE_TEMPLATE/propose-new-use-case.yml) or claim a seed via [Claim Existing Seed](.github/ISSUE_TEMPLATE/claim-existing-seed.yml).
+- [Propose New Use Case][propose-new] or [Claim Existing Seed][claim-seed].
 - Ensure PR check **`Registry and Docs Validation`** passes.
 - Get required DSO signoff before merge (details in `CONTRIBUTING.md`).
+
+[propose-new]: https://github.com/safe-agentic-framework/safe-agentic-use-cases/issues/new?template=propose-new-use-case.yml
+[claim-seed]: https://github.com/safe-agentic-framework/safe-agentic-use-cases/issues/new?template=claim-existing-seed.yml
 
 ---
 
