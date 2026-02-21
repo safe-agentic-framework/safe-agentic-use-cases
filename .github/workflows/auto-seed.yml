@@ -1,0 +1,311 @@
+name: Auto-seed Use Case
+
+on:
+  issues:
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  # ── Phase 1: Assign next SAFE-UC ID when a proposal issue is opened ───────
+  assign-id:
+    name: Assign use case ID
+    runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'issues' &&
+      contains(github.event.issue.labels.*.name, 'proposal')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Assign next ID and update issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = context.payload.issue.body;
+
+            // Parse a section from the GitHub issue form body
+            function parseSection(body, header) {
+              const escaped = header.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const regex = new RegExp(
+                `### ${escaped}\\s*\\n\\n([\\s\\S]*?)(?=\\n### |$)`
+              );
+              const match = body.match(regex);
+              return match ? match[1].trim() : '';
+            }
+
+            const title = parseSection(body, 'Use case title');
+            if (!title) {
+              core.setFailed('Could not parse use case title from issue body');
+              return;
+            }
+
+            // Read registry and compute next sequential ID
+            const registry = JSON.parse(
+              fs.readFileSync('use-cases.naics2022.crosswalk.json', 'utf8')
+            );
+            const highest = Math.max(
+              ...registry.map(e => parseInt(e.id.replace('SAFE-UC-', ''), 10))
+            );
+            const nextId = `SAFE-UC-${String(highest + 1).padStart(4, '0')}`;
+
+            const author = context.payload.issue.user.login;
+            const issueNumber = context.payload.issue.number;
+
+            // Update issue title with assigned ID
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              title: `[${nextId}] ${title}`,
+            });
+
+            // Assign issue to the proposer
+            await github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              assignees: [author],
+            });
+
+            // Post confirmation comment
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: [
+                `Assigned **${nextId}**.`,
+                '',
+                'A maintainer will review this proposal.',
+                'Once approved, a maintainer will comment `/accept` to scaffold the seed and create a PR.',
+              ].join('\n'),
+            });
+
+  # ── Phase 2: Scaffold seed + create PR when maintainer comments /accept ────
+  scaffold:
+    name: Scaffold seed PR
+    runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'issue_comment' &&
+      contains(github.event.comment.body, '/accept') &&
+      contains(github.event.issue.labels.*.name, 'proposal') &&
+      !contains(github.event.issue.labels.*.name, 'seeded')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify maintainer permission
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: perm } =
+              await github.rest.repos.getCollaboratorPermissionLevel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                username: context.payload.comment.user.login,
+              });
+            const allowed = ['admin', 'maintain', 'write'];
+            if (!allowed.includes(perm.permission)) {
+              core.setFailed(
+                `User ${context.payload.comment.user.login} does not have write access`
+              );
+            }
+
+      - name: Parse issue
+        id: parse
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body;
+            const issueTitle = context.payload.issue.title;
+
+            // Extract SAFE-UC-XXXX from issue title (assigned in Phase 1)
+            const idMatch = issueTitle.match(/\[(SAFE-UC-\d{4})\]/);
+            if (!idMatch) {
+              core.setFailed(
+                'No SAFE-UC ID found in issue title. Was Phase 1 (assign-id) run?'
+              );
+              return;
+            }
+
+            function parseSection(body, header) {
+              const escaped = header.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const regex = new RegExp(
+                `### ${escaped}\\s*\\n\\n([\\s\\S]*?)(?=\\n### |$)`
+              );
+              const match = body.match(regex);
+              return match ? match[1].trim() : '';
+            }
+
+            const title    = parseSection(body, 'Use case title');
+            const summary  = parseSection(body, 'Workflow summary');
+            const industry = parseSection(body, 'Industry');
+            const evidence = parseSection(body, 'Public evidence links');
+
+            if (!title || !summary || !industry || !evidence) {
+              core.setFailed('Missing required fields in issue body');
+              return;
+            }
+
+            // Map human-readable industry names → NAICS codes
+            const naicsMap = {
+              'Retail & E-Commerce':                { code: '44-45', name: 'Retail Trade' },
+              'Finance & Insurance':                { code: '52',    name: 'Finance and Insurance' },
+              'Healthcare':                         { code: '62',    name: 'Health Care and Social Assistance' },
+              'Manufacturing':                      { code: '31-33', name: 'Manufacturing' },
+              'Information & Software':             { code: '51',    name: 'Information' },
+              'Transportation & Logistics':         { code: '48-49', name: 'Transportation and Warehousing' },
+              'Professional & Technical Services':  { code: '54',    name: 'Professional, Scientific, and Technical Services' },
+              'Administrative & Support Services':  { code: '56',    name: 'Administrative and Support and Waste Management and Remediation Services' },
+              'Public Administration & Government': { code: '92',    name: 'Public Administration' },
+              'Education':                          { code: '61',    name: 'Educational Services' },
+              'Other':                              { code: '81',    name: 'Other Services (except Public Administration)' },
+            };
+
+            const naicsEntries = industry
+              .split(/[,\n]/)
+              .map(s => s.trim())
+              .filter(s => s.length > 0)
+              .map(ind => naicsMap[ind])
+              .filter(Boolean);
+
+            if (naicsEntries.length === 0) {
+              core.setFailed('No valid industry selections found');
+              return;
+            }
+
+            core.setOutput('safe_uc_id', idMatch[1]);
+            core.setOutput('title', title);
+            core.setOutput('summary', summary);
+            core.setOutput('naics_json', JSON.stringify(naicsEntries));
+            core.setOutput('evidence', evidence);
+            core.setOutput('author', context.payload.issue.user.login);
+
+      - name: Run scaffold
+        env:
+          SAFE_UC_ID: ${{ steps.parse.outputs.safe_uc_id }}
+          TITLE: ${{ steps.parse.outputs.title }}
+          SUMMARY: ${{ steps.parse.outputs.summary }}
+          NAICS_JSON: ${{ steps.parse.outputs.naics_json }}
+          EVIDENCE: ${{ steps.parse.outputs.evidence }}
+          AUTHOR: ${{ steps.parse.outputs.author }}
+        run: |
+          chmod +x scripts/scaffold-use-case.sh
+          ./scripts/scaffold-use-case.sh \
+            --id "$SAFE_UC_ID" \
+            --title "$TITLE" \
+            --summary "$SUMMARY" \
+            --naics "$NAICS_JSON" \
+            --evidence "$EVIDENCE" \
+            --author "$AUTHOR" \
+            --date "$(date +%Y-%m-%d)"
+
+      - name: Create branch, commit, and push
+        id: branch
+        env:
+          SAFE_UC_ID: ${{ steps.parse.outputs.safe_uc_id }}
+          TITLE: ${{ steps.parse.outputs.title }}
+        run: |
+          SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | tr -cs '[:alnum:]' '-' | sed 's/^-//;s/-$//' | head -c 50)
+          BRANCH="seed/$(echo "${SAFE_UC_ID}" | tr '[:upper:]' '[:lower:]')-${SLUG}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add -A
+          git commit -m "feat: seed ${SAFE_UC_ID} — ${TITLE}"
+          git push origin "$BRANCH"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Create PR and update issue
+        uses: actions/github-script@v7
+        env:
+          SAFE_UC_ID: ${{ steps.parse.outputs.safe_uc_id }}
+          TITLE: ${{ steps.parse.outputs.title }}
+          SUMMARY: ${{ steps.parse.outputs.summary }}
+          AUTHOR: ${{ steps.parse.outputs.author }}
+          BRANCH: ${{ steps.branch.outputs.branch }}
+        with:
+          script: |
+            const safeUcId = process.env.SAFE_UC_ID;
+            const title = process.env.TITLE;
+            const summary = process.env.SUMMARY;
+            const author = process.env.AUTHOR;
+            const branch = process.env.BRANCH;
+            const issueNumber = context.payload.issue.number;
+
+            // Create the pull request
+            const prBody = [
+              `## Summary`,
+              ``,
+              `Scaffolded seed for **${safeUcId}** \u2014 ${title}.`,
+              ``,
+              summary,
+              ``,
+              `Closes #${issueNumber}`,
+              ``,
+              `## Changes`,
+              ``,
+              `- \`use-cases/${safeUcId}/README.md\` \u2014 seed page`,
+              `- \`use-cases.naics2022.crosswalk.json\` \u2014 registry entry`,
+              `- \`README.md\` \u2014 index table row`,
+              ``,
+              `---`,
+              `Auto-generated by the [auto-seed workflow](../actions/workflows/auto-seed.yml)`,
+            ].join('\n');
+
+            const { data: pr } = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `feat: seed ${safeUcId} \u2014 ${title}`,
+              head: branch,
+              base: 'main',
+              body: prBody,
+            });
+
+            // Assign PR to the proposer
+            await github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              assignees: [author],
+            });
+
+            // Comment on the issue with PR link
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: [
+                `Scaffold PR created: ${pr.html_url}`,
+                ``,
+                `Review the PR and merge when ready.`,
+              ].join('\n'),
+            });
+
+            // Update labels: add seeded, remove triage
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              labels: ['seeded'],
+            });
+
+            try {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                name: 'triage',
+              });
+            } catch (e) {
+              // Label may not exist; ignore
+            }
