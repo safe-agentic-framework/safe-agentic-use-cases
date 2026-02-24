@@ -104,6 +104,7 @@ Quick contributor workflow:
 | [SAFE-UC-0030](use-cases/SAFE-UC-0030/) | Teen safety & age-assurance enforcement assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0032](use-cases/SAFE-UC-0032/) | Agentic orchestration for marketplace embedded lending | [Finance and Insurance (52)][naics-52]<br>[Other Activities Related to Credit Intermediation (522390)][naics-522390]<br>[Electronic Shopping and Mail-Order Houses (454110)][naics-454110] | Draft |
 | [SAFE-UC-0033](use-cases/SAFE-UC-0033/) | Skill-driven web app regression testing assistant for pull requests | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
+| [SAFE-UC-0034](use-cases/SAFE-UC-0034/) | Saved credit card payment flow | [Finance and Insurance (52)][naics-52]<br>[Financial Transactions Processing, Reserve, and Clearinghouse Activities (522320)][naics-522320] | Seed |
 
 > **Don't see your use case?** [Propose a new one][propose-new] — automation assigns the next `SAFE-UC-XXXX` ID and, once a maintainer accepts, scaffolds the seed and opens a PR for you.
 
@@ -123,3 +124,4 @@ Quick contributor workflow:
 [naics-513210]: https://www.census.gov/naics/?chart=2022&details=513210&input=513210
 [naics-522390]: https://www.census.gov/naics/?chart=2022&details=522390&input=522390
 [naics-454110]: https://www.census.gov/naics/?chart=2022&details=454110&input=454110
+[naics-522320]: https://www.census.gov/naics/?chart=2022&details=522320&input=522320

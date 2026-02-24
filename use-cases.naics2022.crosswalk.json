@@ -527,5 +527,22 @@
         "url": "https://playwright.dev/docs/intro"
       }
     ]
+  },
+  {
+    "id": "SAFE-UC-0034",
+    "title": "Saved credit card payment flow",
+    "status": "seed",
+    "repo_path": "use-cases/SAFE-UC-0034/README.md",
+    "naics_2022": [
+      {
+        "code": "52",
+        "name": "Finance and Insurance"
+      },
+      {
+        "code": "522320",
+        "name": "Financial Transactions Processing, Reserve, and Clearinghouse Activities"
+      }
+    ],
+    "summary": "Secure tokenized transaction processing, 3D Secure (SCA) enforcement, and protection against fraud and payment payload manipulation within e-commerce."
   }
 ]
