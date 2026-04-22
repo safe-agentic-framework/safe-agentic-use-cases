@@ -332,15 +332,80 @@
   {
     "id": "SAFE-UC-0024",
     "title": "Terminal-based outage assistant for SRE",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0024/README.md",
     "naics_2022": [
       {
         "code": "51",
         "name": "Information"
+      },
+      {
+        "code": "518",
+        "name": "Computing Infrastructure Providers, Data Processing, Web Hosting, and Related Services"
+      },
+      {
+        "code": "5415",
+        "name": "Computer Systems Design and Related Services"
       }
     ],
-    "summary": "CLI/terminal assistant for SREs during outages that helps run safe diagnostics without executing unsafe commands autonomously."
+    "summary": "CLI/terminal AI assistant for SREs and on-call responders during incidents — reads logs, proposes diagnostic commands, and in higher-autonomy modes executes commands against production infrastructure. Primary risk is privileged tool invocation with production blast radius.",
+    "workflow_family": "Site reliability & incident response",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "sre",
+      "terminal",
+      "cli-agent",
+      "incident-response",
+      "shell-execution",
+      "privileged-tools"
+    ],
+    "evidence": [
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      },
+      {
+        "label": "NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile (July 2024)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+      },
+      {
+        "label": "NIST SP 800-53 Rev 5 — Security and Privacy Controls for Information Systems and Organizations",
+        "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      },
+      {
+        "label": "Anthropic — Claude Code: Configure permissions",
+        "url": "https://code.claude.com/docs/en/permissions"
+      },
+      {
+        "label": "OpenAI — Codex CLI: Sandbox concepts",
+        "url": "https://developers.openai.com/codex/concepts/sandboxing"
+      },
+      {
+        "label": "Warp — Terminal and Agent modes",
+        "url": "https://docs.warp.dev/agent-platform/warp-agents/interacting-with-agents/terminal-and-agent-modes"
+      },
+      {
+        "label": "Replit — Introducing Plan Mode: A safer way to vibe code (September 2025)",
+        "url": "https://blog.replit.com/introducing-plan-mode-a-safer-way-to-vibe-code"
+      },
+      {
+        "label": "Fortune — AI-powered coding tool wiped out a software company's database (July 2025)",
+        "url": "https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/"
+      },
+      {
+        "label": "AWS Security Bulletin AWS-2025-019 — Amazon Q Developer and Kiro prompt injection (October 2025)",
+        "url": "https://aws.amazon.com/security/security-bulletins/AWS-2025-019/"
+      },
+      {
+        "label": "Invariant Labs — MCP Security Notification: Tool Poisoning Attacks (April 2025)",
+        "url": "https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0025",
