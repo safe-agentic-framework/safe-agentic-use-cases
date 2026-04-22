@@ -82,7 +82,7 @@ Quick contributor workflow:
 | [SAFE-UC-0008](use-cases/SAFE-UC-0008/) | Over-the-air vehicle software update orchestration | [Manufacturing (31–33)][naics-31-33] | Seed |
 | [SAFE-UC-0009](use-cases/SAFE-UC-0009/) | Manufacturing line visual inspection assistant | [Manufacturing (31–33)][naics-31-33] | Seed |
 | [SAFE-UC-0010](use-cases/SAFE-UC-0010/) | In-vehicle voice assistant for local controls | [Manufacturing (31–33)][naics-31-33] | Seed |
-| [SAFE-UC-0011](use-cases/SAFE-UC-0011/) | Banking virtual assistant | [Finance and Insurance (52)][naics-52] | Seed |
+| [SAFE-UC-0011](use-cases/SAFE-UC-0011/) | Banking virtual assistant | [Finance and Insurance (52)][naics-52] | Draft |
 | [SAFE-UC-0012](use-cases/SAFE-UC-0012/) | Interactive fraud alert & card controls assistant | [Finance and Insurance (52)][naics-52] | Seed |
 | [SAFE-UC-0013](use-cases/SAFE-UC-0013/) | Virtual card number generation & checkout assistant | [Finance and Insurance (52)][naics-52] | Seed |
 | [SAFE-UC-0014](use-cases/SAFE-UC-0014/) | Digital dispute/chargeback intake assistant | [Finance and Insurance (52)][naics-52] | Seed |
