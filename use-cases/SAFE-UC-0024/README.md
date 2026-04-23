@@ -23,7 +23,7 @@
 | **SAFE Use Case ID** | `SAFE-UC-0024`                                                   |
 | **Status**           | `draft`                                                          |
 | **Maturity**         | draft                                                            |
-| **NAICS 2022**       | `51` (Information), `518` (Computing Infrastructure Providers, Data Processing, Web Hosting, and Related Services), `5415` (Computer Systems Design and Related Services) |
+| **NAICS 2022**       | `51` (Information), `5182` (Computing Infrastructure Providers and Data Processing Services), `5415` (Computer Systems Design and Related Services) |
 | **Last updated**     | `2026-04-22`                                                     |
 
 ### Evidence (public links)
@@ -67,7 +67,7 @@ A **terminal-based outage assistant** is an AI agent that runs inside (or alongs
 * interpret tool output, iterate on hypotheses, and either converge on a fix or summarize what it found
 * in higher-autonomy deployments: apply fixes directly (edit config, restart services, revert commits, scale resources)
 
-Industry instances of this pattern include Claude Code, Cursor's agent mode, Warp's agent mode, OpenAI's Codex CLI, Google's Gemini CLI, GitHub's Copilot CLI, Amazon Q Developer CLI (being rebranded to Kiro CLI), and open-source agents such as k8sgpt, aider, Continue CLI, and shell-gpt. Adjacent-but-different products — PagerDuty's AI SRE agents and incident.io's Slack-based AI assistants — share the same failure surface even when they are not terminal-native.
+Industry instances of this pattern include Claude Code, Cursor's agent mode, Warp's agent mode, OpenAI's Codex CLI, Google's Gemini CLI, GitHub's Copilot CLI, AWS's Amazon Q Developer CLI and Kiro CLI, and open-source agents such as k8sgpt, aider, Continue CLI, and shell-gpt. Adjacent-but-different products — PagerDuty's AI SRE agents and incident.io's Slack-based AI assistants — share the same failure surface even when they are not terminal-native.
 
 **Why it matters (business value)**  
 Production incidents are expensive, high-stakes, and time-pressured. A well-configured terminal assistant can reduce mean-time-to-resolution (MTTR) by:
@@ -80,7 +80,7 @@ Production incidents are expensive, high-stakes, and time-pressured. A well-conf
 **Why it's risky / what can go wrong**  
 Unlike read-only summarization, this workflow's defining risk is that the agent often holds (or can obtain) privileged shell access to production. A mistaken, manipulated, or hallucinated command can:
 
-* **Destroy production state** — dropped databases, deleted namespaces, wiped volumes, force-pushed branches. Widely-reported 2025 incidents include an AI coding agent deleting a production database during a code freeze (Fortune, July 2025) and public Claude Code bug reports describing unexpected `rm -rf` against project and home directories.
+* **Destroy production state** — dropped databases, deleted namespaces, wiped volumes, force-pushed branches. Widely-reported 2025 coverage includes an AI coding agent deleting a production database during a code freeze (Fortune, July 2025), and public reporting has described unexpected `rm -rf` behavior from terminal-agent tools against project and home directories.
 * **Leak credentials and secrets** — log reads and diagnostic commands (`env`, `cat ~/.aws/credentials`, `cat ~/.ssh/id_rsa`) that look like normal triage can exfiltrate secrets when the context is contaminated.
 * **Execute attacker-supplied instructions** — log lines, error messages, tool output, and MCP server descriptions are untrusted content. AWS issued a security bulletin (AWS-2025-019, October 2025) for prompt injection in the Amazon Q / Kiro IDE plugins, and Invariant Labs has publicly demonstrated tool poisoning in MCP ecosystems.
 * **Propagate across infrastructure** — a single compromised command can pivot from one host to an entire fleet via SSH, cluster access, or cloud API credentials.
@@ -298,7 +298,7 @@ The agent runs commands that match an allow-list of safe patterns (read-only kub
 
 ### 5.5 Fully autonomous (strongly gated in production)
 
-The agent runs arbitrary commands without per-call approval — typically inside a sandbox, dev container, or ephemeral VM. Anthropic's own engineering blog on Claude Code's auto mode frames this mode as the *unsafe* baseline that needed a classifier-gated replacement.
+The agent runs arbitrary commands without per-call approval — typically inside a sandbox, dev container, or ephemeral VM. Anthropic's engineering blog on Claude Code's auto mode frames unconfigured permission-skipping as the baseline that a classifier-gated "auto mode" was designed to replace.
 
 **Risk profile:** highest — suitable for isolated development or sandboxed CI environments; rarely appropriate against production with live credentials.
 
@@ -558,7 +558,7 @@ Industry practitioners commonly cross-reference the following catalogs and frame
 * [Google — Sandboxing in the Gemini CLI](https://google-gemini.github.io/gemini-cli/docs/cli/sandbox.html)
 * [Warp — Terminal and Agent modes](https://docs.warp.dev/agent-platform/warp-agents/interacting-with-agents/terminal-and-agent-modes)
 * [GitHub — Responsible use of GitHub Copilot CLI](https://docs.github.com/en/copilot/responsible-use/copilot-cli)
-* [AWS — Using Amazon Q Developer on the command line (Q CLI, being rebranded to Kiro CLI)](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html)
+* [AWS — Using Amazon Q Developer on the command line](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html)
 * [Replit — "Introducing Plan Mode: A safer way to vibe code" (September 2025)](https://blog.replit.com/introducing-plan-mode-a-safer-way-to-vibe-code)
 
 **Enterprise safeguards and operating patterns**
@@ -582,4 +582,4 @@ Industry practitioners commonly cross-reference the following catalogs and frame
 
 | Version | Date       | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                           | Author                  |
 | ------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| 1.0     | 2026-04-22 | Initial draft authored from seed. Covers the write-capable SRE terminal-agent workflow distinctly from read-only summarization (SAFE-UC-0018). Six-stage kill chain with a dedicated "privileged command execution" stage. SAFE‑MCP mapping covers 14 techniques across six stages (prompt injection, tool poisoning, line jumping, response tampering, consent-fatigue, credential access, privilege escalation, data destruction, covert exfiltration). Evidence set covers OWASP LLM06, NIST AI 600-1, NIST SP 800-53 Rev 5, vendor approval-gating docs from Anthropic / OpenAI / Warp / Replit, and public incidents (Fortune on Replit July 2025, AWS-2025-019, Invariant Labs tool poisoning). Appendix B groups SAFE‑MCP anchors, industry frameworks, public incidents, vendor product patterns, and enterprise safeguards. | SAFE‑AUCA community     |
+| 1.0     | 2026-04-22 | Initial draft authored from seed. Covers the write-capable SRE terminal-agent workflow distinctly from read-only summarization (SAFE-UC-0018). Six-stage kill chain with a dedicated "privileged command execution" stage. SAFE‑MCP mapping covers 16 techniques across six stages (prompt injection, tool poisoning, line jumping, response tampering, consent-fatigue, credential access, privilege escalation, data destruction, covert exfiltration). Evidence set covers OWASP LLM06, NIST AI 600-1, NIST SP 800-53 Rev 5, vendor approval-gating docs from Anthropic / OpenAI / Warp / Replit, and public incidents (Fortune on Replit July 2025, AWS-2025-019, Invariant Labs tool poisoning). Appendix B groups SAFE‑MCP anchors, industry frameworks, public incidents, vendor product patterns, and enterprise safeguards. | SAFE‑AUCA community     |
