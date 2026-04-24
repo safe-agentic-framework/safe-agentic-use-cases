@@ -95,7 +95,7 @@ Quick contributor workflow:
 | [SAFE-UC-0021](use-cases/SAFE-UC-0021/) | Contact-center agent assist | [Administrative and Support and Waste Management and Remediation Services (56)][naics-56]<br>[Telemarketing Bureaus and Other Contact Centers (561422)][naics-561422] | Draft |
 | [SAFE-UC-0022](use-cases/SAFE-UC-0022/) | Security operations investigation assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Seed |
 | [SAFE-UC-0023](use-cases/SAFE-UC-0023/) | Cloud ops troubleshooting assistant | [Information (51)][naics-51] | Seed |
-| [SAFE-UC-0024](use-cases/SAFE-UC-0024/) | Terminal-based outage assistant for SRE | [Information (51)][naics-51] | Seed |
+| [SAFE-UC-0024](use-cases/SAFE-UC-0024/) | Terminal-based outage assistant for SRE | [Information (51)][naics-51] | Draft |
 | [SAFE-UC-0025](use-cases/SAFE-UC-0025/) | Enterprise agent-building platform | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0026](use-cases/SAFE-UC-0026/) | At-scale content policy enforcement pipeline | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0027](use-cases/SAFE-UC-0027/) | Anti-scam messaging safety assistant | [Information (51)][naics-51] | Seed |
