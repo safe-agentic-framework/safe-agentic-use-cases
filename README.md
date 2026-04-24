@@ -92,7 +92,7 @@ Quick contributor workflow:
 | [SAFE-UC-0018](use-cases/SAFE-UC-0018/) | Work-item summarization assistant (thread + context summaries) | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
 | [SAFE-UC-0019](use-cases/SAFE-UC-0019/) | Post-incident review drafting assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0020](use-cases/SAFE-UC-0020/) | On-call incident context assistant | [Information (51)][naics-51] | Seed |
-| [SAFE-UC-0021](use-cases/SAFE-UC-0021/) | Contact-center agent assist | [Administrative and Support and Waste Management and Remediation Services (56)][naics-56] | Seed |
+| [SAFE-UC-0021](use-cases/SAFE-UC-0021/) | Contact-center agent assist | [Administrative and Support and Waste Management and Remediation Services (56)][naics-56]<br>[Telemarketing Bureaus and Other Contact Centers (561422)][naics-561422] | Draft |
 | [SAFE-UC-0022](use-cases/SAFE-UC-0022/) | Security operations investigation assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Seed |
 | [SAFE-UC-0023](use-cases/SAFE-UC-0023/) | Cloud ops troubleshooting assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0024](use-cases/SAFE-UC-0024/) | Terminal-based outage assistant for SRE | [Information (51)][naics-51] | Seed |
@@ -125,3 +125,4 @@ Quick contributor workflow:
 [naics-522390]: https://www.census.gov/naics/?chart=2022&details=522390&input=522390
 [naics-454110]: https://www.census.gov/naics/?chart=2022&details=454110&input=454110
 [naics-522320]: https://www.census.gov/naics/?chart=2022&details=522320&input=522320
+[naics-561422]: https://www.census.gov/naics/?chart=2022&details=561422&input=561422

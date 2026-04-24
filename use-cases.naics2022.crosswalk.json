@@ -293,15 +293,87 @@
   {
     "id": "SAFE-UC-0021",
     "title": "Contact-center agent assist",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0021/README.md",
     "naics_2022": [
       {
         "code": "56",
         "name": "Administrative and Support and Waste Management and Remediation Services"
+      },
+      {
+        "code": "561422",
+        "name": "Telemarketing Bureaus and Other Contact Centers"
       }
     ],
-    "summary": "Real-time agent-assist for contact-center reps (suggested replies, knowledge retrieval, disposition) with compliance controls."
+    "summary": "Real-time AI assistance for human contact-center representatives during live voice and chat interactions: transcription, KB retrieval, whisper-style suggestions, wrap-up summaries, and disposition write-back, with compliance controls spanning TCPA, Reg E/Z/DD, HIPAA, PCI, and state biometric / recording-consent laws.",
+    "workflow_family": "Contact-center operations & real-time agent assist",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "contact-center",
+      "agent-assist",
+      "real-time",
+      "asr",
+      "voice",
+      "rag",
+      "crm",
+      "regulated-disclosure",
+      "tcpa",
+      "fcc-24-17",
+      "reg-e",
+      "hipaa",
+      "pci-dss",
+      "udaap",
+      "cfpb",
+      "multi-tenant",
+      "bpo"
+    ],
+    "evidence": [
+      {
+        "label": "CFPB Issue Spotlight \u2014 Chatbots in Consumer Finance (June 2023)",
+        "url": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-issue-spotlight-analyzes-artificial-intelligence-chatbots-in-banking/"
+      },
+      {
+        "label": "CFPB Consumer Financial Protection Circular 2023-03 \u2014 Adverse action notification requirements and AI-generated decisions (Sept 2023)",
+        "url": "https://www.consumerfinance.gov/compliance/circulars/circular-2023-03-adverse-action-notification-requirements-and-the-proper-use-of-the-cfpbs-sample-forms-provided-in-regulation-b/"
+      },
+      {
+        "label": "FTC Operation AI Comply \u2014 Press release on five enforcement actions (Sept 25, 2024)",
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes"
+      },
+      {
+        "label": "FCC Declaratory Ruling FCC-24-17 \u2014 TCPA applies to AI-generated voices (Feb 8, 2024)",
+        "url": "https://www.fcc.gov/document/fcc-confirms-tcpa-applies-ai-technologies-generate-human-voices"
+      },
+      {
+        "label": "NIST AI 600-1 \u2014 Artificial Intelligence Risk Management Framework: Generative AI Profile (July 26, 2024)",
+        "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+      },
+      {
+        "label": "OWASP LLM01:2025 \u2014 Prompt Injection (OWASP Gen AI Security Project, 2025)",
+        "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+      },
+      {
+        "label": "EU AI Act \u2014 Article 50 transparency obligations for AI interacting with natural persons",
+        "url": "https://artificialintelligenceact.eu/article/50/"
+      },
+      {
+        "label": "ABA Business Law Today \u2014 BC Tribunal confirms companies remain liable for information provided by AI chatbot (Moffatt v Air Canada, Feb 2024)",
+        "url": "https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/"
+      },
+      {
+        "label": "The Markup \u2014 NYC's AI chatbot tells businesses to break the law (March 29, 2024)",
+        "url": "https://themarkup.org/news/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law"
+      },
+      {
+        "label": "Google Cloud \u2014 Agent Assist (real-time suggestions, transcription, post-call summary)",
+        "url": "https://cloud.google.com/agent-assist"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0022",
@@ -439,7 +511,7 @@
         "name": "Electronic Shopping and Mail-Order Houses"
       }
     ],
-    "summary": "Safe agentic orchestration of multi-party embedded lending pipelines — merchant data feeds to external lenders, offer curation with fair-lending constraints, and revenue-coupled repayment — addressing cross-organizational trust boundaries, regulatory compliance automation, and novel financial harm categories unique to platform-mediated lending.",
+    "summary": "Safe agentic orchestration of multi-party embedded lending pipelines \u2014 merchant data feeds to external lenders, offer curation with fair-lending constraints, and revenue-coupled repayment \u2014 addressing cross-organizational trust boundaries, regulatory compliance automation, and novel financial harm categories unique to platform-mediated lending.",
     "workflow_family": "Financial services & embedded lending",
     "operating_modes": [
       "manual",
@@ -458,19 +530,19 @@
     ],
     "evidence": [
       {
-        "label": "CFPB — Innovation Spotlight: Marketplace Lending",
+        "label": "CFPB \u2014 Innovation Spotlight: Marketplace Lending",
         "url": "https://www.consumerfinance.gov/data-research/research-reports/innovation-spotlight-marketplace-lending/"
       },
       {
-        "label": "OCC — Third-Party Relationships: Risk Management Guidance (2023)",
+        "label": "OCC \u2014 Third-Party Relationships: Risk Management Guidance (2023)",
         "url": "https://www.occ.gov/news-issuances/bulletins/2023/bulletin-2023-17.html"
       },
       {
-        "label": "Bain & Company — Embedded Finance: $7 Trillion Opportunity",
+        "label": "Bain & Company \u2014 Embedded Finance: $7 Trillion Opportunity",
         "url": "https://www.bain.com/insights/embedded-finance/"
       },
       {
-        "label": "CFPB — Fair Lending and ECOA Compliance",
+        "label": "CFPB \u2014 Fair Lending and ECOA Compliance",
         "url": "https://www.consumerfinance.gov/compliance/supervisory-highlights/fair-lending/"
       }
     ]
