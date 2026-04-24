@@ -93,15 +93,88 @@
   {
     "id": "SAFE-UC-0008",
     "title": "Over-the-air vehicle software update orchestration",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0008/README.md",
     "naics_2022": [
       {
         "code": "31-33",
         "name": "Manufacturing"
+      },
+      {
+        "code": "3361",
+        "name": "Motor Vehicle Manufacturing"
+      },
+      {
+        "code": "3363",
+        "name": "Motor Vehicle Parts Manufacturing"
+      },
+      {
+        "code": "5415",
+        "name": "Computer Systems Design and Related Services"
       }
     ],
-    "summary": "Plan, stage, and monitor OTA software rollouts across vehicle fleets with safe gating, rollback, and audit trails."
+    "summary": "AI-assisted orchestration of over-the-air software updates across vehicle fleets — plan, stage, deliver, monitor, and adjudicate rollouts with safety gates, rollback, and audit trails. Cyber-physical and safety-critical: a wrong action can affect braking, steering, ADAS, or HV battery management across hundreds of thousands of vehicles.",
+    "workflow_family": "Cyber-physical fleet software operations",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "ota",
+      "vehicle",
+      "cyber-physical",
+      "safety-critical",
+      "supply-chain",
+      "uptane",
+      "un-r155",
+      "un-r156",
+      "iso-21434",
+      "iso-26262"
+    ],
+    "evidence": [
+      {
+        "label": "UN Regulation No. 156 — Software update and software update management system (UNECE WP.29)",
+        "url": "https://unece.org/sites/default/files/2024-03/R156e%20(2).pdf"
+      },
+      {
+        "label": "UN Regulation No. 155 — Cyber security and cyber security management system (UNECE WP.29)",
+        "url": "https://unece.org/sites/default/files/2023-02/R155e%20(2).pdf"
+      },
+      {
+        "label": "ISO 24089:2023 — Road vehicles — Software update engineering",
+        "url": "https://www.iso.org/standard/77796.html"
+      },
+      {
+        "label": "NHTSA — Cybersecurity Best Practices for the Safety of Modern Vehicles (September 2022)",
+        "url": "https://www.nhtsa.gov/document/cybersecurity-best-practices-safety-modern-vehicles-2022"
+      },
+      {
+        "label": "Uptane — A secure software update framework for ground vehicles",
+        "url": "https://uptane.org/"
+      },
+      {
+        "label": "NHTSA Safety Recall 23V-838 — Tesla, ~2 million vehicles, Autopilot OTA remedy",
+        "url": "https://static.nhtsa.gov/odi/rcl/2023/RCLRPT-23V838-8276.PDF"
+      },
+      {
+        "label": "TechCrunch — A software update bricked Rivian infotainment systems (November 2023)",
+        "url": "https://techcrunch.com/2023/11/14/a-software-update-bricked-rivian-infotainment-systems/"
+      },
+      {
+        "label": "Miller & Valasek — Remote Exploitation of an Unaltered Passenger Vehicle (Jeep Cherokee, 2015)",
+        "url": "https://illmatics.com/Remote%20Car%20Hacking.pdf"
+      },
+      {
+        "label": "Upstream Security — 2025 Global Automotive Cybersecurity Report",
+        "url": "https://upstream.auto/reports/global-automotive-cybersecurity-report-2025/"
+      },
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0009",
