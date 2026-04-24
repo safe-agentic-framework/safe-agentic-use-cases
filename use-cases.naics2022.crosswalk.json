@@ -132,15 +132,84 @@
   {
     "id": "SAFE-UC-0011",
     "title": "Banking virtual assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0011/README.md",
     "naics_2022": [
       {
         "code": "52",
         "name": "Finance and Insurance"
+      },
+      {
+        "code": "522",
+        "name": "Credit Intermediation and Related Activities"
+      },
+      {
+        "code": "5221",
+        "name": "Depository Credit Intermediation"
+      },
+      {
+        "code": "5222",
+        "name": "Nondepository Credit Intermediation"
       }
     ],
-    "summary": "Banking assistant for account info, troubleshooting, and guided actions with strong authentication and disclosure controls."
+    "summary": "Consumer-facing conversational AI deployed by banks, credit unions, neobanks, and fintechs for account queries, transfers, card controls, disputes, and guided product discovery. Primary risks: customer impersonation and social engineering, regulated-data disclosure, unauthorized action authorization, step-up authentication bypass, and hallucinated disclosures or advice.",
+    "workflow_family": "Consumer-facing financial services",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "banking",
+      "consumer-facing",
+      "conversational-ai",
+      "step-up-auth",
+      "regulated-disclosure",
+      "social-engineering"
+    ],
+    "evidence": [
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      },
+      {
+        "label": "NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile (July 2024)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+      },
+      {
+        "label": "CFPB — Chatbots in consumer finance Issue Spotlight (June 2023)",
+        "url": "https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/"
+      },
+      {
+        "label": "FFIEC — IT Examination Handbook: Information Security booklet",
+        "url": "https://ithandbook.ffiec.gov/it-booklets/information-security/"
+      },
+      {
+        "label": "NIST SP 800-63B — Digital Identity Guidelines: Authentication and Lifecycle Management",
+        "url": "https://pages.nist.gov/800-63-3/sp800-63b.html"
+      },
+      {
+        "label": "FTC — Safeguards Rule: What Your Business Needs to Know (GLBA, 16 CFR Part 314)",
+        "url": "https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know"
+      },
+      {
+        "label": "CFPB — Regulation E (Electronic Fund Transfer Act, 12 CFR 1005)",
+        "url": "https://www.consumerfinance.gov/rules-policy/regulations/1005/"
+      },
+      {
+        "label": "Bank of America — BofA's Erica Surpasses 2 Billion Interactions (April 2024)",
+        "url": "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2024/04/bofa-s-erica-surpasses-2-billion-interactions--helping-42-millio.html"
+      },
+      {
+        "label": "Klarna — AI assistant handles two-thirds of customer service chats in its first month (February 2024)",
+        "url": "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"
+      },
+      {
+        "label": "BBC Travel — Airline held liable for its chatbot giving passenger bad advice (Air Canada Civil Resolution Tribunal ruling, February 2024)",
+        "url": "https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0012",
