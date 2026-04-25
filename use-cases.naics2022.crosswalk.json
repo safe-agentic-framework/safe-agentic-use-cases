@@ -114,7 +114,7 @@
         "name": "Computer Systems Design and Related Services"
       }
     ],
-    "summary": "AI-assisted orchestration of over-the-air software updates across vehicle fleets — plan, stage, deliver, monitor, and adjudicate rollouts with safety gates, rollback, and audit trails. Cyber-physical and safety-critical: a wrong action can affect braking, steering, ADAS, or HV battery management across hundreds of thousands of vehicles.",
+    "summary": "AI-assisted orchestration of over-the-air software updates across vehicle fleets \u2014 plan, stage, deliver, monitor, and adjudicate rollouts with safety gates, rollback, and audit trails. Cyber-physical and safety-critical: a wrong action can affect braking, steering, ADAS, or HV battery management across hundreds of thousands of vehicles.",
     "workflow_family": "Cyber-physical fleet software operations",
     "operating_modes": [
       "manual",
@@ -135,39 +135,39 @@
     ],
     "evidence": [
       {
-        "label": "UN Regulation No. 156 — Software update and software update management system (UNECE WP.29)",
+        "label": "UN Regulation No. 156 \u2014 Software update and software update management system (UNECE WP.29)",
         "url": "https://unece.org/sites/default/files/2024-03/R156e%20(2).pdf"
       },
       {
-        "label": "UN Regulation No. 155 — Cyber security and cyber security management system (UNECE WP.29)",
+        "label": "UN Regulation No. 155 \u2014 Cyber security and cyber security management system (UNECE WP.29)",
         "url": "https://unece.org/sites/default/files/2023-02/R155e%20(2).pdf"
       },
       {
-        "label": "ISO 24089:2023 — Road vehicles — Software update engineering",
+        "label": "ISO 24089:2023 \u2014 Road vehicles \u2014 Software update engineering",
         "url": "https://www.iso.org/standard/77796.html"
       },
       {
-        "label": "NHTSA — Cybersecurity Best Practices for the Safety of Modern Vehicles (September 2022)",
+        "label": "NHTSA \u2014 Cybersecurity Best Practices for the Safety of Modern Vehicles (September 2022)",
         "url": "https://www.nhtsa.gov/document/cybersecurity-best-practices-safety-modern-vehicles-2022"
       },
       {
-        "label": "Uptane — A secure software update framework for ground vehicles",
+        "label": "Uptane \u2014 A secure software update framework for ground vehicles",
         "url": "https://uptane.org/"
       },
       {
-        "label": "NHTSA Safety Recall 23V-838 — Tesla, ~2 million vehicles, Autopilot OTA remedy",
+        "label": "NHTSA Safety Recall 23V-838 \u2014 Tesla, ~2 million vehicles, Autopilot OTA remedy",
         "url": "https://static.nhtsa.gov/odi/rcl/2023/RCLRPT-23V838-8276.PDF"
       },
       {
-        "label": "TechCrunch — A software update bricked Rivian infotainment systems (November 2023)",
+        "label": "TechCrunch \u2014 A software update bricked Rivian infotainment systems (November 2023)",
         "url": "https://techcrunch.com/2023/11/14/a-software-update-bricked-rivian-infotainment-systems/"
       },
       {
-        "label": "Miller & Valasek — Remote Exploitation of an Unaltered Passenger Vehicle (Jeep Cherokee, 2015)",
+        "label": "Miller & Valasek \u2014 Remote Exploitation of an Unaltered Passenger Vehicle (Jeep Cherokee, 2015)",
         "url": "https://illmatics.com/Remote%20Car%20Hacking.pdf"
       },
       {
-        "label": "Upstream Security — 2025 Global Automotive Cybersecurity Report",
+        "label": "Upstream Security \u2014 2025 Global Automotive Cybersecurity Report",
         "url": "https://upstream.auto/reports/global-automotive-cybersecurity-report-2025/"
       },
       {
@@ -247,39 +247,39 @@
         "url": "https://genai.owasp.org/llm-top-10/"
       },
       {
-        "label": "NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile (July 2024)",
+        "label": "NIST AI 600-1 \u2014 AI Risk Management Framework: Generative AI Profile (July 2024)",
         "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
       },
       {
-        "label": "CFPB — Chatbots in consumer finance Issue Spotlight (June 2023)",
+        "label": "CFPB \u2014 Chatbots in consumer finance Issue Spotlight (June 2023)",
         "url": "https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/"
       },
       {
-        "label": "FFIEC — IT Examination Handbook: Information Security booklet",
+        "label": "FFIEC \u2014 IT Examination Handbook: Information Security booklet",
         "url": "https://ithandbook.ffiec.gov/it-booklets/information-security/"
       },
       {
-        "label": "NIST SP 800-63B — Digital Identity Guidelines: Authentication and Lifecycle Management",
+        "label": "NIST SP 800-63B \u2014 Digital Identity Guidelines: Authentication and Lifecycle Management",
         "url": "https://pages.nist.gov/800-63-3/sp800-63b.html"
       },
       {
-        "label": "FTC — Safeguards Rule: What Your Business Needs to Know (GLBA, 16 CFR Part 314)",
+        "label": "FTC \u2014 Safeguards Rule: What Your Business Needs to Know (GLBA, 16 CFR Part 314)",
         "url": "https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know"
       },
       {
-        "label": "CFPB — Regulation E (Electronic Fund Transfer Act, 12 CFR 1005)",
+        "label": "CFPB \u2014 Regulation E (Electronic Fund Transfer Act, 12 CFR 1005)",
         "url": "https://www.consumerfinance.gov/rules-policy/regulations/1005/"
       },
       {
-        "label": "Bank of America — BofA's Erica Surpasses 2 Billion Interactions (April 2024)",
+        "label": "Bank of America \u2014 BofA's Erica Surpasses 2 Billion Interactions (April 2024)",
         "url": "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2024/04/bofa-s-erica-surpasses-2-billion-interactions--helping-42-millio.html"
       },
       {
-        "label": "Klarna — AI assistant handles two-thirds of customer service chats in its first month (February 2024)",
+        "label": "Klarna \u2014 AI assistant handles two-thirds of customer service chats in its first month (February 2024)",
         "url": "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"
       },
       {
-        "label": "BBC Travel — Airline held liable for its chatbot giving passenger bad advice (Air Canada Civil Resolution Tribunal ruling, February 2024)",
+        "label": "BBC Travel \u2014 Airline held liable for its chatbot giving passenger bad advice (Air Canada Civil Resolution Tribunal ruling, February 2024)",
         "url": "https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know"
       }
     ]
@@ -393,27 +393,27 @@
     ],
     "evidence": [
       {
-        "label": "Jira Service Management — Summarize a work item's details using AI",
+        "label": "Jira Service Management \u2014 Summarize a work item's details using AI",
         "url": "https://support.atlassian.com/jira-service-management-cloud/docs/summarize-an-issues-comments-using-atlassian-intelligence/"
       },
       {
-        "label": "Atlassian Rovo — product overview",
+        "label": "Atlassian Rovo \u2014 product overview",
         "url": "https://www.atlassian.com/software/rovo"
       },
       {
-        "label": "GitHub Copilot — Using GitHub Copilot to explore issues and discussions",
+        "label": "GitHub Copilot \u2014 Using GitHub Copilot to explore issues and discussions",
         "url": "https://docs.github.com/en/copilot/tutorials/explore-issues-and-discussions"
       },
       {
-        "label": "Slack — Guide to AI features in Slack",
+        "label": "Slack \u2014 Guide to AI features in Slack",
         "url": "https://slack.com/help/articles/25076892548883-Guide-to-AI-features-in-Slack"
       },
       {
-        "label": "Desk365 — How to summarize a ticket using AI",
+        "label": "Desk365 \u2014 How to summarize a ticket using AI",
         "url": "https://help.desk365.io/en/articles/summarize-ticket-using-ai/"
       },
       {
-        "label": "Microsoft Purview — data security and compliance protections for Microsoft 365 Copilot and other generative AI apps",
+        "label": "Microsoft Purview \u2014 data security and compliance protections for Microsoft 365 Copilot and other generative AI apps",
         "url": "https://learn.microsoft.com/en-us/purview/ai-microsoft-purview"
       },
       {
@@ -421,11 +421,11 @@
         "url": "https://genai.owasp.org/llm-top-10/"
       },
       {
-        "label": "NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile (July 2024)",
+        "label": "NIST AI 600-1 \u2014 AI Risk Management Framework: Generative AI Profile (July 2024)",
         "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
       },
       {
-        "label": "Invariant Labs — GitHub MCP Exploited: Accessing private repositories via MCP (May 2025)",
+        "label": "Invariant Labs \u2014 GitHub MCP Exploited: Accessing private repositories via MCP (May 2025)",
         "url": "https://invariantlabs.ai/blog/mcp-github-vulnerability"
       }
     ]
@@ -587,7 +587,7 @@
         "name": "Computer Systems Design and Related Services"
       }
     ],
-    "summary": "CLI/terminal AI assistant for SREs and on-call responders during incidents — reads logs, proposes diagnostic commands, and in higher-autonomy modes executes commands against production infrastructure. Primary risk is privileged tool invocation with production blast radius.",
+    "summary": "CLI/terminal AI assistant for SREs and on-call responders during incidents \u2014 reads logs, proposes diagnostic commands, and in higher-autonomy modes executes commands against production infrastructure. Primary risk is privileged tool invocation with production blast radius.",
     "workflow_family": "Site reliability & incident response",
     "operating_modes": [
       "manual",
@@ -608,39 +608,39 @@
         "url": "https://genai.owasp.org/llm-top-10/"
       },
       {
-        "label": "NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile (July 2024)",
+        "label": "NIST AI 600-1 \u2014 AI Risk Management Framework: Generative AI Profile (July 2024)",
         "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
       },
       {
-        "label": "NIST SP 800-53 Rev 5 — Security and Privacy Controls for Information Systems and Organizations",
+        "label": "NIST SP 800-53 Rev 5 \u2014 Security and Privacy Controls for Information Systems and Organizations",
         "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
       },
       {
-        "label": "Anthropic — Claude Code: Configure permissions",
+        "label": "Anthropic \u2014 Claude Code: Configure permissions",
         "url": "https://code.claude.com/docs/en/permissions"
       },
       {
-        "label": "OpenAI — Codex CLI: Sandbox concepts",
+        "label": "OpenAI \u2014 Codex CLI: Sandbox concepts",
         "url": "https://developers.openai.com/codex/concepts/sandboxing"
       },
       {
-        "label": "Warp — Terminal and Agent modes",
+        "label": "Warp \u2014 Terminal and Agent modes",
         "url": "https://docs.warp.dev/agent-platform/warp-agents/interacting-with-agents/terminal-and-agent-modes"
       },
       {
-        "label": "Replit — Introducing Plan Mode: A safer way to vibe code (September 2025)",
+        "label": "Replit \u2014 Introducing Plan Mode: A safer way to vibe code (September 2025)",
         "url": "https://blog.replit.com/introducing-plan-mode-a-safer-way-to-vibe-code"
       },
       {
-        "label": "Fortune — AI-powered coding tool wiped out a software company's database (July 2025)",
+        "label": "Fortune \u2014 AI-powered coding tool wiped out a software company's database (July 2025)",
         "url": "https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/"
       },
       {
-        "label": "AWS Security Bulletin AWS-2025-019 — Amazon Q Developer and Kiro prompt injection (October 2025)",
+        "label": "AWS Security Bulletin AWS-2025-019 \u2014 Amazon Q Developer and Kiro prompt injection (October 2025)",
         "url": "https://aws.amazon.com/security/security-bulletins/AWS-2025-019/"
       },
       {
-        "label": "Invariant Labs — MCP Security Notification: Tool Poisoning Attacks (April 2025)",
+        "label": "Invariant Labs \u2014 MCP Security Notification: Tool Poisoning Attacks (April 2025)",
         "url": "https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks"
       }
     ]
@@ -674,7 +674,8 @@
   {
     "id": "SAFE-UC-0027",
     "title": "Anti-scam messaging safety assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0027/README.md",
     "naics_2022": [
       {
@@ -682,7 +683,77 @@
         "name": "Information"
       }
     ],
-    "summary": "Detect and triage scam/phishing patterns in messaging and recommend user-facing interventions and escalations."
+    "summary": "AI defender deployed across consumer messaging surfaces (telecom, email, chat, banking transaction-warning, social platforms) to detect and block scam content. First SAFE-AUCA UC where the AI is the defender rather than the system being attacked. 7-stage kill chain spanning ingestion, classification, adversarial-content detection, federated IOC exchange, action, reporting, and appeals. Spans FCC TCPA + STIR/SHAKEN + Declaratory Ruling 24-17, Lingo Telecom and Steve Kramer enforcement, FTC TSR + Voice Cloning Challenge, FBI IC3 + Operation Level Up, FTC Consumer Sentinel, CFPB Reg E APP gap, UK Online Fraud Charter + PSR PS25/5, EBA/ECB Joint Payment Fraud Report, EU DSA Articles 17 + 22, NIST AI 600-1, OWASP LLM Top 10 2025, MITRE ATLAS, ISO/IEC 42001, C2PA Content Credentials, federal fraud statutes 18 USC 1029 / 1343 / 1349.",
+    "workflow_family": "Consumer protection and anti-scam defense",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "anti-scam",
+      "defender-frame",
+      "deepfake-voice",
+      "ai-generated-phishing",
+      "stir-shaken",
+      "tcpa",
+      "fcc-24-17",
+      "robocall",
+      "bec",
+      "app-fraud",
+      "elder-fraud",
+      "pig-butchering",
+      "ic3",
+      "consumer-sentinel",
+      "uk-psr",
+      "dsa-article-17",
+      "dsa-article-22",
+      "asvspoof",
+      "c2pa",
+      "false-positive-harm"
+    ],
+    "evidence": [
+      {
+        "label": "FCC Declaratory Ruling FCC 24-17 on AI-generated voices in robocalls under TCPA (8 February 2024)",
+        "url": "https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf"
+      },
+      {
+        "label": "FCC Lingo Telecom $1M Consent Decree, first STIR/SHAKEN failure for AI-cloned voices (21 August 2024)",
+        "url": "https://www.fcc.gov/document/fcc-eb-settles-lingo-transmitting-illegal-robocalls"
+      },
+      {
+        "label": "FCC $6M Forfeiture Order against Steve Kramer for New Hampshire AI-Biden robocalls, FCC 24-104 (26 September 2024)",
+        "url": "https://www.fcc.gov/document/fcc-issues-6m-fine-nh-robocalls"
+      },
+      {
+        "label": "FBI IC3 2024 Internet Crime Report (859,532 complaints, $16.6B losses, $4.9B elder fraud)",
+        "url": "https://www.ic3.gov/AnnualReport/Reports/2024_IC3Report.pdf"
+      },
+      {
+        "label": "FTC Consumer Sentinel Network 2024 Data Book (6.5M reports, $12.5B fraud losses)",
+        "url": "https://www.ftc.gov/system/files/ftc_gov/pdf/csn-annual-data-book-2024.pdf"
+      },
+      {
+        "label": "FTC Voice Cloning Challenge winners (8 April 2024)",
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2024/04/ftc-announces-winners-voice-cloning-challenge"
+      },
+      {
+        "label": "UK Online Fraud Charter (signed 30 November 2023)",
+        "url": "https://www.gov.uk/government/publications/online-fraud-charter-2023"
+      },
+      {
+        "label": "UK PSR PS25/5 Consolidated Policy Statement on APP scams reimbursement (May 2025; in force 7 October 2024)",
+        "url": "https://www.psr.org.uk/media/rhelv4op/ps25-5-app-scams-reimbursement-consolidated-policy-statement-may-2025.pdf"
+      },
+      {
+        "label": "EBA and ECB Joint Report on Payment Fraud (December 2025; EUR 4.2B EEA fraud, 85% of credit-transfer scam losses borne by users)",
+        "url": "https://www.eba.europa.eu/sites/default/files/2025-12/1709846a-84d9-47cf-86a0-b155efb34d66/EBA%20and%20ECB%20Report%20on%20Payment%20Fraud.pdf"
+      },
+      {
+        "label": "CNN: Arup revealed as victim of $25 million Hong Kong deepfake CFO video-call scam (16 May 2024 confirmation; February 2024 incident)",
+        "url": "https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0028",
