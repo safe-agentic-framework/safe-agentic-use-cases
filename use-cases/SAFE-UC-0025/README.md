@@ -2,7 +2,7 @@
 
 > **SAFE‑AUCA industry reference guide (draft)**
 >
-> This use case describes a real-world workflow that has rapidly become the centerpiece of enterprise AI strategy: the **platform on which enterprise customers build, deploy, govern, and operate their own AI agents.** It sits one layer above the runtime UCs (0018, 0011, 0021, 0022, 0024, 0008): instead of describing a single deployed agent's risk surface, it describes the *factory* — the multi-tenant SaaS where thousands of enterprise customers each construct potentially-many agents on a shared substrate of foundation models, tool catalogs, observability, and governance.
+> This use case describes a real-world workflow that has rapidly become the centerpiece of enterprise AI strategy: the **platform on which enterprise customers build, deploy, govern, and operate their own AI agents.** It sits one layer above the runtime UCs (0018, 0011, 0021, 0022, 0024, 0008): instead of describing a single deployed agent's risk surface, it describes the *factory*. The multi-tenant SaaS where thousands of enterprise customers each construct potentially-many agents on a shared substrate of foundation models, tool catalogs, observability, and governance.
 >
 > It focuses on:
 >
@@ -28,16 +28,16 @@
 
 ### Evidence (public links)
 
-* [NIST AI 600-1 — Artificial Intelligence Risk Management Framework: Generative AI Profile (July 26, 2024)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
-* [NIST SP 800-218A — Secure Software Development Practices for Generative AI and Dual-Use Foundation Models (July 2024)](https://csrc.nist.gov/pubs/sp/800/218/a/final)
-* [OWASP Top 10 for LLM Applications 2025 — including LLM03 Supply Chain and LLM07 System Prompt Leakage](https://genai.owasp.org/llm-top-10/)
-* [EU AI Act — Article 25 Responsibilities Along the AI Value Chain (applies from 2 August 2026)](https://artificialintelligenceact.eu/article/25/)
-* [Tenable Research Advisory TRA-2024-32 — Microsoft Copilot Studio SSRF (CVE-2024-38206, CVSS 8.5, August 2024)](https://www.tenable.com/security/research/tra-2024-32)
-* [Noma Security — ForcedLeak: AI agent risk in Salesforce Agentforce (CVSS 9.4, disclosed September 25, 2025)](https://noma.security/noma-labs/forcedleak/)
-* [Aim Security / arXiv — EchoLeak zero-click prompt injection on Microsoft 365 Copilot (CVE-2025-32711, CVSS 9.3, June 2025)](https://arxiv.org/abs/2509.10540)
-* [AI Incident Database #1152 — Replit AI agent destroyed production database during code freeze (July 2025)](https://incidentdatabase.ai/cite/1152/)
-* [Invariant Labs — MCP Security Notification: Tool Poisoning Attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks)
-* [Microsoft — Microsoft Copilot Studio overview (vendor primary)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+* [NIST AI 600-1: Artificial Intelligence Risk Management Framework: Generative AI Profile (July 26, 2024)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
+* [NIST SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models (July 2024)](https://csrc.nist.gov/pubs/sp/800/218/a/final)
+* [OWASP Top 10 for LLM Applications 2025: including LLM03 Supply Chain and LLM07 System Prompt Leakage](https://genai.owasp.org/llm-top-10/)
+* [EU AI Act: Article 25 Responsibilities Along the AI Value Chain (applies from 2 August 2026)](https://artificialintelligenceact.eu/article/25/)
+* [Tenable Research Advisory TRA-2024-32: Microsoft Copilot Studio SSRF (CVE-2024-38206, CVSS 8.5, August 2024)](https://www.tenable.com/security/research/tra-2024-32)
+* [Noma Security: ForcedLeak: AI agent risk in Salesforce Agentforce (CVSS 9.4, disclosed September 25, 2025)](https://noma.security/noma-labs/forcedleak/)
+* [Aim Security / arXiv: EchoLeak zero-click prompt injection on Microsoft 365 Copilot (CVE-2025-32711, CVSS 9.3, June 2025)](https://arxiv.org/abs/2509.10540)
+* [AI Incident Database #1152: Replit AI agent destroyed production database during code freeze (July 2025)](https://incidentdatabase.ai/cite/1152/)
+* [Invariant Labs: MCP Security Notification: Tool Poisoning Attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks)
+* [Microsoft: Microsoft Copilot Studio overview (vendor primary)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 
 ---
 
@@ -59,21 +59,21 @@ This document covers:
 ## 1. Executive summary (what + why)
 
 **What this workflow does**
-An **enterprise agent-building platform** is a multi-tenant SaaS where customer organizations construct, deploy, govern, and operate their own AI agents. The platform supplies the foundation-model layer, the tool / connector / MCP-server catalog, the agent authoring surface (low-code, code-first, or both), the test and evaluation harness, the deployment and version-management plane, and cross-cutting observability and policy enforcement. Each customer tenant brings its own data sources, its own tool registrations, its own prompt templates, and its own deployed agents — but they all sit on top of shared platform infrastructure.
+An **enterprise agent-building platform** is a multi-tenant SaaS where customer organizations construct, deploy, govern, and operate their own AI agents. The platform supplies the foundation-model layer, the tool / connector / MCP-server catalog, the agent authoring surface (low-code, code-first, or both), the test and evaluation harness, the deployment and version-management plane, and cross-cutting observability and policy enforcement. Each customer tenant brings its own data sources, its own tool registrations, its own prompt templates, and its own deployed agents. But they all sit on top of shared platform infrastructure.
 
 The category exists across the major cloud and CRM providers and a growing layer of independent vendors. The published platforms practitioners commonly cite include Microsoft Copilot Studio and the Microsoft 365 Agents Toolkit; Salesforce Agentforce and its Agent Builder (Dreamforce 2025 release); ServiceNow Now Assist AI Agents (Yokohama bundle); AWS Bedrock AgentCore; Google Cloud's "Gemini Enterprise Agent Platform" (formerly Vertex AI Agent Builder); Anthropic's Claude Agent SDK and the open Agent Skills format; OpenAI AgentKit (DevDay 2025); Databricks' Mosaic AI Agent Framework with the Unity AI Gateway (formerly Mosaic AI Gateway); and IBM watsonx Orchestrate with watsonx.governance.
 
 **Why it matters (business value)**
 Enterprises adopt agent-building platforms instead of building from scratch because the platform commoditizes the parts of agentic systems that are tedious, expensive, or risky to operate: foundation-model access at enterprise contract terms, signed and curated tool / MCP server registries, lifecycle management (build → test → version → deploy → roll back), governance dashboards, and audit trails. A single platform may host hundreds to thousands of customer-built agents across many regulated verticals.
 
-The CFPB, FTC, EU AI Act, and analogous regulators do not regulate the platform directly; they regulate the *deployer* who puts an agent in front of a consumer or employee. EU AI Act Article 25 explicitly distinguishes provider (the platform) from deployer (the customer) and assigns cooperation duties along the value chain — a deployer who substantially modifies a system into a high-risk use case becomes a provider for that deployment, with cascading obligations on the upstream platform.
+The CFPB, FTC, EU AI Act, and analogous regulators do not regulate the platform directly; they regulate the *deployer* who puts an agent in front of a consumer or employee. EU AI Act Article 25 explicitly distinguishes provider (the platform) from deployer (the customer) and assigns cooperation duties along the value chain. A deployer who substantially modifies a system into a high-risk use case becomes a provider for that deployment, with cascading obligations on the upstream platform.
 
 **Why it's risky / what can go wrong**
 The platform layer concentrates risk in ways its individual customer agents do not. Recent disclosures sketch the shape:
 
-* **Cross-tenant infrastructure reach.** Tenable's August 2024 research advisory on Microsoft Copilot Studio (CVE-2024-38206, CVSS 8.5) demonstrated that an SSRF in the HttpRequest action could reach the Instance Metadata Service and an internal Cosmos DB on Microsoft's shared infrastructure. Tenable noted no cross-customer data was immediately accessible, and Microsoft patched in July 2024 — but the disclosure illustrates the broader category of risk that runtime UCs do not face.
+* **Cross-tenant infrastructure reach.** Tenable's August 2024 research advisory on Microsoft Copilot Studio (CVE-2024-38206, CVSS 8.5) demonstrated that an SSRF in the HttpRequest action could reach the Instance Metadata Service and an internal Cosmos DB on Microsoft's shared infrastructure. Tenable noted no cross-customer data was immediately accessible, and Microsoft patched in July 2024. But the disclosure illustrates the broader category of risk that runtime UCs do not face.
 * **Indirect prompt injection that cascades through the platform's CRM context.** Noma Security's September 25, 2025 disclosure of ForcedLeak (CVSS 9.4) showed how an attacker-supplied Web-to-Lead description field, combined with an expired CSP-allowlisted domain, could exfiltrate CRM data through Salesforce Agentforce. Salesforce patched on September 8, 2025, primarily by enforcing Trusted URLs.
-* **Zero-click prompt injection at the runtime layer that platforms commonly defend against.** Aim Security's EchoLeak research (CVE-2025-32711, CVSS 9.3, June 2025; arXiv:2509.10540) targeted Microsoft 365 Copilot — a *runtime* AI assistant rather than the build-platform layer, but practitioners cite it because the same defensive patterns apply at the platform's evaluation harness.
+* **Zero-click prompt injection at the runtime layer that platforms commonly defend against.** Aim Security's EchoLeak research (CVE-2025-32711, CVSS 9.3, June 2025; arXiv:2509.10540) targeted Microsoft 365 Copilot. A *runtime* AI assistant rather than the build-platform layer, but practitioners cite it because the same defensive patterns apply at the platform's evaluation harness.
 * **Tool-registry / MCP-server-marketplace poisoning at the catalog level.** Invariant Labs' Tool Poisoning Attack research and the academic MCPTox benchmark (arXiv:2508.14925) describe how malicious instructions embedded in tool descriptions during registration can survive into thousands of downstream agents.
 * **Operational agent failure rather than external compromise.** AI Incident Database #1152 documents the July 2025 incident in which a Replit AI agent destroyed a SaaStr production database during a declared code freeze, ignored eleven all-caps stop instructions, and falsely claimed rollback was impossible.
 
@@ -112,7 +112,7 @@ Common in:
 * **Provider vs. deployer routing under EU AI Act Article 25.** A deployer who substantively modifies a high-risk system or repurposes it into Annex III becomes a provider; the original platform must "closely cooperate" and supply technical access. Article 25 obligations apply from 2 August 2026.
 * **Transparency under EU AI Act Article 50.** Where customer agents interact with natural persons, Article 50(1) transparency disclosures may apply at the deployment; the platform commonly surfaces these as built-in toggles or runtime additions. Article 50 also requires marking AI-generated content in machine-readable form.
 * **OWASP LLM Top 10 (2025) reshuffle.** The 2025 list elevates supply-chain (LLM03) and adds system-prompt leakage (LLM07) as a first-class risk, both of which describe platform-of-platforms surfaces more directly than runtime risks.
-* **CSA MAESTRO (Multi-Agent Environment, Security, Threat, Risk, and Outcome).** Cloud Security Alliance published MAESTRO in February 2025 — a seven-layer threat-modeling framework explicitly designed for agentic platforms. CSA has applied MAESTRO to OpenAI's Responses API and to Google's A2A in published walkthroughs.
+* **CSA MAESTRO (Multi-Agent Environment, Security, Threat, Risk, and Outcome).** Cloud Security Alliance published MAESTRO in February 2025. A seven-layer threat-modeling framework explicitly designed for agentic platforms. CSA has applied MAESTRO to OpenAI's Responses API and to Google's A2A in published walkthroughs.
 * **Observability standardization.** The OpenTelemetry GenAI working group's semantic conventions for agent and framework spans (2025) provide a vendor-neutral way to instrument agent execution; teams commonly cite the spec for cross-tenant telemetry separation.
 
 ### Must-not-fail outcomes
@@ -132,9 +132,9 @@ Common in:
 
 1. A customer organization onboards onto the platform: tenant provisioning, identity federation, baseline policy selection, model and embedding choices, regional residency settings.
 2. Tenant administrators configure the connector / tool / MCP server catalog for their tenant, drawing from the platform's signed registry plus any private connectors.
-3. Builders author one or more agents — using the platform's visual canvas, code-first SDK, or both — defining the system prompt, the tool list, the data sources, and the operating policy.
+3. Builders author one or more agents (using the platform's visual canvas, code-first SDK, or both) defining the system prompt, the tool list, the data sources, and the operating policy.
 4. The platform's evaluation harness runs the agent against test fixtures, red-team prompt libraries, regression evals, and policy compliance checks before allowing a publish action.
-5. The agent is published to a tenant-scoped runtime environment — staging first, then production — with version pinning and traffic shaping.
+5. The agent is published to a tenant-scoped runtime environment (staging first, then production) with version pinning and traffic shaping.
 6. The deployed agent serves end users (employees, customers, partners). Tool invocations route through a per-tenant gateway with credential brokering, rate limiting, and policy enforcement.
 7. Telemetry, logs, evaluations, and policy events flow into a tenant-segregated observability plane. Cross-tenant aggregation happens only on de-identified platform-operations data.
 8. Versioning, rollback, deprecation, and decommissioning are explicit lifecycle operations with audit trails.
@@ -142,7 +142,7 @@ Common in:
 ### 3.2 In scope / out of scope
 
 * **In scope:** multi-tenant agent build, test, deploy, govern, and observe; tool registry / MCP server catalog operation; foundation-model and embedding-model supply-chain management; per-tenant identity and credential brokering; cross-tenant observability partitioning; platform-level evaluation and red-team harness; provider-side cooperation duties under EU AI Act Article 25.
-* **Out of scope:** the runtime risk surface of any specific deployed customer agent (covered by the workflow-specific UCs — 0011 banking, 0018 summarization, 0021 contact center, 0022 SOC, 0024 SRE terminal, 0008 OTA); the customer's downstream regulated obligations under sector law (those flow to the deployer); training of foundation models from scratch.
+* **Out of scope:** the runtime risk surface of any specific deployed customer agent (covered by the workflow-specific UCs - 0011 banking, 0018 summarization, 0021 contact center, 0022 SOC, 0024 SRE terminal, 0008 OTA); the customer's downstream regulated obligations under sector law (those flow to the deployer); training of foundation models from scratch.
 
 ### 3.3 Assumptions
 
@@ -171,9 +171,9 @@ Common in:
 * **Human roles at the deployer (customer):** tenant administrators, agent builders, agent reviewers, business owners, end users (employees / consumers / partners), the deployer's compliance team
 * **Human roles at the provider (platform):** platform site-reliability and security, model supply-chain owners, registry curators, RAI / AI-governance reviewers, abuse and incident response
 * **Platform components:** model gateway, embedding service, vector store, tool / MCP server registry, agent authoring surface, evaluation and red-team harness, deployment plane, observability plane, governance plane, identity and credentials plane
-* **Tools (MCP servers / APIs / connectors):** each customer's tool list — drawn from the platform's signed registry plus any private connectors — exposed to that customer's agents only
+* **Tools (MCP servers / APIs / connectors):** each customer's tool list (drawn from the platform's signed registry plus any private connectors) exposed to that customer's agents only
 * **Data stores:** per-tenant prompt and agent-definition stores, per-tenant evaluation datasets, per-tenant vector indexes, per-tenant audit logs, shared platform-operations telemetry (de-identified)
-* **Downstream systems affected:** every system the customer's deployed agents act on — CRMs, ticketing, data warehouses, payment systems, communication channels, etc. (covered in detail by the workflow-specific UCs)
+* **Downstream systems affected:** every system the customer's deployed agents act on. CRMs, ticketing, data warehouses, payment systems, communication channels, etc. (covered in detail by the workflow-specific UCs)
 
 ### 4.2 Trusted vs untrusted inputs (high value, keep simple)
 
@@ -298,7 +298,7 @@ Separation lets each component carry its own kill switch, validation harness, an
 ### 6.1 Primary security & safety goals
 
 * preserve tenant isolation across every layer: prompts, tools, eval data, agents, indexes, telemetry, audit logs
-* prevent supply-chain compromise — at the foundation-model, embedding-model, tool-registry, and platform-software layers — from cascading into customer agents
+* prevent supply-chain compromise. At the foundation-model, embedding-model, tool-registry, and platform-software layers. From cascading into customer agents
 * keep the evaluation and red-team harness integrity-protected (it is the publish gate)
 * prevent system-prompt extraction across tenant boundaries
 * support deployer cooperation duties under regulatory regimes (Article 25 cascade, BAA cascade, DPA cascade)
@@ -342,32 +342,32 @@ Separation lets each component carry its own kill switch, validation harness, an
 | Stage                                               | What can go wrong (pattern)                                                                                                                                  | Likely impact                                                                                                                  | Notes / preconditions                                                                                                          |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | 1. Tenant onboarding / build-credential vault       | Misallocated region or residency; credentials persist longer than the session; broker-token scope creep                                                       | persistent-credential exposure across shift change; residency-rule violation                                                  | builds the platform's most persistent customer-side secret store                                                                |
-| 2. Tool / MCP server registry — **catalog-level poisoning (NOVEL vs. siblings)** | Tool registered with steered metadata (T1402); rug-pull on an approved tool (T1201); name-collision shadowing (T1004 + T1301)                   | one bad tool fans out to thousands of downstream customer agents; siblings only face this at the deployed-agent scope         | distinguishes 0025 from 0011, 0018, 0021, 0022, 0024, 0008                                                                     |
-| 3. Agent definition / prompt authoring              | System-prompt leakage at save (LLM07); injection at save through customer-supplied content; over-privileged tool list                                         | tenant-confidential business logic exposed; injection persists into runtime                                                    | tenant boundary must hold at save, at retrieval, and at runtime — three opportunities to fail                                  |
+| 2. Tool / MCP server registry - **catalog-level poisoning (NOVEL vs. siblings)** | Tool registered with steered metadata (T1402); rug-pull on an approved tool (T1201); name-collision shadowing (T1004 + T1301)                   | one bad tool fans out to thousands of downstream customer agents; siblings only face this at the deployed-agent scope         | distinguishes 0025 from 0011, 0018, 0021, 0022, 0024, 0008                                                                     |
+| 3. Agent definition / prompt authoring              | System-prompt leakage at save (LLM07); injection at save through customer-supplied content; over-privileged tool list                                         | tenant-confidential business logic exposed; injection persists into runtime                                                    | tenant boundary must hold at save, at retrieval, and at runtime. Three opportunities to fail                                  |
 | 4. Foundation-model & embedding-model supply chain  | Upstream model weights or embedding distribution compromised (T1002); RAG-corpus poisoning at the platform's shared embedding service (T3001)                  | every customer agent inherits the compromise simultaneously                                                                     | provider SLA and SLSA-style provenance are the practical defense                                                               |
-| 5. Test / evaluation / red-team — **harness bypass (NOVEL)** | Eval fixtures bypassed via T1106 (autonomous loop), T1401 (line jumping) at the harness; eval results tampered with; fixture-set poisoned by tenant insider     | every agent that ships through the gate inherits the compromise; platform's self-defense is broken                            | unique to platform-of-platforms — siblings have no eval-as-critical-path                                                       |
+| 5. Test / evaluation / red-team - **harness bypass (NOVEL)** | Eval fixtures bypassed via T1106 (autonomous loop), T1401 (line jumping) at the harness; eval results tampered with; fixture-set poisoned by tenant insider     | every agent that ships through the gate inherits the compromise; platform's self-defense is broken                            | unique to platform-of-platforms. Siblings have no eval-as-critical-path                                                       |
 | 6. Deploy / publish / version                       | Publish without eval-pass; rollback to a compromised version; canary not honored; version pin bypassed                                                        | unsafe agent reaches end users; rollback worsens incident                                                                      | the Replit AIID #1152 pattern at the deploy-plane scope                                                                        |
-| 7. Cross-tenant observability leakage — **NOVEL**   | Span attributes contain another tenant's system prompt; trace-aggregation pipeline exposes tool schemas across tenants; eval results pool incorrectly         | persistent leak of tenant-confidential artifacts; LLM07 / T1801 / T1910 footprint                                              | OpenTelemetry GenAI semantic conventions help instrument; partition controls do the work                                       |
+| 7. Cross-tenant observability leakage - **NOVEL**   | Span attributes contain another tenant's system prompt; trace-aggregation pipeline exposes tool schemas across tenants; eval results pool incorrectly         | persistent leak of tenant-confidential artifacts; LLM07 / T1801 / T1910 footprint                                              | OpenTelemetry GenAI semantic conventions help instrument; partition controls do the work                                       |
 
-**Persistence-as-control inversion note.** On an agent-build platform, the **rollback / version-management plane is itself a critical defensive control** — the ability to roll back a deployed agent to a known-good version is what bounds blast radius after a published-agent incident. Practitioners commonly preserve immutable version artifacts and audit trails so corrections leave clean attribution rather than destructive overwrites.
+**Persistence-as-control inversion note.** On an agent-build platform, the **rollback / version-management plane is itself a critical defensive control**. The ability to roll back a deployed agent to a known-good version is what bounds blast radius after a published-agent incident. Practitioners commonly preserve immutable version artifacts and audit trails so corrections leave clean attribution rather than destructive overwrites.
 
 ---
 
 ## 8. SAFE‑MCP mapping (kill-chain → techniques → controls → tests)
 
-> Goal: make SAFE‑MCP actionable in this workflow. Kill-chain stages aligned with native SAFE‑MCP MITRE-oriented tactics where possible; the catalog-level poisoning, evaluation-harness bypass, and cross-tenant observability stages are workflow-specific framings — closest-fit SAFE‑T IDs are noted.
+> Goal: make SAFE‑MCP actionable in this workflow. Kill-chain stages aligned with native SAFE‑MCP MITRE-oriented tactics where possible; the catalog-level poisoning, evaluation-harness bypass, and cross-tenant observability stages are workflow-specific framings. Closest-fit SAFE‑T IDs are noted.
 
 | Kill-chain stage                            | Failure/attack pattern (defender-friendly)                                                                                                                                                                         | SAFE‑MCP technique(s)                                                                                                                                                                                                                                | Recommended controls (prevent/detect/recover)                                                                                                                                                                                                                                                                                                                                                                                       | Tests (how to validate)                                                                                                                                                                                                                                                |
 | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1. Tenant onboarding / build-credential vault | Broker-token persistence; per-tenant credential vault used as a long-term secret store; cross-service confused-deputy on platform service accounts                                                                | `SAFE-T1202` (OAuth Token Persistence); `SAFE-T1502` (File-Based Credential Harvest); `SAFE-T1004` (Server Impersonation / Name-Collision)                                                                                                          | short-lived broker tokens; per-tenant KMS; egress controls on the credentials plane; cross-service confused-deputy prevention (named control area in AWS Bedrock AgentCore Security guide); log every credential issuance with caller, callee, scope, ttl                                                                                                                                                                            | issue a token, attempt cross-tenant use → expect deny; rotate KMS root → confirm prior tokens fail to refresh; replay token after ttl → expect deny                                                                                                                |
-| 2. Tool / MCP server registry — catalog-level poisoning | Tool registered with hidden steered metadata; rug-pull on an approved tool; name-collision shadowing across customers                                                                                              | `SAFE-T1001` (Tool Poisoning Attack (TPA)); `SAFE-T1003` (Malicious MCP-Server Distribution); `SAFE-T1402` (Instruction Stenography - Tool Metadata Poisoning); `SAFE-T1201` (MCP Rug Pull Attack); `SAFE-T1004`; `SAFE-T1301` (Cross-Server Tool Shadowing); `SAFE-T1501` (Full-Schema Poisoning (FSP)) | signed registry; version pin on every tool the agent uses; integrity baseline + drift detection; per-tenant scope on tool installs; rebroadcast detection on update; metadata sanitization at ingestion; tool-content red-team library; scoped capability declarations; deny-by-default cross-server invocation                                                                                                                       | register a poisoned tool → expect signature check fails OR red-team library catches; mutate an approved tool → expect drift detection and per-tenant freeze; attempt a name-collision → expect namespace conflict                                                  |
+| 2. Tool / MCP server registry. Catalog-level poisoning | Tool registered with hidden steered metadata; rug-pull on an approved tool; name-collision shadowing across customers                                                                                              | `SAFE-T1001` (Tool Poisoning Attack (TPA)); `SAFE-T1003` (Malicious MCP-Server Distribution); `SAFE-T1402` (Instruction Stenography - Tool Metadata Poisoning); `SAFE-T1201` (MCP Rug Pull Attack); `SAFE-T1004`; `SAFE-T1301` (Cross-Server Tool Shadowing); `SAFE-T1501` (Full-Schema Poisoning (FSP)) | signed registry; version pin on every tool the agent uses; integrity baseline + drift detection; per-tenant scope on tool installs; rebroadcast detection on update; metadata sanitization at ingestion; tool-content red-team library; scoped capability declarations; deny-by-default cross-server invocation                                                                                                                       | register a poisoned tool → expect signature check fails OR red-team library catches; mutate an approved tool → expect drift detection and per-tenant freeze; attempt a name-collision → expect namespace conflict                                                  |
 | 3. Agent definition / prompt authoring      | System-prompt extraction at save time; injection through customer-supplied prompt template; over-privileged tool list                                                                                              | `SAFE-T1102` (Prompt Injection (Multiple Vectors)); `SAFE-T1401` (Line Jumping); `SAFE-T1104` (Over-Privileged Tool Abuse)                                                                                                                          | secret scanning at save; structured-output schemas; instruction/data separation; tool-list policy (least-privilege per tool); secret-vault references rather than inline secrets; LLM07-aware system-prompt redaction in any error path or telemetry                                                                                                                                                                                  | save a prompt with a secret-shaped string → expect block / redaction; attempt save with cross-tenant tool → expect deny                                                                                                                                            |
 | 4. Foundation-model & embedding-model supply chain | Upstream provider weights or embedding distribution compromised; RAG-corpus poisoning at the shared embedding service                                                                                              | `SAFE-T1002` (Supply Chain Compromise); `SAFE-T3001` (RAG Backdoor Attack); `SAFE-T1702` (Shared-Memory Poisoning)                                                                                                                                  | provider SLA with incident-notification clause; multi-provider fallback with deterministic routing rules; SLSA-style provenance on model artifacts; per-tenant embedding index partitions; embedding signing where supported; on-ingest provenance tagging on RAG documents                                                                                                                                                            | seed adversarial document → confirm per-tenant ingest filter and embedding-poisoning detection; provider key rotation drill                                                                                                                                        |
-| 5. Test / evaluation / red-team — harness bypass | Eval fixtures bypassed via autonomous-loop exploit; line-jumping in evaluator prompts; fixture-set poisoned by tenant insider                                                                                      | `SAFE-T1106` (Autonomous Loop Exploit); `SAFE-T1401` (Line Jumping); `SAFE-T1402`; `SAFE-T1702` (Shared-Memory Poisoning)                                                                                                                            | eval harness as a separate trust zone with its own kill switch; deterministic fixture set with per-fixture provenance; red-team library version-pinned; evaluator outputs cross-checked against schema; LLM-as-judge runs on a different model than the agent under test                                                                                                                                                              | introduce a known-failing fixture → confirm publish gate blocks; tamper an eval result → confirm signature mismatch; repeat with a poisoned LLM-judge model → confirm second-judge dissent triggers review                                                          |
+| 5. Test / evaluation / red-team. Harness bypass | Eval fixtures bypassed via autonomous-loop exploit; line-jumping in evaluator prompts; fixture-set poisoned by tenant insider                                                                                      | `SAFE-T1106` (Autonomous Loop Exploit); `SAFE-T1401` (Line Jumping); `SAFE-T1402`; `SAFE-T1702` (Shared-Memory Poisoning)                                                                                                                            | eval harness as a separate trust zone with its own kill switch; deterministic fixture set with per-fixture provenance; red-team library version-pinned; evaluator outputs cross-checked against schema; LLM-as-judge runs on a different model than the agent under test                                                                                                                                                              | introduce a known-failing fixture → confirm publish gate blocks; tamper an eval result → confirm signature mismatch; repeat with a poisoned LLM-judge model → confirm second-judge dissent triggers review                                                          |
 | 6. Deploy / publish / version               | Publish without eval-pass; rollback to a compromised version; canary not honored; agent ignores published-policy constraints (Replit AIID #1152 pattern)                                                          | `SAFE-T1404` (Response Tampering); `SAFE-T1302` (High-Privilege Tool Abuse); `SAFE-T1301`; `SAFE-T1201`; `SAFE-T2101` (Data Destruction)                                                                                                            | HITL gate on publish; immutable version artifacts; rollback to signed prior version only; canary with traffic-shaping; deny-by-default policy on destructive tool calls; planning-only mode for sensitive lifecycle actions (the post-Replit pattern); dev/prod isolation enforced platform-side                                                                                                                                       | attempt publish without eval-pass → expect block; rollback to unsigned version → expect deny; replay AIID #1152-style fixture (agent ignores stop instruction) → expect platform-policy intercept                                                                  |
 | 7. Cross-tenant observability leakage       | Span attributes contain another tenant's system prompt; trace aggregation exposes tool schemas; eval pools mix tenants; LLM07 system-prompt extraction surfaces in telemetry                                       | `SAFE-T1801` (Automated Data Harvesting); `SAFE-T1910` (Covert Channel Exfiltration); `SAFE-T1701` (Cross-Tool Contamination); `SAFE-T1602` (Tool Enumeration); `SAFE-T1601` (MCP Server Enumeration)                                              | tenant-scoped traces using OpenTelemetry GenAI semantic conventions; per-tenant retention; on-write redaction of system prompts and tool schemas in span attributes; sampling redaction; deny-by-default cross-tenant aggregation; access controls on platform-operations queries                                                                                                                                                       | seed a unique synthetic prompt in tenant A → query platform observability as tenant B → expect absence; query platform-ops aggregate → expect de-identified data only                                                                                              |
 
-Horizontal risks spanning several stages: `SAFE-T2102` (Service Disruption via External API Flooding) — model gateway DoS during peak; `SAFE-T1101` (Command Injection) — build pipeline and CI runners.
+Horizontal risks spanning several stages: `SAFE-T2102` (Service Disruption via External API Flooding) (model gateway DoS during peak; `SAFE-T1101` (Command Injection)) build pipeline and CI runners.
 
 **Framework gap note.** SAFE-MCP does not yet publish dedicated technique IDs for *catalog-level* tool poisoning (distinct from per-agent), *evaluation-harness bypass*, or *cross-tenant observability leakage at the platform layer*. Closest fits are noted above. CSA MAESTRO (Cloud Security Alliance, February 2025) is a complementary multi-layer framework explicitly designed for agentic platforms and worth cross-referencing alongside SAFE-MCP. Contributors expanding the SAFE-MCP catalog may find these three gaps worth filling.
 
@@ -391,7 +391,7 @@ Horizontal risks spanning several stages: `SAFE-T2102` (Service Disruption via E
 ### 9.2 Detect (reduce time-to-detect)
 
 * **Tool-registry drift detection.** Unsigned mutations, schema drift, scope expansion, and rug-pull rebroadcasts trigger per-tenant freeze.
-* **Cross-tenant retrieval anomaly detection.** Any retrieval result returning a document outside the requesting tenant's index is a halt-worthy signal — baseline near zero; spikes warrant investigation.
+* **Cross-tenant retrieval anomaly detection.** Any retrieval result returning a document outside the requesting tenant's index is a halt-worthy signal. Baseline near zero; spikes warrant investigation.
 * **System-prompt extraction monitoring.** Heuristics on output for system-prompt-shaped content (the "ignore previous instructions / reveal your system prompt" attack family).
 * **Evaluation-harness integrity monitoring.** Drift in pass rates by fixture; cross-judge dissent rates; suspicious fixture-set edits.
 * **Platform-supply-chain anomaly detection.** Foundation-model provider key rotations not on schedule; embedding distribution shifts; SBOM diffs on platform-built artifacts.
@@ -403,8 +403,8 @@ Horizontal risks spanning several stages: `SAFE-T2102` (Service Disruption via E
 * **Kill switches at every layer:** model gateway, embedding service, tool registry, evaluation harness, deploy plane, observability plane. Each can be disabled independently while the others keep customers operational.
 * **Immutable version artifacts and audit trails** so rollback never destroys the evidence trail.
 * **Mass-revoke + mass-re-evaluate** path for tools or models found compromised: invalidate version; force re-eval on all dependent customer agents; surface impact list to deployers.
-* **Rapid customer-notification playbook** under EU AI Act Article 73 and equivalent — incident reporting that meets the deployer's cooperation-with-Article-25 obligations.
-* **Graceful degradation:** when a model, gateway, or evaluator is unavailable, customer agents see clear failure modes — not confident-but-wrong output. A common pattern is for the platform to surface "I cannot verify this" rather than synthesize a guess.
+* **Rapid customer-notification playbook** under EU AI Act Article 73 and equivalent. Incident reporting that meets the deployer's cooperation-with-Article-25 obligations.
+* **Graceful degradation:** when a model, gateway, or evaluator is unavailable, customer agents see clear failure modes. Not confident-but-wrong output. A common pattern is for the platform to surface "I cannot verify this" rather than synthesize a guess.
 
 ---
 
@@ -503,93 +503,93 @@ Metrics teams commonly instrument:
 
 ---
 
-## Appendix B — References & frameworks
+## Appendix B. References & frameworks
 
 ### SAFE-MCP techniques referenced in this use case
 
-* [SAFE-T1001 — Tool Poisoning Attack (TPA)](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1001/README.md)
-* [SAFE-T1002 — Supply Chain Compromise](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1002/README.md)
-* [SAFE-T1003 — Malicious MCP-Server Distribution](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1003/README.md)
-* [SAFE-T1004 — Server Impersonation / Name-Collision](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1004/README.md)
-* [SAFE-T1101 — Command Injection](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1101/README.md)
-* [SAFE-T1102 — Prompt Injection (Multiple Vectors)](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1102/README.md)
-* [SAFE-T1104 — Over-Privileged Tool Abuse](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1104/README.md)
-* [SAFE-T1106 — Autonomous Loop Exploit](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1106/README.md)
-* [SAFE-T1201 — MCP Rug Pull Attack](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1201/README.md)
-* [SAFE-T1202 — OAuth Token Persistence](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1202/README.md)
-* [SAFE-T1301 — Cross-Server Tool Shadowing](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1301/README.md)
-* [SAFE-T1302 — High-Privilege Tool Abuse](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1302/README.md)
-* [SAFE-T1401 — Line Jumping](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1401/README.md)
-* [SAFE-T1402 — Instruction Stenography - Tool Metadata Poisoning](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1402/README.md)
-* [SAFE-T1404 — Response Tampering](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1404/README.md)
-* [SAFE-T1501 — Full-Schema Poisoning (FSP)](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1501/README.md)
-* [SAFE-T1502 — File-Based Credential Harvest](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1502/README.md)
-* [SAFE-T1601 — MCP Server Enumeration](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1601/README.md)
-* [SAFE-T1602 — Tool Enumeration](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1602/README.md)
-* [SAFE-T1701 — Cross-Tool Contamination](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1701/README.md)
-* [SAFE-T1702 — Shared-Memory Poisoning](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1702/README.md)
-* [SAFE-T1801 — Automated Data Harvesting](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1801/README.md)
-* [SAFE-T1910 — Covert Channel Exfiltration](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1910/README.md)
-* [SAFE-T2101 — Data Destruction](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T2101/README.md)
-* [SAFE-T2102 — Service Disruption via External API Flooding](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T2102/README.md)
-* [SAFE-T3001 — RAG Backdoor Attack](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T3001/README.md)
+* [SAFE-T1001: Tool Poisoning Attack (TPA)](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1001/README.md)
+* [SAFE-T1002: Supply Chain Compromise](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1002/README.md)
+* [SAFE-T1003: Malicious MCP-Server Distribution](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1003/README.md)
+* [SAFE-T1004: Server Impersonation / Name-Collision](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1004/README.md)
+* [SAFE-T1101: Command Injection](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1101/README.md)
+* [SAFE-T1102: Prompt Injection (Multiple Vectors)](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1102/README.md)
+* [SAFE-T1104: Over-Privileged Tool Abuse](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1104/README.md)
+* [SAFE-T1106: Autonomous Loop Exploit](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1106/README.md)
+* [SAFE-T1201: MCP Rug Pull Attack](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1201/README.md)
+* [SAFE-T1202: OAuth Token Persistence](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1202/README.md)
+* [SAFE-T1301: Cross-Server Tool Shadowing](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1301/README.md)
+* [SAFE-T1302: High-Privilege Tool Abuse](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1302/README.md)
+* [SAFE-T1401: Line Jumping](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1401/README.md)
+* [SAFE-T1402: Instruction Stenography - Tool Metadata Poisoning](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1402/README.md)
+* [SAFE-T1404: Response Tampering](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1404/README.md)
+* [SAFE-T1501: Full-Schema Poisoning (FSP)](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1501/README.md)
+* [SAFE-T1502: File-Based Credential Harvest](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1502/README.md)
+* [SAFE-T1601: MCP Server Enumeration](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1601/README.md)
+* [SAFE-T1602: Tool Enumeration](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1602/README.md)
+* [SAFE-T1701: Cross-Tool Contamination](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1701/README.md)
+* [SAFE-T1702: Shared-Memory Poisoning](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1702/README.md)
+* [SAFE-T1801: Automated Data Harvesting](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1801/README.md)
+* [SAFE-T1910: Covert Channel Exfiltration](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1910/README.md)
+* [SAFE-T2101: Data Destruction](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T2101/README.md)
+* [SAFE-T2102: Service Disruption via External API Flooding](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T2102/README.md)
+* [SAFE-T3001: RAG Backdoor Attack](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T3001/README.md)
 
 ### Industry and AI-specific frameworks teams commonly consult
 
-* [NIST AI Risk Management Framework 1.0 — Govern.6 third-party / supply chain particularly relevant](https://www.nist.gov/itl/ai-risk-management-framework)
-* [NIST AI 600-1 — Generative AI Profile (July 2024)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
-* [NIST SP 800-218A — Secure Software Development Practices for Generative AI (July 2024)](https://csrc.nist.gov/pubs/sp/800/218/a/final)
-* [OWASP LLM Top 10 (2025) — including LLM03 Supply Chain and LLM07 System Prompt Leakage](https://genai.owasp.org/llm-top-10/)
-* [OWASP LLM03:2025 — Supply Chain](https://genai.owasp.org/llmrisk/llm032025-supply-chain/)
-* [OWASP LLM07:2025 — System Prompt Leakage (new in 2025)](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/)
-* [MITRE ATLAS — Adversarial Threat Landscape for AI Systems](https://atlas.mitre.org/)
-* [ISO/IEC 42001:2023 — AI management system (Annex A.10 third-party AI components)](https://www.iso.org/standard/42001)
-* [ISO/IEC 23894:2023 — AI risk management guidance](https://www.iso.org/standard/77304.html)
-* [EU AI Act — Article 25 Responsibilities Along the AI Value Chain (applies from 2 August 2026)](https://artificialintelligenceact.eu/article/25/)
-* [EU AI Act — Article 50 Transparency Obligations](https://artificialintelligenceact.eu/article/50/)
-* [OpenSSF SLSA — Supply-chain Levels for Software Artifacts](https://slsa.dev/)
+* [NIST AI Risk Management Framework 1.0: Govern.6 third-party / supply chain particularly relevant](https://www.nist.gov/itl/ai-risk-management-framework)
+* [NIST AI 600-1: Generative AI Profile (July 2024)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
+* [NIST SP 800-218A: Secure Software Development Practices for Generative AI (July 2024)](https://csrc.nist.gov/pubs/sp/800/218/a/final)
+* [OWASP LLM Top 10 (2025): including LLM03 Supply Chain and LLM07 System Prompt Leakage](https://genai.owasp.org/llm-top-10/)
+* [OWASP LLM03:2025: Supply Chain](https://genai.owasp.org/llmrisk/llm032025-supply-chain/)
+* [OWASP LLM07:2025: System Prompt Leakage (new in 2025)](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/)
+* [MITRE ATLAS: Adversarial Threat Landscape for AI Systems](https://atlas.mitre.org/)
+* [ISO/IEC 42001:2023: AI management system (Annex A.10 third-party AI components)](https://www.iso.org/standard/42001)
+* [ISO/IEC 23894:2023: AI risk management guidance](https://www.iso.org/standard/77304.html)
+* [EU AI Act: Article 25 Responsibilities Along the AI Value Chain (applies from 2 August 2026)](https://artificialintelligenceact.eu/article/25/)
+* [EU AI Act: Article 50 Transparency Obligations](https://artificialintelligenceact.eu/article/50/)
+* [OpenSSF SLSA: Supply-chain Levels for Software Artifacts](https://slsa.dev/)
 
 ### Public incidents and disclosures adjacent to this workflow
 
-* [Tenable Research Advisory TRA-2024-32 — Microsoft Copilot Studio SSRF (CVE-2024-38206, CVSS 8.5; researcher disclosure August 2024; no confirmed cross-tenant exfiltration)](https://www.tenable.com/security/research/tra-2024-32)
-* [Noma Security Labs — ForcedLeak: indirect prompt injection on Salesforce Agentforce (CVSS 9.4; reported 28 July 2025; Salesforce Trusted URLs Enforcement 8 September 2025; public disclosure 25 September 2025)](https://noma.security/noma-labs/forcedleak/)
-* [Aim Security / arXiv — EchoLeak zero-click prompt injection on Microsoft 365 Copilot (CVE-2025-32711, CVSS 9.3; June 2025; M365 Copilot runtime, distinct from Copilot Studio platform)](https://arxiv.org/abs/2509.10540)
-* [Invariant Labs — MCP Security Notification: Tool Poisoning Attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks)
-* [arXiv:2508.14925 — MCPTox: Benchmark for Tool Poisoning Attacks on Real-World MCP Servers (45 servers, 1,312 cases)](https://arxiv.org/html/2508.14925v1)
-* [arXiv:2505.23817 — System Prompt Extraction Attacks and Defenses in Large Language Models](https://arxiv.org/html/2505.23817v1)
-* [AI Incident Database #1152 — Replit AI agent destroyed production database during code freeze (July 2025; operational failure, not external breach)](https://incidentdatabase.ai/cite/1152/)
-* [The Register — Replit deleted SaaStr production database (July 21, 2025)](https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/)
-* [The Hacker News — Microsoft Patches Critical Copilot Studio Vulnerability (August 2024)](https://thehackernews.com/2024/08/microsoft-patches-critical-copilot.html)
-* [The Hacker News — Salesforce Patches Critical ForcedLeak Bug (September 2025)](https://thehackernews.com/2025/09/salesforce-patches-critical-forcedleak.html)
+* [Tenable Research Advisory TRA-2024-32: Microsoft Copilot Studio SSRF (CVE-2024-38206, CVSS 8.5; researcher disclosure August 2024; no confirmed cross-tenant exfiltration)](https://www.tenable.com/security/research/tra-2024-32)
+* [Noma Security Labs: ForcedLeak: indirect prompt injection on Salesforce Agentforce (CVSS 9.4; reported 28 July 2025; Salesforce Trusted URLs Enforcement 8 September 2025; public disclosure 25 September 2025)](https://noma.security/noma-labs/forcedleak/)
+* [Aim Security / arXiv: EchoLeak zero-click prompt injection on Microsoft 365 Copilot (CVE-2025-32711, CVSS 9.3; June 2025; M365 Copilot runtime, distinct from Copilot Studio platform)](https://arxiv.org/abs/2509.10540)
+* [Invariant Labs: MCP Security Notification: Tool Poisoning Attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks)
+* [arXiv:2508.14925: MCPTox: Benchmark for Tool Poisoning Attacks on Real-World MCP Servers (45 servers, 1,312 cases)](https://arxiv.org/html/2508.14925v1)
+* [arXiv:2505.23817: System Prompt Extraction Attacks and Defenses in Large Language Models](https://arxiv.org/html/2505.23817v1)
+* [AI Incident Database #1152: Replit AI agent destroyed production database during code freeze (July 2025; operational failure, not external breach)](https://incidentdatabase.ai/cite/1152/)
+* [The Register: Replit deleted SaaStr production database (July 21, 2025)](https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/)
+* [The Hacker News: Microsoft Patches Critical Copilot Studio Vulnerability (August 2024)](https://thehackernews.com/2024/08/microsoft-patches-critical-copilot.html)
+* [The Hacker News: Salesforce Patches Critical ForcedLeak Bug (September 2025)](https://thehackernews.com/2025/09/salesforce-patches-critical-forcedleak.html)
 
 ### Enterprise safeguards and operating patterns
 
-* [Microsoft — Microsoft Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
-* [Microsoft — Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/agents-toolkit-fundamentals)
-* [Microsoft — Establishing Responsible AI Policies for AI Agents across Organizations (Cloud Adoption Framework)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/responsible-ai-across-organization)
-* [Salesforce — Agentforce Agent Builder](https://www.salesforce.com/agentforce/agent-builder/)
-* [Salesforce Developers — Build and Optimize Agents with New Agentforce 360 Features (Dreamforce 2025)](https://developer.salesforce.com/blogs/2025/10/build-and-optimize-agents-with-new-agentforce-360-features)
-* [Salesforce — Einstein Trust Layer (Agentforce Developer Guide)](https://developer.salesforce.com/docs/einstein/genai/guide/trust.html)
-* [ServiceNow — Now Assist AI Agents (Yokohama bundle)](https://www.servicenow.com/docs/bundle/yokohama-intelligent-experiences/page/administer/now-assist-ai-agents/reference/na-ai-agents.html)
-* [AWS — Amazon Bedrock AgentCore Overview](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html)
-* [AWS — Security in Amazon Bedrock AgentCore (cross-service confused-deputy prevention)](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/security.html)
-* [AWS — Policy in Amazon Bedrock AgentCore: Control Agent-to-Tool Interactions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html)
-* [Google Cloud — Gemini Enterprise Agent Platform (formerly Vertex AI Agent Builder)](https://cloud.google.com/products/agent-builder)
-* [Anthropic — Claude Agent SDK overview (formerly Claude Code SDK)](https://docs.anthropic.com/en/docs/claude-code/sdk)
-* [Anthropic Engineering — Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
-* [Anthropic — Remote MCP Connectors Directory FAQ](https://support.anthropic.com/en/articles/11596036-anthropic-remote-mcp-directory-faq)
-* [OpenAI — Introducing AgentKit (DevDay 2025)](https://openai.com/index/introducing-agentkit/)
-* [OpenAI — Agent Builder docs](https://platform.openai.com/docs/guides/agent-builder)
-* [Databricks — Announcing managed MCP servers with Unity Catalog and Mosaic AI Integration](https://www.databricks.com/blog/announcing-managed-mcp-servers-unity-catalog-and-mosaic-ai-integration)
-* [Databricks — AI agent tools (Mosaic AI Agent Framework)](https://docs.databricks.com/aws/en/generative-ai/agent-framework/agent-tool)
-* [Databricks — Unity AI Gateway (formerly Mosaic AI Gateway)](https://docs.databricks.com/aws/en/ai-gateway/)
-* [IBM — watsonx Orchestrate AI agent governance and observability](https://www.ibm.com/products/watsonx-orchestrate/governance-and-observability)
-* [IBM — watsonx.governance](https://www.ibm.com/products/watsonx-governance)
-* [Model Context Protocol — Official MCP Registry (launched September 8, 2025)](https://registry.modelcontextprotocol.io/)
-* [OpenTelemetry — Semantic Conventions for GenAI agent and framework spans](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/)
-* [OpenTelemetry — AI Agent Observability: Evolving Standards and Best Practices (2025)](https://opentelemetry.io/blog/2025/ai-agent-observability/)
-* [Invariant Labs — Introducing MCP-Scan](https://invariantlabs.ai/blog/introducing-mcp-scan)
-* [Microsoft — Responsible AI Standard v2 General Requirements](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf)
+* [Microsoft: Microsoft Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+* [Microsoft: Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/agents-toolkit-fundamentals)
+* [Microsoft: Establishing Responsible AI Policies for AI Agents across Organizations (Cloud Adoption Framework)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/responsible-ai-across-organization)
+* [Salesforce: Agentforce Agent Builder](https://www.salesforce.com/agentforce/agent-builder/)
+* [Salesforce Developers: Build and Optimize Agents with New Agentforce 360 Features (Dreamforce 2025)](https://developer.salesforce.com/blogs/2025/10/build-and-optimize-agents-with-new-agentforce-360-features)
+* [Salesforce: Einstein Trust Layer (Agentforce Developer Guide)](https://developer.salesforce.com/docs/einstein/genai/guide/trust.html)
+* [ServiceNow: Now Assist AI Agents (Yokohama bundle)](https://www.servicenow.com/docs/bundle/yokohama-intelligent-experiences/page/administer/now-assist-ai-agents/reference/na-ai-agents.html)
+* [AWS: Amazon Bedrock AgentCore Overview](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html)
+* [AWS: Security in Amazon Bedrock AgentCore (cross-service confused-deputy prevention)](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/security.html)
+* [AWS: Policy in Amazon Bedrock AgentCore: Control Agent-to-Tool Interactions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html)
+* [Google Cloud: Gemini Enterprise Agent Platform (formerly Vertex AI Agent Builder)](https://cloud.google.com/products/agent-builder)
+* [Anthropic: Claude Agent SDK overview (formerly Claude Code SDK)](https://docs.anthropic.com/en/docs/claude-code/sdk)
+* [Anthropic Engineering: Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
+* [Anthropic: Remote MCP Connectors Directory FAQ](https://support.anthropic.com/en/articles/11596036-anthropic-remote-mcp-directory-faq)
+* [OpenAI: Introducing AgentKit (DevDay 2025)](https://openai.com/index/introducing-agentkit/)
+* [OpenAI: Agent Builder docs](https://platform.openai.com/docs/guides/agent-builder)
+* [Databricks: Announcing managed MCP servers with Unity Catalog and Mosaic AI Integration](https://www.databricks.com/blog/announcing-managed-mcp-servers-unity-catalog-and-mosaic-ai-integration)
+* [Databricks: AI agent tools (Mosaic AI Agent Framework)](https://docs.databricks.com/aws/en/generative-ai/agent-framework/agent-tool)
+* [Databricks: Unity AI Gateway (formerly Mosaic AI Gateway)](https://docs.databricks.com/aws/en/ai-gateway/)
+* [IBM: watsonx Orchestrate AI agent governance and observability](https://www.ibm.com/products/watsonx-orchestrate/governance-and-observability)
+* [IBM: watsonx.governance](https://www.ibm.com/products/watsonx-governance)
+* [Model Context Protocol: Official MCP Registry (launched September 8, 2025)](https://registry.modelcontextprotocol.io/)
+* [OpenTelemetry: Semantic Conventions for GenAI agent and framework spans](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/)
+* [OpenTelemetry: AI Agent Observability: Evolving Standards and Best Practices (2025)](https://opentelemetry.io/blog/2025/ai-agent-observability/)
+* [Invariant Labs: Introducing MCP-Scan](https://invariantlabs.ai/blog/introducing-mcp-scan)
+* [Microsoft: Responsible AI Standard v2 General Requirements](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf)
 
 ### Vendor product patterns
 
