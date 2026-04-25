@@ -93,15 +93,88 @@
   {
     "id": "SAFE-UC-0008",
     "title": "Over-the-air vehicle software update orchestration",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0008/README.md",
     "naics_2022": [
       {
         "code": "31-33",
         "name": "Manufacturing"
+      },
+      {
+        "code": "3361",
+        "name": "Motor Vehicle Manufacturing"
+      },
+      {
+        "code": "3363",
+        "name": "Motor Vehicle Parts Manufacturing"
+      },
+      {
+        "code": "5415",
+        "name": "Computer Systems Design and Related Services"
       }
     ],
-    "summary": "Plan, stage, and monitor OTA software rollouts across vehicle fleets with safe gating, rollback, and audit trails."
+    "summary": "AI-assisted orchestration of over-the-air software updates across vehicle fleets — plan, stage, deliver, monitor, and adjudicate rollouts with safety gates, rollback, and audit trails. Cyber-physical and safety-critical: a wrong action can affect braking, steering, ADAS, or HV battery management across hundreds of thousands of vehicles.",
+    "workflow_family": "Cyber-physical fleet software operations",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "ota",
+      "vehicle",
+      "cyber-physical",
+      "safety-critical",
+      "supply-chain",
+      "uptane",
+      "un-r155",
+      "un-r156",
+      "iso-21434",
+      "iso-26262"
+    ],
+    "evidence": [
+      {
+        "label": "UN Regulation No. 156 — Software update and software update management system (UNECE WP.29)",
+        "url": "https://unece.org/sites/default/files/2024-03/R156e%20(2).pdf"
+      },
+      {
+        "label": "UN Regulation No. 155 — Cyber security and cyber security management system (UNECE WP.29)",
+        "url": "https://unece.org/sites/default/files/2023-02/R155e%20(2).pdf"
+      },
+      {
+        "label": "ISO 24089:2023 — Road vehicles — Software update engineering",
+        "url": "https://www.iso.org/standard/77796.html"
+      },
+      {
+        "label": "NHTSA — Cybersecurity Best Practices for the Safety of Modern Vehicles (September 2022)",
+        "url": "https://www.nhtsa.gov/document/cybersecurity-best-practices-safety-modern-vehicles-2022"
+      },
+      {
+        "label": "Uptane — A secure software update framework for ground vehicles",
+        "url": "https://uptane.org/"
+      },
+      {
+        "label": "NHTSA Safety Recall 23V-838 — Tesla, ~2 million vehicles, Autopilot OTA remedy",
+        "url": "https://static.nhtsa.gov/odi/rcl/2023/RCLRPT-23V838-8276.PDF"
+      },
+      {
+        "label": "TechCrunch — A software update bricked Rivian infotainment systems (November 2023)",
+        "url": "https://techcrunch.com/2023/11/14/a-software-update-bricked-rivian-infotainment-systems/"
+      },
+      {
+        "label": "Miller & Valasek — Remote Exploitation of an Unaltered Passenger Vehicle (Jeep Cherokee, 2015)",
+        "url": "https://illmatics.com/Remote%20Car%20Hacking.pdf"
+      },
+      {
+        "label": "Upstream Security — 2025 Global Automotive Cybersecurity Report",
+        "url": "https://upstream.auto/reports/global-automotive-cybersecurity-report-2025/"
+      },
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0009",
@@ -132,15 +205,84 @@
   {
     "id": "SAFE-UC-0011",
     "title": "Banking virtual assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0011/README.md",
     "naics_2022": [
       {
         "code": "52",
         "name": "Finance and Insurance"
+      },
+      {
+        "code": "522",
+        "name": "Credit Intermediation and Related Activities"
+      },
+      {
+        "code": "5221",
+        "name": "Depository Credit Intermediation"
+      },
+      {
+        "code": "5222",
+        "name": "Nondepository Credit Intermediation"
       }
     ],
-    "summary": "Banking assistant for account info, troubleshooting, and guided actions with strong authentication and disclosure controls."
+    "summary": "Consumer-facing conversational AI deployed by banks, credit unions, neobanks, and fintechs for account queries, transfers, card controls, disputes, and guided product discovery. Primary risks: customer impersonation and social engineering, regulated-data disclosure, unauthorized action authorization, step-up authentication bypass, and hallucinated disclosures or advice.",
+    "workflow_family": "Consumer-facing financial services",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "banking",
+      "consumer-facing",
+      "conversational-ai",
+      "step-up-auth",
+      "regulated-disclosure",
+      "social-engineering"
+    ],
+    "evidence": [
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      },
+      {
+        "label": "NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile (July 2024)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+      },
+      {
+        "label": "CFPB — Chatbots in consumer finance Issue Spotlight (June 2023)",
+        "url": "https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/"
+      },
+      {
+        "label": "FFIEC — IT Examination Handbook: Information Security booklet",
+        "url": "https://ithandbook.ffiec.gov/it-booklets/information-security/"
+      },
+      {
+        "label": "NIST SP 800-63B — Digital Identity Guidelines: Authentication and Lifecycle Management",
+        "url": "https://pages.nist.gov/800-63-3/sp800-63b.html"
+      },
+      {
+        "label": "FTC — Safeguards Rule: What Your Business Needs to Know (GLBA, 16 CFR Part 314)",
+        "url": "https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know"
+      },
+      {
+        "label": "CFPB — Regulation E (Electronic Fund Transfer Act, 12 CFR 1005)",
+        "url": "https://www.consumerfinance.gov/rules-policy/regulations/1005/"
+      },
+      {
+        "label": "Bank of America — BofA's Erica Surpasses 2 Billion Interactions (April 2024)",
+        "url": "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2024/04/bofa-s-erica-surpasses-2-billion-interactions--helping-42-millio.html"
+      },
+      {
+        "label": "Klarna — AI assistant handles two-thirds of customer service chats in its first month (February 2024)",
+        "url": "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"
+      },
+      {
+        "label": "BBC Travel — Airline held liable for its chatbot giving passenger bad advice (Air Canada Civil Resolution Tribunal ruling, February 2024)",
+        "url": "https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0012",
@@ -224,7 +366,7 @@
     "id": "SAFE-UC-0018",
     "title": "Work-item summarization assistant (thread + context summaries)",
     "status": "draft",
-    "maturity": "starter-template",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0018/README.md",
     "naics_2022": [
       {
@@ -251,16 +393,40 @@
     ],
     "evidence": [
       {
-        "label": "Public product documentation: summarize a work item's comments using AI",
+        "label": "Jira Service Management — Summarize a work item's details using AI",
         "url": "https://support.atlassian.com/jira-service-management-cloud/docs/summarize-an-issues-comments-using-atlassian-intelligence/"
       },
       {
-        "label": "Public product documentation: explore issues and discussions with an assistant",
+        "label": "Atlassian Rovo — product overview",
+        "url": "https://www.atlassian.com/software/rovo"
+      },
+      {
+        "label": "GitHub Copilot — Using GitHub Copilot to explore issues and discussions",
         "url": "https://docs.github.com/en/copilot/tutorials/explore-issues-and-discussions"
       },
       {
-        "label": "Public product documentation: summarize a helpdesk ticket using AI",
+        "label": "Slack — Guide to AI features in Slack",
+        "url": "https://slack.com/help/articles/25076892548883-Guide-to-AI-features-in-Slack"
+      },
+      {
+        "label": "Desk365 — How to summarize a ticket using AI",
         "url": "https://help.desk365.io/en/articles/summarize-ticket-using-ai/"
+      },
+      {
+        "label": "Microsoft Purview — data security and compliance protections for Microsoft 365 Copilot and other generative AI apps",
+        "url": "https://learn.microsoft.com/en-us/purview/ai-microsoft-purview"
+      },
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      },
+      {
+        "label": "NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile (July 2024)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+      },
+      {
+        "label": "Invariant Labs — GitHub MCP Exploited: Accessing private repositories via MCP (May 2025)",
+        "url": "https://invariantlabs.ai/blog/mcp-github-vulnerability"
       }
     ]
   },
@@ -293,15 +459,87 @@
   {
     "id": "SAFE-UC-0021",
     "title": "Contact-center agent assist",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0021/README.md",
     "naics_2022": [
       {
         "code": "56",
         "name": "Administrative and Support and Waste Management and Remediation Services"
+      },
+      {
+        "code": "561422",
+        "name": "Telemarketing Bureaus and Other Contact Centers"
       }
     ],
-    "summary": "Real-time agent-assist for contact-center reps (suggested replies, knowledge retrieval, disposition) with compliance controls."
+    "summary": "Real-time AI assistance for human contact-center representatives during live voice and chat interactions: transcription, KB retrieval, whisper-style suggestions, wrap-up summaries, and disposition write-back, with compliance controls spanning TCPA, Reg E/Z/DD, HIPAA, PCI, and state biometric / recording-consent laws.",
+    "workflow_family": "Contact-center operations & real-time agent assist",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "contact-center",
+      "agent-assist",
+      "real-time",
+      "asr",
+      "voice",
+      "rag",
+      "crm",
+      "regulated-disclosure",
+      "tcpa",
+      "fcc-24-17",
+      "reg-e",
+      "hipaa",
+      "pci-dss",
+      "udaap",
+      "cfpb",
+      "multi-tenant",
+      "bpo"
+    ],
+    "evidence": [
+      {
+        "label": "CFPB Issue Spotlight \u2014 Chatbots in Consumer Finance (June 2023)",
+        "url": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-issue-spotlight-analyzes-artificial-intelligence-chatbots-in-banking/"
+      },
+      {
+        "label": "CFPB Consumer Financial Protection Circular 2023-03 \u2014 Adverse action notification requirements and AI-generated decisions (Sept 2023)",
+        "url": "https://www.consumerfinance.gov/compliance/circulars/circular-2023-03-adverse-action-notification-requirements-and-the-proper-use-of-the-cfpbs-sample-forms-provided-in-regulation-b/"
+      },
+      {
+        "label": "FTC Operation AI Comply \u2014 Press release on five enforcement actions (Sept 25, 2024)",
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes"
+      },
+      {
+        "label": "FCC Declaratory Ruling FCC-24-17 \u2014 TCPA applies to AI-generated voices (Feb 8, 2024)",
+        "url": "https://www.fcc.gov/document/fcc-confirms-tcpa-applies-ai-technologies-generate-human-voices"
+      },
+      {
+        "label": "NIST AI 600-1 \u2014 Artificial Intelligence Risk Management Framework: Generative AI Profile (July 26, 2024)",
+        "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+      },
+      {
+        "label": "OWASP LLM01:2025 \u2014 Prompt Injection (OWASP Gen AI Security Project, 2025)",
+        "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+      },
+      {
+        "label": "EU AI Act \u2014 Article 50 transparency obligations for AI interacting with natural persons",
+        "url": "https://artificialintelligenceact.eu/article/50/"
+      },
+      {
+        "label": "ABA Business Law Today \u2014 BC Tribunal confirms companies remain liable for information provided by AI chatbot (Moffatt v Air Canada, Feb 2024)",
+        "url": "https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/"
+      },
+      {
+        "label": "The Markup \u2014 NYC's AI chatbot tells businesses to break the law (March 29, 2024)",
+        "url": "https://themarkup.org/news/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law"
+      },
+      {
+        "label": "Google Cloud \u2014 Agent Assist (real-time suggestions, transcription, post-call summary)",
+        "url": "https://cloud.google.com/agent-assist"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0022",
@@ -399,15 +637,80 @@
   {
     "id": "SAFE-UC-0024",
     "title": "Terminal-based outage assistant for SRE",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0024/README.md",
     "naics_2022": [
       {
         "code": "51",
         "name": "Information"
+      },
+      {
+        "code": "5182",
+        "name": "Computing Infrastructure Providers and Data Processing Services"
+      },
+      {
+        "code": "5415",
+        "name": "Computer Systems Design and Related Services"
       }
     ],
-    "summary": "CLI/terminal assistant for SREs during outages that helps run safe diagnostics without executing unsafe commands autonomously."
+    "summary": "CLI/terminal AI assistant for SREs and on-call responders during incidents — reads logs, proposes diagnostic commands, and in higher-autonomy modes executes commands against production infrastructure. Primary risk is privileged tool invocation with production blast radius.",
+    "workflow_family": "Site reliability & incident response",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "sre",
+      "terminal",
+      "cli-agent",
+      "incident-response",
+      "shell-execution",
+      "privileged-tools"
+    ],
+    "evidence": [
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      },
+      {
+        "label": "NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile (July 2024)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+      },
+      {
+        "label": "NIST SP 800-53 Rev 5 — Security and Privacy Controls for Information Systems and Organizations",
+        "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      },
+      {
+        "label": "Anthropic — Claude Code: Configure permissions",
+        "url": "https://code.claude.com/docs/en/permissions"
+      },
+      {
+        "label": "OpenAI — Codex CLI: Sandbox concepts",
+        "url": "https://developers.openai.com/codex/concepts/sandboxing"
+      },
+      {
+        "label": "Warp — Terminal and Agent modes",
+        "url": "https://docs.warp.dev/agent-platform/warp-agents/interacting-with-agents/terminal-and-agent-modes"
+      },
+      {
+        "label": "Replit — Introducing Plan Mode: A safer way to vibe code (September 2025)",
+        "url": "https://blog.replit.com/introducing-plan-mode-a-safer-way-to-vibe-code"
+      },
+      {
+        "label": "Fortune — AI-powered coding tool wiped out a software company's database (July 2025)",
+        "url": "https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/"
+      },
+      {
+        "label": "AWS Security Bulletin AWS-2025-019 — Amazon Q Developer and Kiro prompt injection (October 2025)",
+        "url": "https://aws.amazon.com/security/security-bulletins/AWS-2025-019/"
+      },
+      {
+        "label": "Invariant Labs — MCP Security Notification: Tool Poisoning Attacks (April 2025)",
+        "url": "https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0025",
@@ -506,7 +809,7 @@
         "name": "Electronic Shopping and Mail-Order Houses"
       }
     ],
-    "summary": "Safe agentic orchestration of multi-party embedded lending pipelines — merchant data feeds to external lenders, offer curation with fair-lending constraints, and revenue-coupled repayment — addressing cross-organizational trust boundaries, regulatory compliance automation, and novel financial harm categories unique to platform-mediated lending.",
+    "summary": "Safe agentic orchestration of multi-party embedded lending pipelines \u2014 merchant data feeds to external lenders, offer curation with fair-lending constraints, and revenue-coupled repayment \u2014 addressing cross-organizational trust boundaries, regulatory compliance automation, and novel financial harm categories unique to platform-mediated lending.",
     "workflow_family": "Financial services & embedded lending",
     "operating_modes": [
       "manual",
@@ -525,19 +828,19 @@
     ],
     "evidence": [
       {
-        "label": "CFPB — Innovation Spotlight: Marketplace Lending",
+        "label": "CFPB \u2014 Innovation Spotlight: Marketplace Lending",
         "url": "https://www.consumerfinance.gov/data-research/research-reports/innovation-spotlight-marketplace-lending/"
       },
       {
-        "label": "OCC — Third-Party Relationships: Risk Management Guidance (2023)",
+        "label": "OCC \u2014 Third-Party Relationships: Risk Management Guidance (2023)",
         "url": "https://www.occ.gov/news-issuances/bulletins/2023/bulletin-2023-17.html"
       },
       {
-        "label": "Bain & Company — Embedded Finance: $7 Trillion Opportunity",
+        "label": "Bain & Company \u2014 Embedded Finance: $7 Trillion Opportunity",
         "url": "https://www.bain.com/insights/embedded-finance/"
       },
       {
-        "label": "CFPB — Fair Lending and ECOA Compliance",
+        "label": "CFPB \u2014 Fair Lending and ECOA Compliance",
         "url": "https://www.consumerfinance.gov/compliance/supervisory-highlights/fair-lending/"
       }
     ]

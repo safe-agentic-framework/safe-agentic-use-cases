@@ -79,10 +79,10 @@ Quick contributor workflow:
 | [SAFE-UC-0005](use-cases/SAFE-UC-0005/) | Visual search & image-based product discovery | [Retail Trade (44–45)][naics-44-45] | Seed |
 | [SAFE-UC-0006](use-cases/SAFE-UC-0006/) | Fleet telematics & vehicle-health monitoring assistant | [Transportation and Warehousing (48–49)][naics-48-49] | Seed |
 | [SAFE-UC-0007](use-cases/SAFE-UC-0007/) | Mobile fleet-maintenance dispatch & scheduling assistant | [Other Services (except Public Administration) (81)][naics-81] | Seed |
-| [SAFE-UC-0008](use-cases/SAFE-UC-0008/) | Over-the-air vehicle software update orchestration | [Manufacturing (31–33)][naics-31-33] | Seed |
+| [SAFE-UC-0008](use-cases/SAFE-UC-0008/) | Over-the-air vehicle software update orchestration | [Manufacturing (31–33)][naics-31-33] | Draft |
 | [SAFE-UC-0009](use-cases/SAFE-UC-0009/) | Manufacturing line visual inspection assistant | [Manufacturing (31–33)][naics-31-33] | Seed |
 | [SAFE-UC-0010](use-cases/SAFE-UC-0010/) | In-vehicle voice assistant for local controls | [Manufacturing (31–33)][naics-31-33] | Seed |
-| [SAFE-UC-0011](use-cases/SAFE-UC-0011/) | Banking virtual assistant | [Finance and Insurance (52)][naics-52] | Seed |
+| [SAFE-UC-0011](use-cases/SAFE-UC-0011/) | Banking virtual assistant | [Finance and Insurance (52)][naics-52] | Draft |
 | [SAFE-UC-0012](use-cases/SAFE-UC-0012/) | Interactive fraud alert & card controls assistant | [Finance and Insurance (52)][naics-52] | Seed |
 | [SAFE-UC-0013](use-cases/SAFE-UC-0013/) | Virtual card number generation & checkout assistant | [Finance and Insurance (52)][naics-52] | Seed |
 | [SAFE-UC-0014](use-cases/SAFE-UC-0014/) | Digital dispute/chargeback intake assistant | [Finance and Insurance (52)][naics-52] | Seed |
@@ -92,10 +92,10 @@ Quick contributor workflow:
 | [SAFE-UC-0018](use-cases/SAFE-UC-0018/) | Work-item summarization assistant (thread + context summaries) | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
 | [SAFE-UC-0019](use-cases/SAFE-UC-0019/) | Post-incident review drafting assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0020](use-cases/SAFE-UC-0020/) | On-call incident context assistant | [Information (51)][naics-51] | Seed |
-| [SAFE-UC-0021](use-cases/SAFE-UC-0021/) | Contact-center agent assist | [Administrative and Support and Waste Management and Remediation Services (56)][naics-56] | Seed |
+| [SAFE-UC-0021](use-cases/SAFE-UC-0021/) | Contact-center agent assist | [Administrative and Support and Waste Management and Remediation Services (56)][naics-56]<br>[Telemarketing Bureaus and Other Contact Centers (561422)][naics-561422] | Draft |
 | [SAFE-UC-0022](use-cases/SAFE-UC-0022/) | Security operations investigation assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Draft |
 | [SAFE-UC-0023](use-cases/SAFE-UC-0023/) | Cloud ops troubleshooting assistant | [Information (51)][naics-51] | Seed |
-| [SAFE-UC-0024](use-cases/SAFE-UC-0024/) | Terminal-based outage assistant for SRE | [Information (51)][naics-51] | Seed |
+| [SAFE-UC-0024](use-cases/SAFE-UC-0024/) | Terminal-based outage assistant for SRE | [Information (51)][naics-51] | Draft |
 | [SAFE-UC-0025](use-cases/SAFE-UC-0025/) | Enterprise agent-building platform | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0026](use-cases/SAFE-UC-0026/) | At-scale content policy enforcement pipeline | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0027](use-cases/SAFE-UC-0027/) | Anti-scam messaging safety assistant | [Information (51)][naics-51] | Seed |
@@ -125,3 +125,4 @@ Quick contributor workflow:
 [naics-522390]: https://www.census.gov/naics/?chart=2022&details=522390&input=522390
 [naics-454110]: https://www.census.gov/naics/?chart=2022&details=454110&input=454110
 [naics-522320]: https://www.census.gov/naics/?chart=2022&details=522320&input=522320
+[naics-561422]: https://www.census.gov/naics/?chart=2022&details=561422&input=561422
