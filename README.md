@@ -73,7 +73,7 @@ Quick contributor workflow:
 | SAFE Use Case ID | Use case title | NAICS 2022 industry mapping (Name + Code) | Status |
 |---|---|---|---|
 | [SAFE-UC-0001](use-cases/SAFE-UC-0001/) | AI-assisted seller listing creation | [Retail Trade (44–45)][naics-44-45] | Seed |
-| [SAFE-UC-0002](use-cases/SAFE-UC-0002/) | Personalized shopping sidekick | [Retail Trade (44–45)][naics-44-45] | Seed |
+| [SAFE-UC-0002](use-cases/SAFE-UC-0002/) | Personalized shopping sidekick | [Retail Trade (44–45)][naics-44-45] | Draft |
 | [SAFE-UC-0003](use-cases/SAFE-UC-0003/) | Buyer-seller messaging assistant | [Retail Trade (44–45)][naics-44-45] | Seed |
 | [SAFE-UC-0004](use-cases/SAFE-UC-0004/) | Listing media enhancement assistant | [Retail Trade (44–45)][naics-44-45] | Seed |
 | [SAFE-UC-0005](use-cases/SAFE-UC-0005/) | Visual search & image-based product discovery | [Retail Trade (44–45)][naics-44-45] | Seed |
