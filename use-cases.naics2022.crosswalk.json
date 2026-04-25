@@ -883,7 +883,8 @@
   {
     "id": "SAFE-UC-0027",
     "title": "Anti-scam messaging safety assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0027/README.md",
     "naics_2022": [
       {
@@ -891,7 +892,77 @@
         "name": "Information"
       }
     ],
-    "summary": "Detect and triage scam/phishing patterns in messaging and recommend user-facing interventions and escalations."
+    "summary": "AI defender deployed across consumer messaging surfaces (telecom, email, chat, banking transaction-warning, social platforms) to detect and block scam content. First SAFE-AUCA UC where the AI is the defender rather than the system being attacked. 7-stage kill chain spanning ingestion, classification, adversarial-content detection, federated IOC exchange, action, reporting, and appeals. Spans FCC TCPA + STIR/SHAKEN + Declaratory Ruling 24-17, Lingo Telecom and Steve Kramer enforcement, FTC TSR + Voice Cloning Challenge, FBI IC3 + Operation Level Up, FTC Consumer Sentinel, CFPB Reg E APP gap, UK Online Fraud Charter + PSR PS25/5, EBA/ECB Joint Payment Fraud Report, EU DSA Articles 17 + 22, NIST AI 600-1, OWASP LLM Top 10 2025, MITRE ATLAS, ISO/IEC 42001, C2PA Content Credentials, federal fraud statutes 18 USC 1029 / 1343 / 1349.",
+    "workflow_family": "Consumer protection and anti-scam defense",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "anti-scam",
+      "defender-frame",
+      "deepfake-voice",
+      "ai-generated-phishing",
+      "stir-shaken",
+      "tcpa",
+      "fcc-24-17",
+      "robocall",
+      "bec",
+      "app-fraud",
+      "elder-fraud",
+      "pig-butchering",
+      "ic3",
+      "consumer-sentinel",
+      "uk-psr",
+      "dsa-article-17",
+      "dsa-article-22",
+      "asvspoof",
+      "c2pa",
+      "false-positive-harm"
+    ],
+    "evidence": [
+      {
+        "label": "FCC Declaratory Ruling FCC 24-17 on AI-generated voices in robocalls under TCPA (8 February 2024)",
+        "url": "https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf"
+      },
+      {
+        "label": "FCC Lingo Telecom $1M Consent Decree, first STIR/SHAKEN failure for AI-cloned voices (21 August 2024)",
+        "url": "https://www.fcc.gov/document/fcc-eb-settles-lingo-transmitting-illegal-robocalls"
+      },
+      {
+        "label": "FCC $6M Forfeiture Order against Steve Kramer for New Hampshire AI-Biden robocalls, FCC 24-104 (26 September 2024)",
+        "url": "https://www.fcc.gov/document/fcc-issues-6m-fine-nh-robocalls"
+      },
+      {
+        "label": "FBI IC3 2024 Internet Crime Report (859,532 complaints, $16.6B losses, $4.9B elder fraud)",
+        "url": "https://www.ic3.gov/AnnualReport/Reports/2024_IC3Report.pdf"
+      },
+      {
+        "label": "FTC Consumer Sentinel Network 2024 Data Book (6.5M reports, $12.5B fraud losses)",
+        "url": "https://www.ftc.gov/system/files/ftc_gov/pdf/csn-annual-data-book-2024.pdf"
+      },
+      {
+        "label": "FTC Voice Cloning Challenge winners (8 April 2024)",
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2024/04/ftc-announces-winners-voice-cloning-challenge"
+      },
+      {
+        "label": "UK Online Fraud Charter (signed 30 November 2023)",
+        "url": "https://www.gov.uk/government/publications/online-fraud-charter-2023"
+      },
+      {
+        "label": "UK PSR PS25/5 Consolidated Policy Statement on APP scams reimbursement (May 2025; in force 7 October 2024)",
+        "url": "https://www.psr.org.uk/media/rhelv4op/ps25-5-app-scams-reimbursement-consolidated-policy-statement-may-2025.pdf"
+      },
+      {
+        "label": "EBA and ECB Joint Report on Payment Fraud (December 2025; EUR 4.2B EEA fraud, 85% of credit-transfer scam losses borne by users)",
+        "url": "https://www.eba.europa.eu/sites/default/files/2025-12/1709846a-84d9-47cf-86a0-b155efb34d66/EBA%20and%20ECB%20Report%20on%20Payment%20Fraud.pdf"
+      },
+      {
+        "label": "CNN: Arup revealed as victim of $25 million Hong Kong deepfake CFO video-call scam (16 May 2024 confirmation; February 2024 incident)",
+        "url": "https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0028",
