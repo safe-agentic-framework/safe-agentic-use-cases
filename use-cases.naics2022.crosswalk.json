@@ -136,7 +136,8 @@
   {
     "id": "SAFE-UC-0006",
     "title": "Fleet telematics & vehicle-health monitoring assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0006/README.md",
     "naics_2022": [
       {
@@ -144,7 +145,86 @@
         "name": "Transportation and Warehousing"
       }
     ],
-    "summary": "Monitor fleet telemetry, detect anomalies, predict maintenance needs, and recommend interventions without unsafe automation."
+    "summary": "AI-assisted ingestion, anomaly detection, predictive maintenance, hours-of-service compliance, driver-behavior scoring, recall-trigger surveillance, and insurer feed generation over millions of streaming telematics records. First SAFE-AUCA Transportation-sector use case and the registry's first read-heavy cyber-physical workflow. Defining tension: privacy versus safety from the read-side data flow. Primary risks: privacy-secondary-use and data-broker resale (the FTC GM/OnStar standard, 14 January 2026), cross-tenant data bleed on multi-tenant TSP planes, adversarial telemetry inputs (GPS spoofing for HOS evasion, CAN injection from aftermarket dongles, dashcam adversarial frames), UBI pricing-discrimination and cohort harm, ELD and Part 573 regulated-record tampering, and cabin-imagery misuse.",
+    "workflow_family": "Cyber-physical fleet telematics and vehicle-health monitoring",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "transportation",
+      "fleet-telematics",
+      "vehicle-health",
+      "cyber-physical",
+      "read-heavy",
+      "privacy-vs-safety",
+      "multi-tenant",
+      "tsp",
+      "obd-ii",
+      "j1939",
+      "eld",
+      "hos",
+      "ubi",
+      "insurance-discrimination",
+      "data-broker",
+      "ftc-gm-onstar",
+      "cppa",
+      "tdpsa",
+      "auto-isac",
+      "j3138",
+      "iso-21434"
+    ],
+    "evidence": [
+      {
+        "label": "FTC Finalizes Order Settling Allegations that GM and OnStar Collected and Sold Geolocation Data Without Consumers' Informed Consent (14 January 2026; 5-year ban on disclosure to consumer reporting agencies)",
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2026/01/ftc-finalizes-order-settling-allegations-gm-onstar-collected-sold-geolocation-data-without-consumers"
+      },
+      {
+        "label": "Wyden and Markey Investigation Letter to FTC on automaker driver data sharing (26 July 2024)",
+        "url": "https://www.wyden.senate.gov/news/press-releases/wyden-investigation-reveals-new-details-about-automakers-sharing-of-driver-information-with-data-brokers-wyden-and-markey-urge-ftc-to-crack-down-on-disclosures-of-americans-data-without-drivers-consent"
+      },
+      {
+        "label": "Texas AG Paxton Sues Allstate and Arity for Unlawfully Collecting Driving Data from 45M+ Consumers (January 2025; first TDPSA enforcement)",
+        "url": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sues-allstate-and-arity-unlawfully-collecting-using-and-selling-over-45"
+      },
+      {
+        "label": "Mozilla Foundation: Privacy Nightmare on Wheels, all 25 reviewed brands flunk privacy review (September 2023)",
+        "url": "https://www.mozillafoundation.org/en/blog/privacy-nightmare-on-wheels-every-car-brand-reviewed-by-mozilla-including-ford-volkswagen-and-toyota-flunks-privacy-test/"
+      },
+      {
+        "label": "Upstream Security 2025 Global Automotive Cybersecurity Report",
+        "url": "https://upstream.auto/blog/insights-from-upstreams-2025-automotive-cybersecurity-report/"
+      },
+      {
+        "label": "California CPPA $632,500 Settlement with American Honda Motor Co. (12 March 2025; analysis by Wilson Sonsini)",
+        "url": "https://www.wsgr.com/en/insights/lessons-from-the-cppas-dollar632500-settlement-with-connected-vehicle-manufacturer.html"
+      },
+      {
+        "label": "CISA ICS-ALERT-15-203-01 FCA Uconnect Vulnerability (2015 Jeep remote exploit; first cybersecurity-driven recall, 1.4M vehicles)",
+        "url": "https://www.cisa.gov/news-events/ics-alerts/ics-alert-15-203-01"
+      },
+      {
+        "label": "49 CFR Part 395 Subpart B Electronic Logging Devices (FMCSA HOS regulation)",
+        "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-III/part-395/subpart-B"
+      },
+      {
+        "label": "49 CFR Part 573 Defect and Noncompliance Responsibility and Reports (NHTSA 5-business-day reporting)",
+        "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-573"
+      },
+      {
+        "label": "NHTSA Cybersecurity Best Practices for the Safety of Modern Vehicles (September 2022)",
+        "url": "https://www.nhtsa.gov/document/cybersecurity-best-practices-safety-modern-vehicles-2022"
+      },
+      {
+        "label": "SAE J3138_202210 Diagnostic Link Connector Security (October 2022)",
+        "url": "https://www.sae.org/standards/content/j3138_202210/"
+      },
+      {
+        "label": "Automotive ISAC Best Practice Guides",
+        "url": "https://automotiveisac.com/best-practice-guides"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0007",
