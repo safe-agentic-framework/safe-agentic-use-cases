@@ -179,7 +179,8 @@
   {
     "id": "SAFE-UC-0009",
     "title": "Manufacturing line visual inspection assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0009/README.md",
     "naics_2022": [
       {
@@ -187,7 +188,68 @@
         "name": "Manufacturing"
       }
     ],
-    "summary": "Run visual QA on production lines, flag defects, trigger rework flows, and manage human review thresholds."
+    "summary": "AI-driven computer-vision inspection on production lines: edge or near-edge models classify defects from camera feeds and drive pass/fail decisions routed to PLC/SCADA. First SAFE-AUCA computer-vision use case and first domain shift away from LLM-centric workflows. Primary risks: physical adversarial inputs (stickers/patches/lighting), sensor and optics spoofing, model and dataset drift on regulated parts, hard real-time edge deadline misses, OT/IT trust-boundary crossings (IEC 62443), functional-safety integration gaps (ISO 26262/IEC 61508/ISO 21448 SOTIF), and regulated escape pathways with statutory recall reporting (NHTSA 49 CFR Part 573, FDA 21 CFR Part 820, FAA 14 CFR Part 21).",
+    "workflow_family": "Cyber-physical manufacturing inspection and quality control",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "manufacturing",
+      "computer-vision",
+      "cyber-physical",
+      "edge-inference",
+      "functional-safety",
+      "ot-it-boundary",
+      "iec-62443",
+      "iso-26262",
+      "sotif",
+      "physical-adversarial",
+      "recall-reporting"
+    ],
+    "evidence": [
+      {
+        "label": "NTSB Aviation Investigation Report AIR-25-04, In-Flight Separation of Left Mid Exit Door Plug, Alaska Airlines 1282 (released June 2025)",
+        "url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AIR2504.pdf"
+      },
+      {
+        "label": "NIST AI 100-2 E2025: Adversarial Machine Learning Taxonomy and Terminology of Attacks and Mitigations (24 March 2025)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf"
+      },
+      {
+        "label": "Eykholt et al: Robust Physical-World Attacks on Deep Learning Visual Classification (CVPR 2018; arXiv:1707.08945)",
+        "url": "https://arxiv.org/abs/1707.08945"
+      },
+      {
+        "label": "NHTSA EA22-002 Tesla Autopilot Engineering Analysis Close Resume (211 frontal-plane crashes, 13 fatal; triggered Recall 23V-838)",
+        "url": "https://static.nhtsa.gov/odi/inv/2022/INCLA-EA22002-14498.pdf"
+      },
+      {
+        "label": "49 CFR Part 573 Defect and Noncompliance Responsibility and Reports (NHTSA 5-working-day reporting)",
+        "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-573"
+      },
+      {
+        "label": "21 CFR Part 820 Quality Management System Regulation (effective 2 February 2026; incorporates ISO 13485:2016 by reference)",
+        "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-820"
+      },
+      {
+        "label": "ISO 21448:2022 Road vehicles, Safety of the Intended Functionality (SOTIF)",
+        "url": "https://www.iso.org/standard/77490.html"
+      },
+      {
+        "label": "ISA/IEC 62443 Series of Standards for industrial automation and control systems cybersecurity",
+        "url": "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards"
+      },
+      {
+        "label": "NIST SP 800-82 Rev. 3 Guide to Operational Technology (OT) Security",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-82r3.pdf"
+      },
+      {
+        "label": "MITRE ATLAS adversarial threat landscape for AI systems",
+        "url": "https://atlas.mitre.org/"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0010",
