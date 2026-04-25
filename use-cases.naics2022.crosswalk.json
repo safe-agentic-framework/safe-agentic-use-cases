@@ -544,15 +544,82 @@
   {
     "id": "SAFE-UC-0022",
     "title": "Security operations investigation assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0022/README.md",
     "naics_2022": [
       {
         "code": "54",
         "name": "Professional, Scientific, and Technical Services"
+      },
+      {
+        "code": "5415",
+        "name": "Computer Systems Design and Related Services"
+      },
+      {
+        "code": "541512",
+        "name": "Computer Systems Design Services"
       }
     ],
-    "summary": "Assist SOC analysts in investigations by correlating alerts, summarizing evidence, and proposing hypotheses with auditability."
+    "summary": "AI assistant inside Security Operations Centers helping analysts triage alerts, correlate signals across SIEM/EDR/case-management, summarize evidence, propose ATT&CK-aligned hypotheses, and in higher-autonomy deployments execute SOAR playbook actions. Defining trait: adversarial-input-by-design — the data under investigation is authored by the parties under investigation.",
+    "workflow_family": "Security operations & incident response",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "soc",
+      "incident-response",
+      "siem",
+      "edr",
+      "soar",
+      "mssp",
+      "adversarial-input",
+      "chain-of-custody"
+    ],
+    "evidence": [
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      },
+      {
+        "label": "NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile (July 2024)",
+        "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+      },
+      {
+        "label": "NIST SP 800-61 Rev. 3 — Incident Response Recommendations (April 2025)",
+        "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      },
+      {
+        "label": "NIST Cybersecurity Framework (CSF) 2.0",
+        "url": "https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final"
+      },
+      {
+        "label": "MITRE ATT&CK",
+        "url": "https://attack.mitre.org/"
+      },
+      {
+        "label": "Microsoft Security Copilot — product overview",
+        "url": "https://www.microsoft.com/en-us/security/business/ai-machine-learning/microsoft-security-copilot"
+      },
+      {
+        "label": "CrowdStrike Charlotte AI — agentic SOC analyst",
+        "url": "https://www.crowdstrike.com/en-us/platform/charlotte-ai/"
+      },
+      {
+        "label": "Dropzone AI — autonomous SOC analyst",
+        "url": "https://www.dropzone.ai/ai-soc-analyst"
+      },
+      {
+        "label": "Simon Willison — The lethal trifecta for AI agents (June 2025)",
+        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
+      },
+      {
+        "label": "Invariant Labs — GitHub MCP Exploited (May 2025)",
+        "url": "https://invariantlabs.ai/blog/mcp-github-vulnerability"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0023",

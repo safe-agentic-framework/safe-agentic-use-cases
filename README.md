@@ -93,7 +93,7 @@ Quick contributor workflow:
 | [SAFE-UC-0019](use-cases/SAFE-UC-0019/) | Post-incident review drafting assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0020](use-cases/SAFE-UC-0020/) | On-call incident context assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0021](use-cases/SAFE-UC-0021/) | Contact-center agent assist | [Administrative and Support and Waste Management and Remediation Services (56)][naics-56]<br>[Telemarketing Bureaus and Other Contact Centers (561422)][naics-561422] | Draft |
-| [SAFE-UC-0022](use-cases/SAFE-UC-0022/) | Security operations investigation assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Seed |
+| [SAFE-UC-0022](use-cases/SAFE-UC-0022/) | Security operations investigation assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Draft |
 | [SAFE-UC-0023](use-cases/SAFE-UC-0023/) | Cloud ops troubleshooting assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0024](use-cases/SAFE-UC-0024/) | Terminal-based outage assistant for SRE | [Information (51)][naics-51] | Draft |
 | [SAFE-UC-0025](use-cases/SAFE-UC-0025/) | Enterprise agent-building platform | [Information (51)][naics-51] | Seed |
