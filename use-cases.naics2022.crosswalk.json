@@ -853,7 +853,8 @@
   {
     "id": "SAFE-UC-0030",
     "title": "Teen safety & age-assurance enforcement assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0030/README.md",
     "naics_2022": [
       {
@@ -861,7 +862,76 @@
         "name": "Information"
       }
     ],
-    "summary": "Enforce teen safety/age assurance and related policy actions with privacy-preserving checks and robust appeals."
+    "summary": "Determine a user's age category (declared, estimated, or verified) and apply age-appropriate restrictions to content, features, defaults, data processing, and parental-supervisor flows on consumer platforms. Spans UK Online Safety Act, EU DSA Article 28, COPPA Rule, ICO Children's Code, state laws under partial injunction, and ISO/IEC 27566-1 (December 2025).",
+    "workflow_family": "Teen safety and online child protection",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "teen-safety",
+      "age-assurance",
+      "age-estimation",
+      "age-verification",
+      "biometric-privacy",
+      "parental-supervisor",
+      "block-access-as-safety",
+      "csam-reporting",
+      "tipping-off",
+      "uk-osa",
+      "ofcom-heaa",
+      "dsa-article-28",
+      "coppa",
+      "ico-childrens-code",
+      "caadca",
+      "kosa",
+      "iso-27566",
+      "nist-ir-8525",
+      "edpb-statement-1-2025"
+    ],
+    "evidence": [
+      {
+        "label": "UK Online Safety Act 2023 (legislation.gov.uk, Royal Assent 26 October 2023)",
+        "url": "https://www.legislation.gov.uk/ukpga/2023/50"
+      },
+      {
+        "label": "Ofcom Guidance on Highly Effective Age Assurance, Part 3 (24 April 2025)",
+        "url": "https://www.ofcom.org.uk/siteassets/resources/documents/consultations/category-1-10-weeks/statement-age-assurance-and-childrens-access/part-3-guidance-on-highly-effective-age-assurance.pdf?v=395680"
+      },
+      {
+        "label": "European Commission, Guidelines on the Protection of Minors under DSA Article 28 (14 July 2025)",
+        "url": "https://digital-strategy.ec.europa.eu/en/library/commission-publishes-guidelines-protection-minors"
+      },
+      {
+        "label": "EDPB Statement 1/2025 on Age Assurance (adopted 11 February 2025)",
+        "url": "https://www.edpb.europa.eu/system/files/2025-04/edpb_statement_20250211ageassurance_v1-2_en.pdf"
+      },
+      {
+        "label": "FTC Final Rule amending COPPA (16 CFR Part 312, effective 23 June 2025; compliance 22 April 2026)",
+        "url": "https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule"
+      },
+      {
+        "label": "NIST IR 8525, Face Analysis Technology Evaluation: Age Estimation and Verification (May 2024)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ir/2024/NIST.IR.8525.pdf"
+      },
+      {
+        "label": "NY Attorney General James and 42-state coalition complaint against Meta for harming youth (24 October 2023)",
+        "url": "https://ag.ny.gov/press-release/2023/attorney-general-james-and-multistate-coalition-sue-meta-harming-youth"
+      },
+      {
+        "label": "FTC investigation leads to lawsuit against TikTok and ByteDance for COPPA violations (2 August 2024)",
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/ftc-investigation-leads-lawsuit-against-tiktok-bytedance-flagrantly-violating-childrens-privacy-law"
+      },
+      {
+        "label": "Apple Developer documentation, Declared Age Range API (introduced iOS 26, WWDC 2025)",
+        "url": "https://developer.apple.com/documentation/declaredagerange"
+      },
+      {
+        "label": "Yoti Facial Age Estimation White Paper, July 2025 (vendor methodology)",
+        "url": "https://www.yoti.com/wp-content/uploads/2025/08/Yoti-Age-Estimation-White-Paper-July-2025-PUBLIC-v1.pdf"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0032",
