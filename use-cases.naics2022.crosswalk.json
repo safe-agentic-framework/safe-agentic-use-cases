@@ -149,15 +149,103 @@
   {
     "id": "SAFE-UC-0007",
     "title": "Mobile fleet-maintenance dispatch & scheduling assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0007/README.md",
     "naics_2022": [
       {
         "code": "81",
         "name": "Other Services (except Public Administration)"
+      },
+      {
+        "code": "8113",
+        "name": "Commercial and Industrial Machinery and Equipment Repair and Maintenance"
       }
     ],
-    "summary": "Dispatch/route mobile maintenance teams, schedule work orders, and coordinate parts/ETAs under SLA constraints."
+    "summary": "AI-assisted dispatch and scheduling of mobile mechanics for commercial-vehicle and heavy-duty fleet maintenance. The AI classifies work-order priority, selects the right mobile mechanic from a pool with skill / ASE certification / DOT 49 CFR Part 382 / state-license / SLA constraints, routes mechanics to vehicles, coordinates parts ETA from suppliers (OEM, aftermarket, gray-market, shop-inventory), and integrates with regulatory compliance overlays. First SAFE-AUCA use case in NAICS 81 (Other Services). Adjacent to SAFE-UC-0006 (fleet telematics, upstream observation) and SAFE-UC-0008 (OTA software updates, downstream remediation), tracing a complete cyber-physical lifecycle: telematics observes, maintenance discovers and dispatches, OTA remediates. 8-stage kill chain with 5 NOVEL stages: mobile-workforce identity verification (DOT Part 382 hard rule), parts-supply-chain trust boundary (counterfeit / EPA emissions tampering), prevailing-wage-compliance as AI cost-optimization (DOL Davis-Bacon), OSHA-safety-routing (29 CFR Part 1904 recordable-injury determinant), and recall-discovery-via-maintenance (upstream of NHTSA Part 573). Anchored in EPA NECI 172 civil cases / $55.5M / 570K tons NOx, NHTSA 2024 counterfeit airbag alert (3 deaths + 2 disfiguring injuries; 211K parts seized FY2024), KNP Logistics 158-year UK firm collapse from brute-forced-password ransomware (Sep 2023), Decisiv 25M-event SRM platform milestone, FMCSA LTCCS 170 percent relative risk on brake-issue trucks, and ATRI 2025 $2.260/mile cost benchmark.",
+    "workflow_family": "Cyber-physical fleet maintenance dispatch and scheduling",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "fleet-maintenance",
+      "dispatch",
+      "field-service",
+      "heavy-duty",
+      "commercial-vehicle",
+      "naics-81",
+      "fmcsa",
+      "nhtsa",
+      "osha",
+      "dol-davis-bacon",
+      "epa-emissions-tampering",
+      "dot-part-382",
+      "counterfeit-parts",
+      "ase-certification",
+      "decisiv-srm",
+      "tmc-rps",
+      "knp-logistics-precedent",
+      "ransomware-on-dispatch",
+      "ltccs-170-percent",
+      "appendix-a-396",
+      "treasury-fs-ai-rmf"
+    ],
+    "evidence": [
+      {
+        "label": "49 CFR Part 396 Inspection, Repair, and Maintenance (FMCSA; Appendix A redesignated 14 October 2021)",
+        "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-III/subchapter-B/part-396"
+      },
+      {
+        "label": "FMCSA Inspection, Repair, and Maintenance + Driver Vehicle Inspection Report (DVIR) hub",
+        "url": "https://www.fmcsa.dot.gov/regulations/inspection-repair-and-maintenance-driver-vehicle-inspection-report-dvir"
+      },
+      {
+        "label": "FMCSA Large Truck Crash Causation Study Analysis Brief (170 percent relative risk on brake-issue trucks; one-third Michigan FACT post-crash inspection OOS)",
+        "url": "https://www.fmcsa.dot.gov/safety/research-and-analysis/large-truck-crash-causation-study-analysis-brief"
+      },
+      {
+        "label": "EPA National Enforcement and Compliance Initiative: Stopping Aftermarket Defeat Devices (172 civil enforcement cases; $55.5M civil penalties; FY2020-FY2023; 570,000 tons excess NOx 2009-2020)",
+        "url": "https://www.epa.gov/enforcement/national-enforcement-and-compliance-initiative-stopping-aftermarket-defeat-devices"
+      },
+      {
+        "label": "EPA Power Performance Enterprises Clean Air Act Settlement ($3.1M combined criminal fines and civil penalties; 59,135 tunes 2013-2018)",
+        "url": "https://www.epa.gov/enforcement/power-performance-enterprises-inc-and-kory-blaine-willis-clean-air-act-settlement"
+      },
+      {
+        "label": "EPA Aftermarket Defeat Devices and Tampering Enforcement Alert (December 2020; $48,192 / $4,819 penalties effective 13 January 2020)",
+        "url": "https://www.epa.gov/sites/default/files/2020-12/documents/tamperinganddefeatdevices-enfalert.pdf"
+      },
+      {
+        "label": "NHTSA Consumer Alert on Substandard Replacement Air Bags (2024; 3 deaths + 2 disfiguring injuries; 211K counterfeit parts seized FY2024 including 490 airbags)",
+        "url": "https://www.nhtsa.gov/press-releases/consumer-alert-nhtsa-alerts-used-car-owners-buyers-dangerous-substandard-replacement"
+      },
+      {
+        "label": "The Record: KNP Logistics insolvency after Akira ransomware (September 2023; 158-year-old UK transport firm collapsed; 730 redundancies; brute-forced password without MFA)",
+        "url": "https://therecord.media/knp-logistics-ransomware-insolvency-uk"
+      },
+      {
+        "label": "Decisiv Surpasses 25 Million Service Event Milestone (November 2022; 5,000+ service-provider locations; 74,000+ fleets; 7M+ assets)",
+        "url": "https://www.decisiv.com/decisiv-surpasses-25-million-service-event-milestone/"
+      },
+      {
+        "label": "ATRI An Analysis of the Operational Costs of Trucking 2025 Update ($2.260/mile 2024; $1.779/mile non-fuel marginal record high)",
+        "url": "https://truckingresearch.org/2025/07/an-analysis-of-the-operational-costs-of-trucking-2025-update/"
+      },
+      {
+        "label": "TMC of ATA Recommended Practices (more than 400 RPs; 70-year history; the de facto industry standard)",
+        "url": "https://tmc.trucking.org/TMC-Recommended-Practices"
+      },
+      {
+        "label": "DOL Fact Sheet #66 Davis-Bacon and Related Acts ($2,000 threshold; weekly certified payroll; 3-year debarment)",
+        "url": "https://www.dol.gov/agencies/whd/fact-sheets/66-dbra"
+      },
+      {
+        "label": "DOL Fact Sheet #67 McNamara-O'Hara Service Contract Act ($2,500 threshold)",
+        "url": "https://www.dol.gov/agencies/whd/fact-sheets/67-sca"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0008",
