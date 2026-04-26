@@ -86,7 +86,7 @@ Quick contributor workflow:
 | [SAFE-UC-0012](use-cases/SAFE-UC-0012/) | Interactive fraud alert & card controls assistant | [Finance and Insurance (52)][naics-52] | Seed |
 | [SAFE-UC-0013](use-cases/SAFE-UC-0013/) | Virtual card number generation & checkout assistant | [Finance and Insurance (52)][naics-52] | Seed |
 | [SAFE-UC-0014](use-cases/SAFE-UC-0014/) | Digital dispute/chargeback intake assistant | [Finance and Insurance (52)][naics-52] | Seed |
-| [SAFE-UC-0015](use-cases/SAFE-UC-0015/) | AML suspicious-activity triage assistant | [Finance and Insurance (52)][naics-52] | Seed |
+| [SAFE-UC-0015](use-cases/SAFE-UC-0015/) | AML suspicious-activity triage assistant | [Finance and Insurance (52)][naics-52] | Draft |
 | [SAFE-UC-0016](use-cases/SAFE-UC-0016/) | IT service-desk virtual agent | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0017](use-cases/SAFE-UC-0017/) | Service request triage assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0018](use-cases/SAFE-UC-0018/) | Work-item summarization assistant (thread + context summaries) | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
