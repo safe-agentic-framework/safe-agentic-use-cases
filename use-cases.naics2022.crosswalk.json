@@ -395,15 +395,108 @@
   {
     "id": "SAFE-UC-0015",
     "title": "AML suspicious-activity triage assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0015/README.md",
     "naics_2022": [
       {
         "code": "52",
         "name": "Finance and Insurance"
+      },
+      {
+        "code": "522110",
+        "name": "Commercial Banking"
+      },
+      {
+        "code": "523130",
+        "name": "Commodity Contracts Dealing"
+      },
+      {
+        "code": "524113",
+        "name": "Direct Life Insurance Carriers"
       }
     ],
-    "summary": "Triage suspicious-activity alerts (AML) by summarizing signals, prioritizing cases, and documenting rationale for review."
+    "summary": "AI-assisted triage of AML suspicious-activity alerts at retail and commercial banks, payment processors, MSBs, crypto exchanges, brokerages, insurers, and correspondent banking teams. The assistant ingests alerts plus customer transaction history, KYC profiles, and entity relationship graphs, and produces a structured triage summary with risk-ranked rationale, recommended disposition, and SAR-draft pre-population (HITL-gated). Defining inversion vs SAFE-UC-0011 (banking VA, real-time customer interaction) and SAFE-UC-0014 (digital dispute / chargeback intake, post-transaction adjudication): internal triage where the regulator is the audience, the cardholder is not the user, and 31 USC §5318(g)(2) tipping-off applies as a direct hard rule rather than an analog. Anchored in TD Bank $3B October 2024 (the largest BSA penalty in U.S. history), Capital One $390M, USAA $140M, HSBC $1.92B, Danske Bank $2B, Standard Chartered $150M (NYDFS Part 504), and the U.S. Treasury Financial Services AI RMF (19 February 2026, 230 control objectives). 8-stage kill chain with 2 NOVEL stages: tipping-off as direct federal hard rule, and disparate-impact via defensive overfiling.",
+    "workflow_family": "Financial-crime detection and AML compliance",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "finance",
+      "aml",
+      "bsa",
+      "sar-filing",
+      "fincen",
+      "ofac",
+      "tipping-off-direct-rule",
+      "transaction-monitoring",
+      "kyc",
+      "edd",
+      "model-risk-management",
+      "sr-11-7",
+      "nydfs-part-504",
+      "td-bank-precedent",
+      "capital-one-390m",
+      "hsbc-1-92b",
+      "danske-bank-2b",
+      "amla-2020",
+      "beneficial-ownership-reporting",
+      "treasury-fs-ai-rmf",
+      "disparate-impact-overfiling",
+      "fatf-recommendations"
+    ],
+    "evidence": [
+      {
+        "label": "TD Bank pleads guilty to BSA violations (10 October 2024; $3 billion total; the largest BSA / AML penalty in U.S. history)",
+        "url": "https://www.justice.gov/opa/pr/td-bank-pleads-guilty-bank-secrecy-act-and-money-laundering-conspiracy-violations-18b"
+      },
+      {
+        "label": "FinCEN Capital One $390 Million BSA penalty (15 January 2021)",
+        "url": "https://www.fincen.gov/news/news-releases/fincen-announces-390-million-enforcement-action-against-capital-one-national"
+      },
+      {
+        "label": "FinCEN USAA Federal Savings Bank $140 Million BSA penalty (17 March 2022)",
+        "url": "https://www.fincen.gov/news/news-releases/fincen-announces-140-million-civil-money-penalty-against-usaa-federal-savings"
+      },
+      {
+        "label": "U.S. Treasury Financial Services AI Risk Management Framework (19 February 2026; 230 control objectives)",
+        "url": "https://home.treasury.gov/news/press-releases/sb0401"
+      },
+      {
+        "label": "FinCEN SAR Filing Requirements and Guidance (Bank Secrecy Act statutes and regulations)",
+        "url": "https://www.fincen.gov/resources/statutes-and-regulations/bank-secrecy-act"
+      },
+      {
+        "label": "31 U.S.C. § 5318 Bank Secrecy Act compliance obligations (including §5318(g)(2) tipping-off prohibition)",
+        "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title31-section5318&num=0&edition=prelim"
+      },
+      {
+        "label": "FinCEN Joint Statement on Innovative Approaches to Combating Money Laundering, Terrorist Financing, and Other Illicit Activity (3 December 2018)",
+        "url": "https://www.fincen.gov/sites/default/files/2018-10/Joint%20Statement%20on%20Innovative%20Efforts%20to%20Combat%20Money%20Laundering%20and%20Terrorist%20Financing%20FINAL.pdf"
+      },
+      {
+        "label": "NYDFS 23 NYCRR Part 504 Banking Division Transaction Monitoring and Filtering Program Requirements and Certifications (effective 1 January 2017)",
+        "url": "https://www.dfs.ny.gov/industry_guidance/regulations/transaction_monitoring_filtering_program_compliance"
+      },
+      {
+        "label": "Federal Reserve / OCC SR 11-7 Guidance on Model Risk Management",
+        "url": "https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm"
+      },
+      {
+        "label": "FFIEC BSA / AML Examination Manual",
+        "url": "https://bsaaml.ffiec.gov/manual"
+      },
+      {
+        "label": "HSBC $1.92 Billion deferred prosecution agreement (11 December 2012)",
+        "url": "https://www.justice.gov/opa/pr/hsbc-holdings-plc-and-hsbc-bank-usa-na-admit-anti-money-laundering-and-sanctions-violations"
+      },
+      {
+        "label": "Danske Bank $2 Billion plea (13 December 2022; Estonia branch mass laundering of approximately $200 billion)",
+        "url": "https://www.justice.gov/opa/pr/danske-bank-pleads-guilty-fraud-us-banks-multi-billion-dollar-scheme-access-us-financial"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0016",

@@ -28,12 +28,26 @@
 
 ### Evidence (public links)
 
-* [FinCEN SAR Filing Requirements and Guidance](https://www.fincen.gov/resources/statutes-and-regulations/bank-secrecy-act)
-* [FATF Guidance on AML/CFT and Financial Intelligence](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Guidance-aml-cft-risk-based-approach-banking-sector.html)
+* [FinCEN SAR Filing Requirements and Guidance (Bank Secrecy Act statutes and regulations)](https://www.fincen.gov/resources/statutes-and-regulations/bank-secrecy-act)
+* [TD Bank: $3 Billion penalty for BSA failures (10 October 2024; the largest BSA / AML penalty in U.S. history per DOJ; FinCEN $1.3B + OCC $450M + Federal Reserve $123.5M + DOJ guilty plea $1.8B)](https://www.justice.gov/opa/pr/td-bank-pleads-guilty-bank-secrecy-act-and-money-laundering-conspiracy-violations-18b)
+* [FinCEN Capital One $390 Million BSA penalty (15 January 2021; largest FinCEN civil penalty against a U.S. bank at the time)](https://www.fincen.gov/news/news-releases/fincen-announces-390-million-enforcement-action-against-capital-one-national)
+* [USAA Federal Savings Bank $140 Million BSA penalty (17 March 2022; FinCEN $140M + OCC $60M = $200M total)](https://www.fincen.gov/news/news-releases/fincen-announces-140-million-civil-money-penalty-against-usaa-federal-savings)
+* [U.S. Treasury Releases Two New Resources to Guide AI Use in the Financial Sector (19 February 2026; Financial Services AI Risk Management Framework with 230 control objectives across governance, data, model development, validation, monitoring, third-party risk, and consumer protection)](https://home.treasury.gov/news/press-releases/sb0401)
+* [NYDFS 23 NYCRR Part 504 Banking Division Transaction Monitoring and Filtering Program Requirements and Certifications (final rule effective 1 January 2017)](https://www.dfs.ny.gov/industry_guidance/regulations/transaction_monitoring_filtering_program_compliance)
+* [FFIEC BSA / AML Examination Manual (2025; the operative supervisory guidance for AML examinations)](https://bsaaml.ffiec.gov/manual)
+* [FinCEN Joint Statement on Innovative Approaches to Combating Money Laundering, Terrorist Financing, and Other Illicit Activity (3 December 2018; the supervisory anchor for AI in AML)](https://www.fincen.gov/sites/default/files/2018-10/Joint%20Statement%20on%20Innovative%20Efforts%20to%20Combat%20Money%20Laundering%20and%20Terrorist%20Financing%20FINAL.pdf)
+* [FinCEN AML / CFT National Priorities (30 June 2021; required risk assessment basis under AMLA 2020)](https://www.fincen.gov/news/news-releases/fincen-issues-first-government-wide-priorities-anti-money-laundering-and)
+* [Anti-Money Laundering Act of 2020 (AMLA 2020; Title LXIII of the National Defense Authorization Act for Fiscal Year 2021; modernizes BSA and authorizes the Beneficial Ownership Reporting regime)](https://www.congress.gov/bill/116th-congress/house-bill/6395/text)
+* [Beneficial Ownership Information Reporting Rule (Corporate Transparency Act; effective 1 January 2024; FinCEN final rule)](https://www.fincen.gov/boi)
+* [FATF Recommendations 2012-2025 (the international AML / CFT standards)](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html)
+* [31 U.S.C. § 5318(g)(2) tipping-off prohibition (the operative federal hard rule for AML triage outputs)](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title31-section5318&num=0&edition=prelim)
+* [Federal Reserve / OCC SR 11-7: Guidance on Model Risk Management (the foundational MRM regime for AI in AML)](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm)
+* [HSBC $1.92 Billion deferred prosecution agreement (11 December 2012; the historical anchor for systemic AML failure at scale)](https://www.justice.gov/opa/pr/hsbc-holdings-plc-and-hsbc-bank-usa-na-admit-anti-money-laundering-and-sanctions-violations)
+* [Standard Chartered $150 Million NYDFS Part 504 settlement (April 2019; first major NYDFS Part 504 enforcement action against a transaction-monitoring program)](https://www.dfs.ny.gov/reports_and_publications/press_releases/pr1904091)
+* [Danske Bank $2 Billion plea (13 December 2022; Estonia branch mass laundering of approximately $200 billion)](https://www.justice.gov/opa/pr/danske-bank-pleads-guilty-fraud-us-banks-multi-billion-dollar-scheme-access-us-financial)
+* [ACAMS: AI and Machine Learning in AML](https://www.acams.org/en/resources/aml-resources/ai-machine-learning)
 * [AWS: How financial institutions are using generative AI for AML](https://aws.amazon.com/blogs/industries/how-financial-institutions-are-using-generative-ai-for-anti-money-laundering/)
 * [Deloitte: AI in AML compliance](https://www2.deloitte.com/us/en/pages/financial-services/articles/artificial-intelligence-anti-money-laundering.html)
-* [ACAMS: AI and Machine Learning in AML](https://www.acams.org/en/resources/aml-resources/ai-machine-learning)
-* [OCC Guidance on Model Risk Management (SR 11-7)](https://www.occ.gov/news-issuances/bulletins/2011/bulletin-2011-12.html)
 
 ---
 
@@ -55,7 +69,7 @@ This document covers:
 ## 1. Executive summary (what + why)
 
 **What this workflow does**  
-Financial institutions generate large volumes of automated AML alerts triggered by transaction monitoring systems. An **AML suspicious-activity triage assistant** ingests these alerts along with customer transaction history, entity profiles, and relationship graphs, then produces a structured triage summary: a risk-ranked case narrative with supporting evidence, recommended disposition (escalate/dismiss/request-more-info), and a draft rationale suitable for analyst review or Suspicious Activity Report (SAR) filing.
+Financial institutions generate large volumes of automated AML alerts triggered by transaction monitoring systems. An **AML suspicious-activity triage assistant** ingests these alerts along with customer transaction history, entity profiles, and relationship graphs, then produces a structured triage summary: a risk-ranked case narrative with supporting evidence, recommended disposition (escalate/dismiss/request-more-info), and a draft rationale suitable for analyst review or Suspicious Activity Report (SAR) filing. SAFE-UC-0011 (banking virtual assistant) covers real-time customer interaction; SAFE-UC-0014 (digital dispute / chargeback intake) covers post-transaction adjudication. This use case sits in the third lane: internal triage at the bank, where the cardholder is not the user, the regulator is the audience, and 31 USC §5318(g)(2) tipping-off applies as a direct hard rule rather than an analog.
 
 **Why it matters (business value)**  
 A large bank may generate tens of thousands of AML alerts per day, of which the vast majority are false positives. Analyst time spent on each alert is significant and highly regulated. This workflow reduces:
@@ -68,13 +82,23 @@ A large bank may generate tens of thousands of AML alerts per day, of which the 
 It also supports regulatory expectations for documented, consistent, and auditable AML processes under the Bank Secrecy Act (BSA), the EU's AMLD series, FATF recommendations, and similar frameworks.
 
 **Why it's risky / what can go wrong**  
-AML triage directly touches regulated compliance obligations, customer financial records, and law enforcement interactions. High-impact failures include:
+AML triage directly touches regulated compliance obligations, customer financial records, and law enforcement interactions. The regulator-anchored harm picture, as of 2026, is unusually crisp:
 
-* **Integrity:** hallucinated or incomplete summaries that omit key red flags, causing analysts to miss a genuine suspicious-activity pattern and fail to file a required SAR
-* **Confidentiality:** summaries that reveal a customer is under investigation (a "tipping off" violation in many jurisdictions), or that expose PII/financial data to unauthorized parties
+* **TD Bank pleaded guilty to BSA Section 314 failures on 10 October 2024 and paid $3 billion across DOJ, FinCEN, OCC, and Federal Reserve actions**: the largest BSA / AML penalty in U.S. history. The DOJ resolution was $1.8 billion, FinCEN imposed $1.3 billion, OCC imposed $450 million, and the Federal Reserve imposed $123.5 million. The cited failures included transaction-monitoring program deficiencies that are exactly the surface this workflow operates on.
+* **Capital One paid $390 million to FinCEN on 15 January 2021** for failing to file thousands of SARs and CTRs related to its Check Cashing Group; at the time, the largest FinCEN civil penalty against a U.S. bank.
+* **USAA Federal Savings Bank paid $140 million to FinCEN plus $60 million to OCC on 17 March 2022** for AML program failures including deficient transaction monitoring.
+* **Danske Bank pleaded guilty on 13 December 2022 and paid over $2 billion** for the Estonia branch's mass laundering of approximately $200 billion, the largest single AML failure publicly reported.
+* **HSBC paid $1.92 billion in 2012** in a deferred prosecution agreement that remains the historical anchor for systemic AML program failure at scale.
+* **The U.S. Treasury released its Financial Services AI Risk Management Framework on 19 February 2026 with 230 control objectives** across governance, data, model development, validation, monitoring, third-party risk, and consumer protection. The framework names AML triage as an in-scope use case.
+
+High-impact failures in this workflow include:
+
+* **Integrity:** hallucinated or incomplete summaries that omit key red flags, causing analysts to miss a genuine suspicious-activity pattern and fail to file a SAR within the FinCEN 30-day window (60 days when no suspect is identified at the time of detection)
+* **Confidentiality:** summaries that reveal a customer is under investigation (a tipping-off violation under 31 USC §5318(g)(2), a federal crime in the United States and equivalent in many jurisdictions), or that expose PII / financial data to unauthorized parties
 * **Scope:** retrieval expansion that crosses account-access permissions or entity boundaries, surfacing restricted investigation details
-* **Regulatory harm:** AI-assisted dispositions that, if blindly accepted, violate model-risk-management (MRM) requirements (e.g., SR 11-7) requiring explainability and human review
+* **Regulatory harm:** AI-assisted dispositions that, if blindly accepted, violate model-risk-management (MRM) requirements (e.g., SR 11-7) requiring explainability and human review; failure to maintain a transaction-monitoring program that satisfies NYDFS 23 NYCRR Part 504 (the senior-officer-certification standard)
 * **Adversarial misuse:** structured layering of transactions specifically designed to confuse the model's pattern recognition
+* **Disparate-impact harm:** defensive over-filing of SARs against legitimate remittance corridors and protected populations is a documented harm in the AML literature; AI-assisted SAR drafting can amplify or attenuate this depending on how the model is calibrated
 
 ---
 
@@ -247,7 +271,7 @@ AML analysts manually review each alert in the case management queue:
 * write a narrative rationale in the case system
 * decide: escalate to SAR / dismiss / request more info from the customer (carefully, per tipping-off rules)
 
-**Existing controls:** dual-control review for SAR filings, mandatory supervisor sign-off above certain thresholds, random sampling QA by compliance, periodic regulator examination. **Errors caught by:** peer review, QA sampling, and external examination — but many errors are latent until a regulatory audit.
+**Existing controls:** dual-control review for SAR filings, mandatory supervisor sign-off above certain thresholds, random sampling QA by compliance, periodic regulator examination. **Errors caught by:** peer review, QA sampling, and external examination. Many errors are latent until a regulatory audit.
 
 ### 5.2 Human-in-the-loop (HITL / sub-autonomous)
 
@@ -332,6 +356,8 @@ Splitting these enables independent MRM validation, separate kill switches, and 
 ## 7. Kill-chain analysis (stages → likely failure modes)
 
 > Keep this defender-friendly. Describe patterns, not "how to do it."
+>
+> Note: this UC uses a **seven-stage kill chain** with 3 stages flagged NOVEL versus SAFE-UC-0011 (banking VA), SAFE-UC-0014 (digital dispute / chargeback intake), and SAFE-UC-0027 (anti-scam). The novelty centers on the **direct-rule** application of 31 USC §5318(g)(2) tipping-off (analog only in 0011, 0014, 0027), the **disparate-impact-via-defensive-overfiling** failure mode (a documented harm in AML that has no precedent in the cohort), and the **regulator-as-audience** posture that fundamentally reframes "who reads this output" relative to consumer-facing UCs.
 
 | Stage                      | What can go wrong (pattern)                                                             | Likely impact                                                          | Notes / preconditions                                          |
 | -------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -340,14 +366,17 @@ Splitting these enables independent MRM validation, separate kill switches, and 
 | 3. Retrieval expansion     | Relationship graph traversal pulls data beyond the requesting analyst's permission scope  | investigation data for unrelated entities surfaced; cross-case leakage | common when graph hop limits are not enforced                  |
 | 4. Generation              | Model hallucinates transaction details, fabricates a benign explanation, or invents supporting evidence for dismissal | analyst accepts fabricated rationale; SAR missed; case note polluted  | needs per-claim citation enforcement and factuality eval       |
 | 5. Write-back / persistence | Flawed or manipulated summary posted as case note or SAR narrative                       | polluted audit trail; regulatory filing based on incorrect facts; long-lived misinformation | highest risk in autonomous or low-friction HITL modes          |
-| 6. Tipping-off leakage     | Summary or log containing investigation references routed to customer-facing channel or unauthorized system | criminal liability; subject is alerted and moves assets or evidence   | requires strict output routing controls and content scanning   |
+| 6. Tipping-off leakage (**NOVEL: direct hard rule**) | Summary or log containing investigation references routed to customer-facing channel or unauthorized system | criminal liability under 31 USC §5318(g)(2); subject is alerted and moves assets or evidence   | direct application of the federal hard rule, not analog (cf. SAFE-UC-0011, SAFE-UC-0014, SAFE-UC-0021) |
 | 7. Model fatigue / feedback loop | Analysts routinely accept AI recommendations without reviewing source records       | systemic missed-SAR pattern; AI errors compound over time; examiner findings | push "view sources" UX; track override rates; conduct periodic blind reviews |
+| 8. Disparate-impact via defensive overfiling (**NOVEL: cohort harm**) | AI-assisted classifier or LLM-drafted SAR narrative generates disproportionate SAR volumes against legitimate remittance corridors or protected populations | regulator scrutiny on AML program quality; community harm; ECOA / Reg B fair-lending analog exposure | NYDFS Part 504 model-validation regime applies; fairness regression across protected cohorts is the controlling discipline |
 
 ---
 
 ## 8. SAFE‑MCP mapping (kill-chain → techniques → controls → tests)
 
 > Goal: make SAFE‑MCP actionable in this workflow.
+>
+> **A note on framework gap:** SAFE-MCP today covers the LLM and MCP-tool surface well, but does not yet have first-class techniques for **disparate-impact via defensive over-filing** (the fairness-failure mode distinct from data poisoning), **tipping-off as a direct federal hard rule** (the closest anchors are exfiltration techniques like SAFE-T1910 and SAFE-T1911 which capture the channel mechanics but not the regulatory harm), or **model risk management failure under SR 11-7 / NYDFS Part 504** (where the failure is procedural and certification-related, not technique-shaped). The mapping below cites the closest anchors and flags the gap honestly.
 
 | Kill-chain stage           | Failure/attack pattern (defender-friendly)                                            | SAFE‑MCP technique(s)                                                                                        | Recommended controls (prevent/detect/recover)                                                                                                           | Tests (how to validate)                                                                                                         |
 | -------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -402,7 +431,7 @@ Splitting these enables independent MRM validation, separate kill switches, and 
 * **Factual accuracy (red-flag fields):** transaction amounts, dates, counterparties, and typology classifications must meet accuracy thresholds against a labeled golden dataset.
 * **Citation completeness:** every factual claim in a summary must be traceable to a source record in the case system.
 * **Write-back gating:** posting to case notes or SAR fields must require explicit analyst approval; autonomous posting must be blocked by default.
-* **Override rate monitoring:** system must surface and alert on declining analyst override rates below configured thresholds.
+* **Override rate monitoring:** monitoring commonly surfaces and alerts on declining analyst override rates below configured thresholds.
 
 ### 10.2 Test cases (make them concrete)
 
@@ -473,52 +502,105 @@ Splitting these enables independent MRM validation, separate kill switches, and 
 
 ---
 
-## Appendix
-
-### A. Suggested triage summary format
+## Appendix A: Suggested triage summary format
 
 A structured format that balances regulatory expectations with analyst usability:
 
 * **Alert ID & trigger** (rule name, score, timestamp)
-* **TL;DR (1–2 sentences)** — what happened and why it was flagged
+* **TL;DR (1-2 sentences):** what happened and why it was flagged
 * **Timeline of activity** (chronological, cited transaction IDs)
 * **Red flags observed** (per-flag, with source citation)
 * **Entity context** (KYC tier, EDD status, prior alerts, watchlist status)
-* **Gaps / open questions** — what information is missing or ambiguous
+* **Gaps / open questions:** what information is missing or ambiguous
 * **Recommended disposition** (Escalate to SAR / Dismiss / Request more info) with brief rationale
 * **Sources used** (list of retrieved record IDs and retrieval timestamps)
-* **AI-generated label** — clear machine-generation attribution
+* **AI-generated label:** clear machine-generation attribution
 
-### B. Regulatory references
+---
 
-* [31 U.S.C. § 5318 – Bank Secrecy Act compliance obligations](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title31-section5318&num=0&edition=prelim)
-* [FinCEN SAR Guidance](https://www.fincen.gov/resources/statutes-and-regulations/bank-secrecy-act)
-* [Federal Reserve / OCC SR 11-7: Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm)
-* [FATF Recommendation 29 (Financial Intelligence Units)](https://www.fatf-gafi.org/en/topics/fatf-recommendations.html)
-* [ACAMS AML Compliance Certification Standards](https://www.acams.org)
+## Appendix B: References & frameworks
 
-### C. Glossary
+### B.1 SAFE-MCP techniques referenced in this use case
+
+* [SAFE-T1102 Prompt Injection (Multiple Vectors)](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1102/README.md)
+* [SAFE-T1309 Privileged Tool Invocation via Prompt Manipulation](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1309/README.md)
+* [SAFE-T1404 Response Tampering](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1404/README.md)
+* [SAFE-T1801 Automated Data Harvesting](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1801/README.md)
+* [SAFE-T1910 Covert Channel Exfiltration](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1910/README.md)
+* [SAFE-T1911 Parameter Exfiltration](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T1911/README.md)
+* [SAFE-T2105 Disinformation Output](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T2105/README.md)
+* [SAFE-T2106 Context Memory Poisoning via Vector Store Contamination](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T2106/README.md)
+* [SAFE-T2107 AI Model Poisoning via MCP Tool Training Data Contamination](https://github.com/safe-agentic-framework/safe-mcp/blob/main/techniques/SAFE-T2107/README.md)
+
+### B.2 Industry and AI-specific frameworks teams commonly consult
+
+* [NIST AI Risk Management Framework 1.0 (AI 100-1, January 2023)](https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf)
+* [NIST AI 600-1 Generative AI Profile (July 2024)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
+* [NIST AI 100-2 E2025 Adversarial Machine Learning Taxonomy (24 March 2025)](https://csrc.nist.gov/pubs/ai/100/2/e2025/final)
+* [NIST SP 800-218A SSDF Generative AI Profile (July 2024)](https://csrc.nist.gov/pubs/sp/800/218/a/final)
+* [Federal Reserve / OCC SR 11-7 Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm)
+* [Regulation (EU) 2024/1689 (EU AI Act; Article 50 transparency for AI interacting with natural persons)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+* [ISO/IEC 42001:2023 Artificial Intelligence Management System](https://www.iso.org/standard/81230.html)
+* [ISO/IEC 23894:2023 AI Risk Management](https://www.iso.org/standard/77304.html)
+* [OWASP Top 10 for LLM Applications (2025)](https://genai.owasp.org/llm-top-10/)
+* [OWASP Machine Learning Security Top 10](https://owasp.org/www-project-machine-learning-security-top-10/)
+* [MITRE ATLAS adversarial threat landscape for AI systems](https://atlas.mitre.org/)
+* [U.S. Treasury Financial Services AI Risk Management Framework (19 February 2026; 230 control objectives)](https://home.treasury.gov/news/press-releases/sb0401)
+
+### B.3 Public incidents and disclosures adjacent to this workflow
+
+* [TD Bank pleads guilty to BSA violations (10 October 2024; $3 billion total across DOJ, FinCEN, OCC, Federal Reserve; the largest BSA / AML penalty in U.S. history)](https://www.justice.gov/opa/pr/td-bank-pleads-guilty-bank-secrecy-act-and-money-laundering-conspiracy-violations-18b)
+* [FinCEN Capital One $390 Million BSA penalty (15 January 2021)](https://www.fincen.gov/news/news-releases/fincen-announces-390-million-enforcement-action-against-capital-one-national)
+* [FinCEN USAA Federal Savings Bank $140 Million BSA penalty (17 March 2022)](https://www.fincen.gov/news/news-releases/fincen-announces-140-million-civil-money-penalty-against-usaa-federal-savings)
+* [HSBC $1.92 Billion deferred prosecution agreement (11 December 2012)](https://www.justice.gov/opa/pr/hsbc-holdings-plc-and-hsbc-bank-usa-na-admit-anti-money-laundering-and-sanctions-violations)
+* [Standard Chartered $150 Million NYDFS Part 504 settlement (April 2019)](https://www.dfs.ny.gov/reports_and_publications/press_releases/pr1904091)
+* [Danske Bank $2 Billion plea (13 December 2022; Estonia branch mass laundering)](https://www.justice.gov/opa/pr/danske-bank-pleads-guilty-fraud-us-banks-multi-billion-dollar-scheme-access-us-financial)
+
+### B.4 Domain-regulatory references
+
+* [31 U.S.C. § 5318 Bank Secrecy Act compliance obligations](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title31-section5318&num=0&edition=prelim)
+* [31 U.S.C. § 5318(g)(2) tipping-off prohibition](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title31-section5318&num=0&edition=prelim)
+* [FinCEN SAR Filing Requirements and Guidance](https://www.fincen.gov/resources/statutes-and-regulations/bank-secrecy-act)
+* [FinCEN Joint Statement on Innovative Approaches (3 December 2018)](https://www.fincen.gov/sites/default/files/2018-10/Joint%20Statement%20on%20Innovative%20Efforts%20to%20Combat%20Money%20Laundering%20and%20Terrorist%20Financing%20FINAL.pdf)
+* [FinCEN AML / CFT National Priorities (30 June 2021)](https://www.fincen.gov/news/news-releases/fincen-issues-first-government-wide-priorities-anti-money-laundering-and)
+* [FFIEC BSA / AML Examination Manual](https://bsaaml.ffiec.gov/manual)
+* [NYDFS 23 NYCRR Part 504 Transaction Monitoring and Filtering Program Requirements](https://www.dfs.ny.gov/industry_guidance/regulations/transaction_monitoring_filtering_program_compliance)
+* [Anti-Money Laundering Act of 2020 (AMLA 2020)](https://www.congress.gov/bill/116th-congress/house-bill/6395/text)
+* [Beneficial Ownership Information Reporting Rule (Corporate Transparency Act, effective 1 January 2024)](https://www.fincen.gov/boi)
+* [FATF Recommendations 2012-2025](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html)
+
+### B.5 Industry research and supervisory commentary
+
+* [ACAMS AI and Machine Learning in AML](https://www.acams.org/en/resources/aml-resources/ai-machine-learning)
+* [Deloitte AI in AML compliance](https://www2.deloitte.com/us/en/pages/financial-services/articles/artificial-intelligence-anti-money-laundering.html)
+* [AWS How financial institutions are using generative AI for AML](https://aws.amazon.com/blogs/industries/how-financial-institutions-are-using-generative-ai-for-anti-money-laundering/)
+
+### B.6 Glossary
 
 * **AML:** Anti-Money Laundering
+* **AMLA 2020:** Anti-Money Laundering Act of 2020 (Title LXIII of the National Defense Authorization Act for Fiscal Year 2021)
 * **BSA:** Bank Secrecy Act (US)
 * **CDD:** Customer Due Diligence
+* **CTA:** Corporate Transparency Act (Beneficial Ownership Reporting regime)
 * **CTR:** Currency Transaction Report
 * **EDD:** Enhanced Due Diligence
 * **FATF:** Financial Action Task Force
 * **FinCEN:** Financial Crimes Enforcement Network (US Treasury)
 * **KYC:** Know Your Customer
 * **MRM:** Model Risk Management
+* **NYDFS Part 504:** New York State Department of Financial Services 23 NYCRR Part 504, the senior-officer-certification rule for transaction-monitoring and filtering programs
 * **OFAC:** Office of Foreign Assets Control (US Treasury)
 * **PEP:** Politically Exposed Person
 * **SAR:** Suspicious Activity Report
 * **SR 11-7:** Federal Reserve / OCC model risk management supervisory guidance
-* **Tipping off:** the act of disclosing to a subject that a SAR has been or may be filed (prohibited by 31 USC § 5318(g)(2))
+* **Tipping off:** the act of disclosing to a subject that a SAR has been or may be filed; prohibited by 31 USC § 5318(g)(2)
 
 ---
 
 ## Contributors
 
-* **Author:** Sachin Keswani
+* **Primary author:** Sachin Keswani (initial draft, 2026-03-16)
+* **Enrichment contributor:** Astha (DSO contributor, 2026-04-25; modern regulator anchors, NOVEL-stage callouts, framework-gap callout, voice and structural cleanup)
 * **Reviewer(s):** TBD
 * **Additional contributors:** SAFE‑AUCA community
 
@@ -526,6 +608,7 @@ A structured format that balances regulatory expectations with analyst usability
 
 ## Version History
 
-| Version | Date       | Changes                                                                                                                        | Author          |
-| ------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| Version | Date       | Changes                                                                                                                                           | Author          |
+| ------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | 1.0     | 2026-03-16 | Expanded seed to full draft; added executive summary, industry context, full architecture, kill-chain, SAFE‑MCP mapping, controls, and testing plan | Sachin Keswani |
+| 1.1     | 2026-04-25 | Added TD Bank $3B (October 2024), CapitalOne $390M, USAA $140M, Treasury Financial Services AI RMF (19 February 2026, 230 control objectives), NYDFS Part 504, AMLA 2020, Beneficial Ownership Reporting, HSBC $1.92B, Danske Bank $2B, Standard Chartered $150M anchors. Added §7 NOVEL-stage annotations vs SAFE-UC-0011 / 0014 / 0027 (tipping-off as direct hard rule; disparate-impact via defensive overfiling). Added §8 framework-gap callout. Reorganized flat Appendix into B.1-B.6 cohort-standard structure. Voice and em-dash cleanup per latest skill rules. | Astha          |
