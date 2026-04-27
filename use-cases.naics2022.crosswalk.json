@@ -261,15 +261,118 @@
   {
     "id": "SAFE-UC-0010",
     "title": "In-vehicle voice assistant for local controls",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0010/README.md",
     "naics_2022": [
       {
         "code": "31-33",
         "name": "Manufacturing"
+      },
+      {
+        "code": "3361",
+        "name": "Motor Vehicle Manufacturing"
+      },
+      {
+        "code": "3363",
+        "name": "Motor Vehicle Parts Manufacturing"
+      },
+      {
+        "code": "5132",
+        "name": "Software Publishers"
       }
     ],
-    "summary": "In-vehicle voice agent for local controls (HVAC, media, navigation settings) with strict safety and permission boundaries."
+    "summary": "AI-assisted in-cabin voice assistant that interprets occupant speech, resolves natural-language intent, and actuates non-safety-critical local controls (HVAC, media, navigation, communications, comfort, voice-driven driver-assistance configuration). Sits in the cabin during operation with eyes-on-road and hands-on-wheel as the operating envelope. Cyber-physical sibling of SAFE-UC-0006 (telematics, read-side), SAFE-UC-0007 (mobile fleet maintenance, human-action), and SAFE-UC-0008 (OTA, firmware-action). Distinct surfaces: physical-side-channel acoustic injection (DolphinAttack, Light Commands, NUIT), broadcast-media wake-word false-trigger (Burger King 2017 pattern), in-cabin identity hexangle (6+ occupants), child-occupant axis, voiceprint biometric persistence (BIPA, federal Wiretap Act), voice-to-OTA bridge into SAFE-UC-0008, and the absence of a finalized NHTSA Phase 3 voice-HMI rule.",
+    "workflow_family": "In-cabin voice-assistant operations",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "voice-assistant",
+      "in-cabin",
+      "vehicle",
+      "cyber-physical",
+      "asr",
+      "wake-word",
+      "voiceprint",
+      "biometric",
+      "bipa",
+      "cpra",
+      "wiretap-act",
+      "nhtsa-phase-1",
+      "aaa-foundation-phase-ii",
+      "auto-innovators-guidelines",
+      "un-r116",
+      "un-r155",
+      "un-r156",
+      "iso-21434",
+      "iso-26262",
+      "eu-ai-act-article-50"
+    ],
+    "evidence": [
+      {
+        "label": "Cerence Inc. (more than 525 million vehicles equipped with Cerence speech across 17 OEM customers; 12 OEMs explicitly named at IAA Mobility 2025: BYD, BMW, Ford, Genesis, Hyundai, Leapmotor, Lucid, Mini, Opel, Polestar, Togg, XPENG)",
+        "url": "https://www.cerence.com/"
+      },
+      {
+        "label": "Mercedes-Benz USA: Human-like conversations with your Mercedes-Benz enabled by MBUX Voice Assistant and AI-driven knowledge feature (December 17, 2024; cumulative 3 million vehicles equipped with MBUX Voice Assistant)",
+        "url": "https://media.mbusa.com/releases/human-like-conversations-with-your-mercedes-benz-enabled-by-mbux-voice-assistant-and-ai-driven-knowledge-feature"
+      },
+      {
+        "label": "BMW Group: BMW iX3 first to integrate Amazon Alexa+ as a Custom Assistant (CES 2026 announcement; rollout begins H2 2026)",
+        "url": "https://www.bmwgroup.com/en/news/general/2026/ces-2026-bmw-alexa-plus.html"
+      },
+      {
+        "label": "DolphinAttack: Inaudible Voice Commands (Zhang et al., ACM CCS 2017; demonstrated on Audi Q3 navigation among 16 voice systems)",
+        "url": "https://acmccs.github.io/papers/p103-zhangAemb.pdf"
+      },
+      {
+        "label": "Light Commands: Laser-Based Audio Injection Attacks on Voice-Controllable Systems (Sugawara, Cyr, Genkin, Kohno, Fu; USENIX Security 2020; 110 m attack range; vehicle-unlock demonstration)",
+        "url": "https://lightcommands.com/"
+      },
+      {
+        "label": "NUIT: Near-Ultrasound Inaudible Trojan attacks on voice assistants (Xia et al., USENIX Security 2023; 16 kHz minimum carrier, 16 to 22 kHz range; less than 77 ms attack latency)",
+        "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/xia"
+      },
+      {
+        "label": "Garner v. Amazon.com (W.D. Wash.; class certification granted by Judge Lasnik on July 7, 2025; two classes certified for federal Wiretap Act and Washington Privacy Act claims over Alexa voice recordings)",
+        "url": "https://www.classaction.org/news/judge-grants-class-certification-in-amazon-alexa-privacy-lawsuit"
+      },
+      {
+        "label": "Burger King: OK Google, what is the Whopper burger? television advertisement (April 2017; canonical broadcast-media wake-word activation precedent)",
+        "url": "https://www.theverge.com/2017/4/12/15259400/burger-king-tv-ad-google-home-wikipedia"
+      },
+      {
+        "label": "AAA Foundation for Traffic Safety: Measuring Cognitive Distraction in the Automobile, Phase II, Assessing In-Vehicle Voice-Based Interactive Technologies (October 2014; Category 3 cognitive workload; four or five items menu cap)",
+        "url": "https://aaafoundation.org/measuring-cognitive-distraction-automobile-ii-assessing-vehicle-voice-based-interactive-technologies/"
+      },
+      {
+        "label": "NHTSA Visual-Manual Driver Distraction Guidelines, Phase 1 (78 FR 24817, April 26, 2013; 2-second per-glance and 12-second total off-road-glance cap; Phase 3 voice rule announced as planned and not issued)",
+        "url": "https://www.federalregister.gov/documents/2013/04/26/2013-09883/visual-manual-nhtsa-driver-distraction-guidelines-for-in-vehicle-electronic-devices"
+      },
+      {
+        "label": "Alliance of Automobile Manufacturers Driver Focus-Telematics Working Group, Statement of Principles, Criteria and Verification Procedures on Driver Interactions with Advanced In-Vehicle Information and Communication Systems (the de facto industry voice-HMI baseline since 2006)",
+        "url": "https://www.autoalliance.org/wp-content/uploads/2017/02/AAM-Guidelines-Version-3-2006.pdf"
+      },
+      {
+        "label": "UN Regulation No. 116, Protection of motor vehicles against unauthorized use (UNECE WP.29; effective 10 February 2009)",
+        "url": "https://unece.org/sites/default/files/2022-08/R116e.pdf"
+      },
+      {
+        "label": "California Privacy Rights Act of 2020, codified at Cal. Civ. Code 1798.100 et seq. (Office of the California Attorney General canonical reference)",
+        "url": "https://oag.ca.gov/privacy/ccpa"
+      },
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      },
+      {
+        "label": "NHTSA Cybersecurity Best Practices for the Safety of Modern Vehicles (September 2022)",
+        "url": "https://www.nhtsa.gov/document/cybersecurity-best-practices-safety-modern-vehicles-2022"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0011",
