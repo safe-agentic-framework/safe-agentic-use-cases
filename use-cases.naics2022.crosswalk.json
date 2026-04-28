@@ -502,15 +502,122 @@
   {
     "id": "SAFE-UC-0019",
     "title": "Post-incident review drafting assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0019/README.md",
     "naics_2022": [
       {
         "code": "51",
         "name": "Information"
+      },
+      {
+        "code": "5132",
+        "name": "Software Publishers"
+      },
+      {
+        "code": "5182",
+        "name": "Computing Infrastructure Providers and Data Processing Services"
+      },
+      {
+        "code": "5415",
+        "name": "Computer Systems Design and Related Services"
       }
     ],
-    "summary": "Draft post-incident reviews/postmortems from timelines and notes with accuracy checks and sensitive-data handling."
+    "summary": "AI-assisted drafter that takes incident artifacts (timeline, alerts, chat transcripts, tool-call audit logs, customer-impact data, on-call notes) and drafts the post-incident review plus regulator-facing disclosures (SEC Form 8-K Item 1.05, NIS 2 Article 23, GDPR Article 33, HIPAA 45 CFR 164.412, state-AG, banking 36-hour, DORA Article 19). Sits downstream of SAFE-UC-0024 (terminal SRE outage) and SAFE-UC-0022 (SOC investigation). Defining inversion: the AI's primary output IS the regulated text. 8-stage kill chain with 5 stages NOVEL across timeline-fact integrity, causal-chain hallucination, action-item commitment fabrication, AI-drafted regulator-filing hallucination, and materiality-determination influence. Draws from Google SRE Workbook Chapter 10 blameless-culture norms, PagerDuty community PIR template, NIST SP 800-61, and ISO/IEC 27035-1/-2 incident-management frameworks.",
+    "workflow_family": "Post-incident review and regulated-disclosure drafting",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "post-incident-review",
+      "postmortem",
+      "blameless-culture",
+      "incident-response",
+      "regulated-disclosure",
+      "sec-item-1-05",
+      "nis-2-article-23",
+      "gdpr-article-33",
+      "hipaa-breach-notification",
+      "dora-article-19",
+      "state-ag-breach",
+      "banking-36-hour",
+      "iso-27035",
+      "nist-sp-800-61",
+      "soc-2-cc7",
+      "itil-major-incident",
+      "materiality-determination",
+      "hallucination-regulated-text",
+      "tenant-isolation",
+      "eu-ai-act-article-50"
+    ],
+    "evidence": [
+      {
+        "label": "Google SRE Workbook, Chapter 10: Postmortem Culture: Learning from Failure (the canonical blameless-postmortem reference)",
+        "url": "https://sre.google/workbook/postmortem-culture/"
+      },
+      {
+        "label": "PagerDuty: Postmortems documentation (legacy postmortems.pagerduty.com community guide; the de facto industry reference)",
+        "url": "https://postmortems.pagerduty.com/"
+      },
+      {
+        "label": "incident.io: Post-mortem features (template, AI-generated summary, action-item tracking)",
+        "url": "https://incident.io/post-mortem"
+      },
+      {
+        "label": "FireHydrant: Retrospectives + Reliability AI",
+        "url": "https://firehydrant.com/product/retrospectives/"
+      },
+      {
+        "label": "Rootly: Retrospectives and Rootly AI for incident communications",
+        "url": "https://rootly.com/features/retrospectives"
+      },
+      {
+        "label": "SEC Cybersecurity Disclosure Rules: Form 8-K Item 1.05 (released 26 July 2023; effective for large filers 18 December 2023; smaller reporting companies 15 June 2024)",
+        "url": "https://www.sec.gov/newsroom/press-releases/2023-139"
+      },
+      {
+        "label": "Directive (EU) 2022/2555 (NIS 2): Article 23 incident reporting (24-hour early warning, 72-hour notification, 1-month final report)",
+        "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj"
+      },
+      {
+        "label": "Regulation (EU) 2016/679 (GDPR): Article 33 personal-data-breach notification (72 hours)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+      },
+      {
+        "label": "NIST SP 800-61 Rev 2: Computer Security Incident Handling Guide (August 2012)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf"
+      },
+      {
+        "label": "ISO/IEC 27035-1:2023: Information security incident management Part 1: Principles and process",
+        "url": "https://www.iso.org/standard/78973.html"
+      },
+      {
+        "label": "ISO/IEC 27035-2:2023: Information security incident management Part 2: Guidelines to plan and prepare for incident response",
+        "url": "https://www.iso.org/standard/78974.html"
+      },
+      {
+        "label": "HIPAA Breach Notification Rule (45 CFR 164.400 to 164.414; HHS canonical reference)",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/breach-notification/index.html"
+      },
+      {
+        "label": "Federal banking Computer-Security Incident Notification Rule (12 CFR Parts 53, 225, 304; FDIC final-rule press release)",
+        "url": "https://www.fdic.gov/news/press-releases/2021/pr21099.html"
+      },
+      {
+        "label": "Regulation (EU) 2022/2554 (DORA Digital Operational Resilience Act; applicable from 17 January 2025)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj"
+      },
+      {
+        "label": "OWASP Top 10 for LLM Applications (2025)",
+        "url": "https://genai.owasp.org/llm-top-10/"
+      },
+      {
+        "label": "NIST AI 600-1: AI Risk Management Framework Generative AI Profile (July 2024)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0020",
