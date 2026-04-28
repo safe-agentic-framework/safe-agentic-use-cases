@@ -90,7 +90,7 @@ Quick contributor workflow:
 | [SAFE-UC-0016](use-cases/SAFE-UC-0016/) | IT service-desk virtual agent | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0017](use-cases/SAFE-UC-0017/) | Service request triage assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0018](use-cases/SAFE-UC-0018/) | Work-item summarization assistant (thread + context summaries) | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
-| [SAFE-UC-0019](use-cases/SAFE-UC-0019/) | Post-incident review drafting assistant | [Information (51)][naics-51] | Seed |
+| [SAFE-UC-0019](use-cases/SAFE-UC-0019/) | Post-incident review drafting assistant | [Information (51)][naics-51] | Draft |
 | [SAFE-UC-0020](use-cases/SAFE-UC-0020/) | On-call incident context assistant | [Information (51)][naics-51] | Seed |
 | [SAFE-UC-0021](use-cases/SAFE-UC-0021/) | Contact-center agent assist | [Administrative and Support and Waste Management and Remediation Services (56)][naics-56]<br>[Telemarketing Bureaus and Other Contact Centers (561422)][naics-561422] | Draft |
 | [SAFE-UC-0022](use-cases/SAFE-UC-0022/) | Security operations investigation assistant | [Professional, Scientific, and Technical Services (54)][naics-54] | Draft |
