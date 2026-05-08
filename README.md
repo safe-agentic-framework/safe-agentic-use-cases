@@ -77,7 +77,7 @@ Quick contributor workflow:
 | [SAFE-UC-0003](use-cases/SAFE-UC-0003/) | Buyer-seller messaging assistant | [Retail Trade (44–45)][naics-44-45] | Seed |
 | [SAFE-UC-0004](use-cases/SAFE-UC-0004/) | Listing media enhancement assistant | [Retail Trade (44–45)][naics-44-45] | Seed |
 | [SAFE-UC-0005](use-cases/SAFE-UC-0005/) | Visual search & image-based product discovery | [Retail Trade (44–45)][naics-44-45] | Seed |
-| [SAFE-UC-0006](use-cases/SAFE-UC-0006/) | Fleet telematics & vehicle-health monitoring assistant | [Transportation and Warehousing (48–49)][naics-48-49] | Seed |
+| [SAFE-UC-0006](use-cases/SAFE-UC-0006/) | Fleet telematics & vehicle-health monitoring assistant | [Transportation and Warehousing (48–49)][naics-48-49] | Draft |
 | [SAFE-UC-0007](use-cases/SAFE-UC-0007/) | Mobile fleet-maintenance dispatch & scheduling assistant | [Other Services (except Public Administration) (81)][naics-81] | Seed |
 | [SAFE-UC-0008](use-cases/SAFE-UC-0008/) | Over-the-air vehicle software update orchestration | [Manufacturing (31–33)][naics-31-33] | Draft |
 | [SAFE-UC-0009](use-cases/SAFE-UC-0009/) | Manufacturing line visual inspection assistant | [Manufacturing (31–33)][naics-31-33] | Seed |
