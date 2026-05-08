@@ -382,15 +382,97 @@
   {
     "id": "SAFE-UC-0014",
     "title": "Digital dispute/chargeback intake assistant",
-    "status": "seed",
+    "status": "draft",
+    "maturity": "draft",
     "repo_path": "use-cases/SAFE-UC-0014/README.md",
     "naics_2022": [
       {
         "code": "52",
         "name": "Finance and Insurance"
+      },
+      {
+        "code": "522",
+        "name": "Credit Intermediation and Related Activities"
+      },
+      {
+        "code": "5223",
+        "name": "Activities Related to Credit Intermediation"
       }
     ],
-    "summary": "Guide customers through disputes/chargebacks, collect evidence, and submit cases while preventing leakage and manipulation."
+    "summary": "AI-assisted intake of consumer disputes / chargebacks at issuing banks, fintechs, BNPL: claim-narrative interview, dispute reason classification, evidence collection (with AI-fabricated-evidence detection), Reg E §1005.11 / Reg Z §1026.13 narrow-grounds analysis, provisional-credit decisioning within statutory timing windows, network representment packaging, customer communication drafting. 7-stage kill chain with 5 NOVEL stages: cardholder-side AI-fabricated evidence, merchant-side AI-fabricated evidence, Reg E timing harm (auto-deny without genuine investigation, the CFPB BofA 2022 $225M precedent), friendly-fraud classifier disparate-impact, and tipping-off-analog dispute-status disclosure. Defining inversion vs SAFE-UC-0011 (banking VA): clock-driven adjudication where every minute the AI is wrong is a minute against the statutory window.",
+    "workflow_family": "Consumer-finance dispute and chargeback adjudication",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "finance",
+      "dispute-intake",
+      "chargeback",
+      "reg-e",
+      "reg-z",
+      "fcra",
+      "cfpb-enforcement",
+      "ai-fabricated-evidence",
+      "friendly-fraud",
+      "first-party-misuse",
+      "compelling-evidence-3-0",
+      "mastercom",
+      "visa-resolve-online",
+      "statutory-clock",
+      "udaap",
+      "tipping-off-analog",
+      "treasury-fs-ai-rmf",
+      "appzen-14-percent",
+      "bofa-2022-precedent"
+    ],
+    "evidence": [
+      {
+        "label": "CFPB Issue Spotlight: Chatbots in Consumer Finance (June 2023; load-bearing supervisory voice for AI in dispute intake)",
+        "url": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-issue-spotlight-analyzes-artificial-intelligence-chatbots-in-banking/"
+      },
+      {
+        "label": "CFPB and OCC fine Bank of America $225 Million over botched disbursement of state unemployment benefits (14 July 2022; verbatim 'implemented a fraud filter with a simple set of flags that automatically triggered an account freeze')",
+        "url": "https://www.consumerfinance.gov/about-us/newsroom/federal-regulators-fine-bank-of-america-225-million-over-botched-disbursement-of-state-unemployment-benefits-at-height-of-pandemic/"
+      },
+      {
+        "label": "CFPB Orders Wells Fargo to Pay $3.7 Billion (20 December 2022; over 16M affected consumer accounts)",
+        "url": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-orders-wells-fargo-to-pay-37-billion-for-widespread-mismanagement-of-auto-loans-mortgages-and-deposit-accounts/"
+      },
+      {
+        "label": "CFPB Enforcement Action against Citizens Bank ($9M; complaint filed 30 January 2020; Reg Z §1026.13 violations)",
+        "url": "https://www.consumerfinance.gov/enforcement/actions/citizens-bank/"
+      },
+      {
+        "label": "12 CFR §1005.11 Procedures for Resolving Errors (Reg E)",
+        "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1005/subpart-A/section-1005.11"
+      },
+      {
+        "label": "12 CFR §1026.13 Billing Error Resolution (Reg Z)",
+        "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-B/section-1026.13"
+      },
+      {
+        "label": "U.S. Treasury Financial Services AI Risk Management Framework (19 February 2026; 230 control objectives)",
+        "url": "https://home.treasury.gov/news/press-releases/sb0401"
+      },
+      {
+        "label": "Visa Compelling Evidence 3.0 Merchant Readiness Guide (March 2023; reason code 10.4 effective 15 April 2023)",
+        "url": "https://usa.visa.com/content/dam/VCOM/regional/na/us/support-legal/documents/compelling-evidence-3.0-merchant-readiness-mar2023.pdf"
+      },
+      {
+        "label": "AppZen: The Invisible Threat, Detecting AI-Generated Fake Receipts (2025; ~14% of fraudulent documents in September 2025; 3.5M+ fake receipts in six months)",
+        "url": "https://www.appzen.com/resources/ai-generated-fake-receipts"
+      },
+      {
+        "label": "PSD2 Article 73 (refund unauthorized payments by next business day) via European Banking Authority",
+        "url": "https://www.eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/14600"
+      },
+      {
+        "label": "Mastercard 2025 First-Party Trust press release ($42B chargeback cost projected by 2028)",
+        "url": "https://www.mastercard.com/us/en/news-and-trends/press/2025/june/first-party-trust-countering-friendly-fraud.html"
+      }
+    ]
   },
   {
     "id": "SAFE-UC-0015",
