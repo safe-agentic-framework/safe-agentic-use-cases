@@ -1233,5 +1233,123 @@
       }
     ],
     "summary": "Secure tokenized transaction processing, 3D Secure (SCA) enforcement, and protection against fraud and payment payload manipulation within e-commerce."
+  },
+  {
+    "id": "SAFE-UC-0035",
+    "title": "AI medical scribe and ambient clinical documentation assistant",
+    "status": "draft",
+    "maturity": "draft",
+    "repo_path": "use-cases/SAFE-UC-0035/README.md",
+    "naics_2022": [
+      {
+        "code": "62",
+        "name": "Health Care and Social Assistance"
+      },
+      {
+        "code": "6211",
+        "name": "Offices of Physicians"
+      },
+      {
+        "code": "6221",
+        "name": "General Medical and Surgical Hospitals"
+      }
+    ],
+    "summary": "Ambient clinical documentation assistant that listens to a clinician-patient encounter through an in-room or smartphone microphone, transcribes via ASR, and uses a large language model to draft the clinical note (history, exam, assessment, plan, orders, and billing-code suggestions) in the format the clinician's EHR expects. The clinician reviews and signs; the note becomes the legal medical record under 42 CFR 482.24, the basis for a Medicare claim under the False Claims Act (31 USC 3729), patient-portal-visible content under the ONC Information Blocking Rule (45 CFR Part 171), and a downstream input to clinical decision support. First healthcare (NAICS 62) UC in the registry. The Cornell ACM FAccT June 2024 Whisper hallucination study (1% medical-transcription hallucination rate including fabricated medications and racial commentary) is the canonical public incident anchor. Industry deployments include Microsoft Nuance DAX Copilot, Abridge (Series E, February 2025), Suki, DeepScribe, Augmedix, Ambience Healthcare, Oracle Health Clinical Digital Assistant, and Athenahealth ambient features. 8-stage kill chain with 6 stages NOVEL, anchored against SAFE-UC-0019 (PIR drafting; AI primary output IS regulated text) and SAFE-UC-0010 (in-vehicle voice; microphone-as-cyber-physical-sensor).",
+    "workflow_family": "Ambient clinical documentation and medical record drafting",
+    "operating_modes": [
+      "manual",
+      "hitl",
+      "autonomous"
+    ],
+    "tags": [
+      "healthcare",
+      "medical-scribe",
+      "ambient-documentation",
+      "clinical-note",
+      "asr",
+      "ehr",
+      "hipaa-privacy",
+      "hipaa-security",
+      "hipaa-breach",
+      "fda-cds-exception",
+      "fda-samd",
+      "onc-information-blocking",
+      "cms-conditions-of-participation",
+      "ama-augmented-intelligence",
+      "joint-commission-record-of-care",
+      "false-claims-act",
+      "42-cfr-part-2",
+      "two-party-consent",
+      "whisper-hallucination",
+      "phi-cross-patient-bleed",
+      "cornell-faact-2024",
+      "eu-ai-act-article-50"
+    ],
+    "evidence": [
+      {
+        "label": "Cornell University: Careless Whisper, Speech-to-Text Hallucination Harms (Koenecke et al.; presented at ACM FAccT June 2024; identified hallucinated content in roughly 1% of medical-transcription test samples)",
+        "url": "https://arxiv.org/abs/2402.08021"
+      },
+      {
+        "label": "Associated Press: Researchers say AI transcription tool used in hospitals invents things no one ever said (26 October 2024)",
+        "url": "https://apnews.com/article/ai-artificial-intelligence-health-business-90020cdf5fa16c79ca2e5b6c4c9bbb14"
+      },
+      {
+        "label": "Microsoft Nuance: Dragon Ambient eXperience (DAX) Copilot product page",
+        "url": "https://www.nuance.com/healthcare/ambient-clinical-intelligence.html"
+      },
+      {
+        "label": "Microsoft: DAX Copilot generally available across Microsoft 365 (announcement; January 2024)",
+        "url": "https://www.microsoft.com/en-us/industry/blog/healthcare/2024/01/17/dax-copilot-is-now-generally-available-with-new-features-to-help-healthcare-organizations-improve-the-patient-and-clinician-experience/"
+      },
+      {
+        "label": "Abridge: company website (Series E announced February 2025)",
+        "url": "https://www.abridge.com/"
+      },
+      {
+        "label": "HIPAA Privacy Rule (45 CFR Part 164 Subpart E; HHS canonical reference)",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/index.html"
+      },
+      {
+        "label": "HIPAA Security Rule (45 CFR Part 164 Subpart C; HHS canonical reference)",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/security/index.html"
+      },
+      {
+        "label": "HIPAA Breach Notification Rule (45 CFR 164.400 to 164.414; HHS canonical reference)",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/breach-notification/index.html"
+      },
+      {
+        "label": "HHS OCR: Healthcare and Public Health Sector Cybersecurity Performance Goals (released December 2023)",
+        "url": "https://hphcyber.hhs.gov/performance-goals.html"
+      },
+      {
+        "label": "21st Century Cures Act, Section 3060 amending FDC Act 21 USC 360j(o); the Clinical Decision Support exception",
+        "url": "https://www.law.cornell.edu/uscode/text/21/360j"
+      },
+      {
+        "label": "FDA Clinical Decision Support Software final guidance (September 2022)",
+        "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-decision-support-software"
+      },
+      {
+        "label": "ONC Information Blocking Rule (45 CFR Part 171)",
+        "url": "https://www.healthit.gov/topic/information-blocking"
+      },
+      {
+        "label": "CMS Conditions of Participation, Medical Record Services (42 CFR 482.24)",
+        "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-C/section-482.24"
+      },
+      {
+        "label": "American Medical Association: Augmented Intelligence in Health Care policy (adopted 2018; updated 2023)",
+        "url": "https://www.ama-assn.org/practice-management/digital/augmented-intelligence-ai"
+      },
+      {
+        "label": "False Claims Act (31 USC 3729 to 3733; Cornell LII)",
+        "url": "https://www.law.cornell.edu/uscode/text/31/chapter-37/subchapter-III"
+      },
+      {
+        "label": "42 CFR Part 2 Confidentiality of Substance Use Disorder Patient Records",
+        "url": "https://www.ecfr.gov/current/title-42/chapter-I/subchapter-A/part-2"
+      }
+    ]
   }
 ]

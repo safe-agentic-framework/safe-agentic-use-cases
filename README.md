@@ -105,6 +105,7 @@ Quick contributor workflow:
 | [SAFE-UC-0032](use-cases/SAFE-UC-0032/) | Agentic orchestration for marketplace embedded lending | [Finance and Insurance (52)][naics-52]<br>[Other Activities Related to Credit Intermediation (522390)][naics-522390]<br>[Electronic Shopping and Mail-Order Houses (454110)][naics-454110] | Draft |
 | [SAFE-UC-0033](use-cases/SAFE-UC-0033/) | Skill-driven web app regression testing assistant for pull requests | [Information (51)][naics-51]<br>[Software Publishers (513210)][naics-513210] | Draft |
 | [SAFE-UC-0034](use-cases/SAFE-UC-0034/) | Saved credit card payment flow | [Finance and Insurance (52)][naics-52]<br>[Financial Transactions Processing, Reserve, and Clearinghouse Activities (522320)][naics-522320] | Seed |
+| [SAFE-UC-0035](use-cases/SAFE-UC-0035/) | AI medical scribe and ambient clinical documentation assistant | [Health Care and Social Assistance (62)][naics-62]<br>[Offices of Physicians (6211)][naics-6211]<br>[General Medical and Surgical Hospitals (6221)][naics-6221] | Draft |
 
 > **Don't see your use case?** [Propose a new one][propose-new] — automation assigns the next `SAFE-UC-XXXX` ID and, once a maintainer accepts, scaffolds the seed and opens a PR for you.
 
@@ -120,9 +121,12 @@ Quick contributor workflow:
 [naics-52]: https://www.census.gov/naics/?chart=2022&details=52&input=52
 [naics-54]: https://www.census.gov/naics/?chart=2022&details=54&input=54
 [naics-56]: https://www.census.gov/naics/?chart=2022&details=56&input=56
+[naics-62]: https://www.census.gov/naics/?chart=2022&details=62&input=62
 [naics-81]: https://www.census.gov/naics/?chart=2022&details=81&input=81
 [naics-513210]: https://www.census.gov/naics/?chart=2022&details=513210&input=513210
 [naics-522390]: https://www.census.gov/naics/?chart=2022&details=522390&input=522390
 [naics-454110]: https://www.census.gov/naics/?chart=2022&details=454110&input=454110
 [naics-522320]: https://www.census.gov/naics/?chart=2022&details=522320&input=522320
 [naics-561422]: https://www.census.gov/naics/?chart=2022&details=561422&input=561422
+[naics-6211]: https://www.census.gov/naics/?chart=2022&details=6211&input=6211
+[naics-6221]: https://www.census.gov/naics/?chart=2022&details=6221&input=6221
